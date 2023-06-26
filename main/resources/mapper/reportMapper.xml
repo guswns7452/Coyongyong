@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.reportMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into report (reportNum, customerID, reportID, reportCount, reportDate, reportContent, reportTextNum, boardCategory, reportAcceptance) values
+ 		(#{reportNum}, #{customerID}, #{reportID}, #{reportCount}, #{reportDate}, #{reportContent}, #{reportTextNum}, #{boardCategory}, #{reportAcceptance})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.reportVO">
+ 		select * from report where reportNum = #{reportNum}
+     </select>
+ 	
+     <select id="selectAll" resultType="com.example.coyongyong.domain.reportVO">
+     <![CDATA[
+ 		select * from report
+      ]]> 
+     </select>
+ 	
+ 	<!-- TODO 신고 횟수 찾아보기 -->
+ 	
+ 	<!-- 내가 신고한 글 -->
+ 	<select id="selectByCustomerID" resultType="com.example.coyongyong.domain.reportVO">
+ 		select * from report where customerID = #{customerID}
+     </select>
+ 	
+ 	<select id="selectByBoardCategory" resultType="com.example.coyongyong.domain.reportVO">
+ 		select * from report where boardCategory = #{boardCategory}
+     </select>
+ 			
+     <update id="update">
+	 	update report set reportNum =#{reportNum}, customerID =#{customerID}, reportID =#{reportID}, 
+			reportCount =#{reportCount}, reportDate =#{reportDate}, reportContent =#{reportContent}, reportTextNum =#{reportTextNum}  boardCategory =#{boardCategory}, reportAcceptance =#{reportAcceptance}
+		 where reportNum = #{reportNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from report where reportNum = #{reportNum}
+    </delete>
+	
+</mapper>  
+

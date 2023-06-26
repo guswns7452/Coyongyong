@@ -1,6 +1,6 @@
 package com.example.coyongyong.domain;
 
-public class CustomerVO {
+public class customerVO {
 
 	private String customerID;
 	private String customerPW;

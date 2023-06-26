@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.languageMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into language (languageNum, languageName) values
+ 		(#{languageNum}, #{languageName})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.languageVO">
+ 		select * from language where languageNum = #{languageNum}
+    </select>
+     
+     <select id="selectByname" resultType="com.example.coyongyong.domain.languageVO">
+ 		select * from language where languageName = #{languageName}
+     </select>
+ 	
+     <select id="selectAll" resultType="com.example.coyongyong.domain.languageVO">
+     <![CDATA[
+ 		select * from language
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update language set languageNum =#{languageNum}, languageName =#{languageName}
+		 where languageNum = #{languageNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from language where languageNum = #{languageNum}
+    </delete>
+	
+</mapper>  
+

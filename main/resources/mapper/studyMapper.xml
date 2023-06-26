@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.studyMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into study (studyNum, customerID, gradeNum, studyTitle, studyContent, goodCount, studyDate) values
+ 		(#{studyNum}, #{customerID}, #{gradeNum}, #{studyTitle}, #{studyContent}, #{goodCount}, #{studyDate})
+     </insert> 
+ 	
+     <select id="selectByNum" resultType="com.example.coyongyong.domain.studyVO">
+ 		select * from study where studyNum = #{studyNum}
+     </select>
+     
+     <select id="selectById" resultType="com.example.coyongyong.domain.studyVO">
+ 		select * from study where customerID = #{customerID}
+     </select>
+ 	
+ 	<select id="selectByGoodCount" resultType="com.example.coyongyong.domain.studyVO">
+ 		select * from study where goodCount = #{goodCount}
+     </select>
+     
+     <select id="selectAll" resultType="com.example.coyongyong.domain.studyVO">
+     <![CDATA[
+ 		select * from study
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update study set studyNum =#{studyNum}, customerID =#{customerID}, gradeNum =#{gradeNum}, 
+			studyTitle =#{studyTitle}, studyContent =#{studyContent}, goodCount =#{goodCount}, studyDate =#{studyDate}
+		 where studyNum = #{studyNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from study where studyNum = #{studyNum}
+    </delete>
+	
+</mapper>  
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.problemMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into problem (problemNum, problemName, answer, grade, languageNum) values
+ 		(#{problemNum}, #{problemName}, #{answer}, #{grade}, #{languageNum})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.problemVO">
+ 		select * from problem where problemNum = #{problemNum}
+     </select>
+     
+     <select id="selectByGradeAndLanguage" resultType="com.example.coyongyong.domain.problemVO">
+ 		select * from problem where languageNum = #{languageNum} and grade = #{grade}
+     </select>
+ 	
+     <select id="selectAll" resultType="com.example.coyongyong.domain.questionVO">
+     <![CDATA[
+ 		select * from problem
+      ]]> 
+     </select>
+ 	
+ 			
+     <update id="update">
+	 	update problem set problemNum =#{problemNum}, problemName =#{problemName}, answer =#{answer}, 
+			grade =#{grade}, languageNum =#{languageNum}
+		 where problemNum = #{problemNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from problem where problemNum = #{problemNum}
+    </delete>
+	
+</mapper>  
+

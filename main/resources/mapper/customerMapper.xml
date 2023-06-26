@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.customerMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into customer (customerID, customerPW, name, tel, Email, lastChangedPwDat) values
+ 		(#{answerYongNum}, #{questionNum}, #{gradeNum}, #{answerYongContent}, #{answerYongCorrect}, #{questionKeyword})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.customerVO">
+ 		select * from customer where customerID = #{customerID}
+     </select>
+     
+     <select id="selectAll" resultType="com.example.coyongyong.domain.customerVO">
+     <![CDATA[
+ 		select * from customer
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update answeryong set customerID =#{customerID}, customerPW =#{customerPW}, name =#{name}, 
+			tel =#{tel}, Email =#{Email}, lastChangedPwDat =#{lastChangedPwDat} 
+		 where customerID = #{customerID}
+    </update>
+ 
+    <delete id="delete">
+		delete from customer where customerID = #{customerID}
+    </delete>
+	
+</mapper>  
+

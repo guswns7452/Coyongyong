@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.submitMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into submit (submitNum, gradeNum, problemNum, customerAnswer, correct, customerID) values
+ 		(#{submitNum}, #{gradeNum}, #{problemNum}, #{customerAnswer}, #{correct}, #{customerID})
+     </insert> 
+ 	
+     <select id="selectByNum" resultType="com.example.coyongyong.domain.submitVO">
+ 		select * from submit where submitNum = #{submitNum}
+     </select>
+     
+     <select id="selectById" resultType="com.example.coyongyong.domain.submitVO">
+ 		select * from submit where customerID = #{customerID}
+     </select>
+     
+     <select id="selectByIdCorrect" resultType="com.example.coyongyong.domain.submitVO">
+ 		select * from submit where customerID = #{customerID} and correct = ${correct} 
+     </select>
+ 	 
+     <select id="selectAll" resultType="com.example.coyongyong.domain.submitVO">
+     <![CDATA[
+ 		select * from submit
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update submit set studyNum =#{studyNum}, customerID =#{customerID}, gradeNum =#{gradeNum}, 
+			studyTitle =#{studyTitle}, studyContent =#{studyContent}, goodCount =#{goodCount}, studyDate =#{studyDate}
+		 where studyNum = #{studyNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from submit where studyNum = #{studyNum}
+    </delete>
+	
+</mapper>  
+
