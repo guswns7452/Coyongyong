@@ -1,0 +1,350 @@
+body { margin: 0; }
+main { 
+  font-family: 'Hi Melody', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin-bottom: 200px;
+}
+
+main > * {
+  padding: 0.8em;
+  /* color: rgb(119, 130, 254);
+  background-color: rgb(253, 253, 120); */
+  margin: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.logo {
+  margin-left: 80px;
+}
+
+.search {
+  position: relative;
+  width: 300px;
+  margin-right: 40px;
+}
+
+#search {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 15px;
+  padding: 10px 10px;
+  font-size: 12px;
+}
+
+#search_img {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
+}
+
+.topbar {
+  display: flex;
+  flex-grow: 1;
+}
+
+.loginbar_search {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.loginbar {
+  margin-right: 100px;
+}
+
+.loginbar_login {
+  margin-right: 139px;
+}
+
+/* 선택된 버튼은 색 바뀌는거? 해당페이지에서만 바꾸면 되긴 할듯 */
+#main_question_btn, #main_study_btn, #main_coding_btn {
+  display:block;
+  background-color: rgb(255, 153, 51);
+  border: 2px solid rgb(192, 192, 192);
+  border-radius: 100px;
+  text-align: center;
+  color: white;
+  width: 200px;
+  height: 37px;
+  font-size: 22px;
+  margin-left: 50px;
+  padding-top: 5px;
+}
+
+#main_question_btn {
+  background-color: rgb(255, 0, 127);
+}
+
+.content {
+  position: relative;
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  height: 2px;
+  left: 0px;
+  right: 30px;
+  background: rgb(234, 234, 234);
+}
+
+.menubtn {
+  display: flex;
+  margin: 10px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.menubar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.dropdown_menubar {
+  margin-left: 16px;
+  display: none;
+  position: absolute;
+}
+
+.dropdown_menubar a {
+  padding: 7px;
+  text-align: center;
+  display: block;
+}
+
+.dropdown_menubar a:hover{ 
+  background-color: #bebebed9;
+}
+
+.menubar:hover .dropdown_menubar {
+  display: block;
+  background-color: white;
+  width: 274px;
+  height: 180px;
+  /* width: 100%; */
+  border: 2px solid rgb(99, 99, 99);
+  border: 2px solid rgb(160, 232, 237);
+  border-radius: 5px;
+}
+
+.dropdown_menubar > #menubar_left {
+  padding-left: 100px;
+  left: 50px;
+}
+
+/* 메뉴바 끝 -----------------------------------------------*/
+
+#question_level {
+  margin-left: 180px;
+  padding: 0;
+}
+
+.question_mark {
+  padding: 0;
+  display: flex;
+  flex-grow: 1;
+  margin-right: 100px;
+  margin-left: 100px;
+
+  /* border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px; */
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex: 1;
+  height: 100px;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.question_title {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+#question_title {
+  float: left;
+  vertical-align : text-top;
+}
+
+.question_content {
+  border: 2px solid black;
+  border-radius: 10px;
+
+  margin-right: 100px;
+  margin-left: 100px;
+  padding: 10px;
+  word-break: keep-all;
+  margin-bottom: 70px;
+  letter-spacing: 2px;
+}
+
+div > #question_language {
+  border: 1px solid rgb(238, 123, 180);
+  display:inline-block;
+  padding: 5px;
+  background-color: rgb(238, 123, 180);
+  color: white;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.answer_title {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 100px;
+}
+
+.yongyong_answer {
+  display:flex;
+  flex-grow: 1;
+  border: 1px solid black;
+  border-radius: 5px;
+  
+  padding: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.yongyong_answer_content {
+  border: 1px solid rgb(216, 243, 219);
+  background-color: rgb(226, 243, 228);
+  border-radius: 5px;
+
+  margin-left: 10px;
+  margin-right: 20px;
+  padding: 10px;
+  letter-spacing: 2px;
+  word-break: keep-all;
+}
+
+.answer {
+  border: 1px solid rgb(233, 232, 232);
+  background-color: rgb(233, 232, 232);
+  border-radius: 5px;
+
+  margin-left: 80px;
+  margin-right: 100px;
+  padding: 10px;
+  letter-spacing: 2px;
+  word-break: keep-all;
+}
+
+.answer_content {
+  border: 1px solid black;
+  border-radius: 5px;
+  
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 20px;
+  letter-spacing: 1px;
+  word-break: keep-all;
+  position: relative;
+}
+
+.answer_ID {
+  margin-bottom: 25px;
+  display: flex;
+  flex-grow: 1;
+}
+
+#badge {
+  margin-top: 10px;
+  position: absolute;
+  top: 2px;
+}
+
+#answer_ID {
+  margin-left: 72px;
+}
+
+.answer_like {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+#yong_answer_like, #yong_answer_unlike, #answer_like, #answer_unlike {
+  display: block;
+  border: 1px solid rgb(159, 105, 229);
+  background-color: rgb(159, 105, 229);
+  display: flex;
+  flex-grow: 1;
+  margin-left: 275px;
+  margin-right: 225px;
+
+  color: white;
+  border-radius: 5px;
+  padding: 9px;
+  justify-content: center;
+}
+
+.level {
+  margin-left: 100px;
+
+  border: 1px solid rgb(250, 197, 197);
+  background-color: rgb(250, 197, 197);
+  color: white; 
+  border-radius: 5px;
+
+  display: inline-block;
+  width: auto;
+}
+
+.questions {
+  display: flex;
+  flex-grow: 1;
+
+  margin-left: 100px;
+  margin-right: 50px;  
+  height: 200px;
+}
+
+#question {
+  padding-left: 13px;
+  padding-top: 13px;
+
+  display: inline-block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  white-space: normal;
+  line-height: 1.2;
+  height: 12em;
+
+  color: black;
+}
+
+.question {
+  color: white;
+  margin: 10px;
+  width: 250px;
+  height: 230px;
+
+  border: 3px solid rgb(233, 147, 147);
+  border-radius: 10px;
+  background-color: white;
+}
+
+h1 {
+  margin-left: 10px;
+}

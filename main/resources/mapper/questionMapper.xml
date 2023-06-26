@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.questionMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into question (questionNum, questionCount, questionTitle, questionContent, questionDate, customerID, gradeNum) values
+ 		(#{questionNum}, #{questionCount}, #{questionTitle}, #{questionContent}, #{questionDate}, #{customerID}, #{gradeNum})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.questionVO">
+ 		select * from question where questionNum = #{questionNum}
+     </select>
+ 	
+     <select id="selectAll" resultType="com.example.coyongyong.domain.questionVO">
+     <![CDATA[
+ 		select * from question
+      ]]> 
+     </select>
+ 	
+ 	<select id="selectLastQuestionNum" resultType="int">
+ 		select max(questionNum) from question
+     </select>
+ 	
+ 			
+     <update id="update">
+	 	update question set questionNum =#{questionNum}, questionCount =#{questionCount}, questionTitle =#{questionTitle}, 
+			questionContent =#{questionContent}, questionDate =#{questionDate}, customerID =#{customerID}, gradeNum =#{gradeNum} 
+		 where questionNum = #{questionNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from question where questionNum = #{questionNum}
+    </delete>
+	
+</mapper>  
+

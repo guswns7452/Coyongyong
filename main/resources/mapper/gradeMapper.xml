@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.gradeMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into grade (gradeNum, grade, customerID, languageNum) values
+ 		(#{gradeNum}, #{grade}, #{customerID}, #{languageNum})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.gradeVO">
+ 		select * from grade where gradeNum = #{gradeNum}
+     </select>
+ 	
+ 	<select id="selectByCustomerID" resultType="com.example.coyongyong.domain.gradeVO">
+ 		select * from grade where customerID = #{customerID}
+     </select>
+     
+     <select id="selectByLanguage" parameterType="java.util.Map" resultType="int">
+ 		select grade from grade where customerID = #{customerID} and languageNum = #{languageNum}
+     </select>
+     
+     <select id="selectAll" resultType="com.example.coyongyong.domain.gradeVO">
+     <![CDATA[
+ 		select * from grade
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update grade set gradeNum =#{gradeNum}, grade =#{grade}, customerID =#{customerID}, 
+			languageNum =#{languageNum} 
+		 where gradeNum = #{gradeNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from grade where gradeNum = #{gradeNum}
+    </delete>
+	
+</mapper>  
+

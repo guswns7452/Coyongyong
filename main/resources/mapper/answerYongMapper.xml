@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.answerYongMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into answeryong (answerYongNum, questionNum, gradeNum, answerYongContent, answerYongCorrect, questionKeyword) values
+ 		(#{answerYongNum}, #{questionNum}, #{gradeNum}, #{answerYongContent}, #{answerYongCorrect}, #{questionKeyword})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.answerYongVO">
+ 		select * from answeryong where answerYongNum = #{answerYongNum}
+     </select>
+     
+     <select id="selectByQuestion" resultType="com.example.coyongyong.domain.answerYongVO">
+ 		select * from answeryong where questionNum = #{questionNum}
+     </select>
+ 	
+ 	<select id="selectLastAnswerYongNum" resultType="int">
+		select max(answeryongnum) from answeryong
+	</select>
+     
+     <select id="selectAll" resultType="com.example.coyongyong.domain.answerYongVO">
+     <![CDATA[
+ 		select * from answeryong
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update answeryong set answerYongNum =#{answerYongNum}, questionNum =#{questionNum}, gradeNum =#{gradeNum}, 
+			answerYongContent =#{answerYongContent}, answerYongCorrect =#{answerYongCorrect}, questionKeyword =#{questionKeyword} 
+		 where answerYongNum = #{answerYongNum}
+    </update>
+ 
+    <delete id="delete">
+		delete from answeryong where answerYongNum = #{answerYongNum}
+    </delete>
+	
+</mapper>  
+

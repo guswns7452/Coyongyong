@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Nanum+Gothic:wght@700&display=swap">
+  <title>CoyongYong_oneQuestion</title>
+  <link rel="stylesheet" href="CP_CoP_oneQuestion.css">
+</head>
+
+<body>
+  <main>
+    <!-- js로 로그인 되어있는지 확인 받고 블락 처리하는거 넣기. -->
+    <!-- 로고와 로그인, 회원가입 (로그인 안되어있을 시) -->
+    <!-- 로그인 되어있으면 블락처리 -->
+    <div class="topbar">
+      <div class="logo"><br>
+        <a href="http://127.0.0.1:5500/CP_CoP_Main.html"><img src="logo.png"></a>
+      </div>
+      <div class="loginbar_search">
+        <div class="search">
+          <input id="search" type="text" placeholder="검색어 입력">
+          <a href="#"><img id=search_img src="magnifying.png" width="20px" height="20px"></a>
+        </div>
+        <div class="loginbar">
+          <a href="https://naver.com" id=mainLogin>login</a>
+          &nbsp;|&nbsp;
+          <a href="https://naver.com" id=makeAccount>회원가입</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 로고와 배지, 로그아웃 (로그인 되어있을 시) -->
+    <!-- 로그인 안되어있으면 블락처리 -->
+    <!-- <div class="topbar">
+      <div class="logo"><br>
+        <a href="#"><img src="logo.png">koyongyong</a>
+      </div>
+      <div class="loginbar_search">
+        <div class="search">
+          <input id="search" type="text" placeholder="검색어 입력">
+          <a href="#"><img id=search_img src="magnifying.png" width="20px" height="20px"></a>
+        </div>
+        <div class="loginbar_login" >
+          <a href="https://naver.com" id=mainLogin><img src="C_3.png" width="35px" height="35px"></a>
+          &nbsp;|&nbsp;
+          <a href="https://naver.com" id=makeAccount><img src="logout.png" width="30px" height="30px"></a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="content"></div>
+    
+    <!-- 메뉴바 버튼 -->
+    <div class="menubar">
+      <div>
+        <a href="http://127.0.0.1:5500/CP_CoP_questionMain.html" id="main_question_btn" class="menubtn">질문</a>
+        <div class="dropdown_menubar" id="menubar_left">
+          <li><a href="#">Java</a></li>
+          <li><a href="#">Python</a></li>
+          <li><a href="#">C++</a></li>
+          <li><a href="#">C#</a></li>
+        </div>
+      </div>
+      <div>
+        <a href="#" id="main_study_btn" class="menubtn">공부일지</a>
+        <div class="dropdown_menubar">
+          <li><a href="#">일지 작성</a></li>
+          <li><a href="#">다른 사람의 일지</a></li>
+        </div>
+      </div>
+      <div>
+        <a href="#" id="main_coding_btn" class="menubtn">코딩테스트</a>
+        <div class="dropdown_menubar" id="menubar_right">
+          <li><a href="#">뭐넣지</a></li>
+          <li><a href="#">뭐넣을까</a></li>
+          <li><a href="#">고민되네</a></li>
+          <li><a href="#">흠</a></li>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메뉴바 끝----------------------------------------- -->
+
+    <!-- 질문에 대한 내용 적어주는 공간. -->
+    <div>
+      <div class="question_mark">
+        <img src="letter-q.png" width="60px" height="60px">
+        <div class="question_title">
+          <span id="question_title"><font size=6>질문 제목 넣을꺼임.</font></span>
+          <span id="question_title"><font size=2>작성자, 작성시간 적을꺼임.</font></span>
+        </div>
+      </div>
+      <div class="question_content">
+        <h3 id="question_language">C언어 - 2 level</h3>
+        <h4>&nbsp;&nbsp;질문 내용 넣을꺼임 질문 내용이 길면 어떻게 될까 궁금하다 그치? 근데 이걸 다 채우는 사람이 있을까? 진짜로? 아니 너무 긴데? 근데 가능할 것 같아 왜냐면 나도 이런적 많거든... 아직 조금 더 남았뉑 이정도면 나쁘지 않다 이쁘다 굿</h4>
+      </div>
+    </div>
+    
+    <!-- 용용이 답변 생성 위치. -->
+    <div>
+      <div>
+        <img src="a.png" width="65px" height="65px">
+        <h1>용용이의 답변이 있습니다!</h1>
+      </div>
+      <div class="yongyong_answer">
+        <img src="yongyong.png" width="80px" height="80px">
+        <h4 class="yongyong_answer_content">
+          <font size=3>&nbsp;'데이터베이스에서 정규화(Normalization)는 중복 데이터를 최소화하고 데이터의 일관성과 무결성을 유지하기 위한 과정입니다. 정규화를 통해 데이터 중복을 최소화하여 데이터베이스의 용량을 줄이고 데이터의 일관성을 유지할 수 있습니다.
+
+            다음은 데이터베이스에서 정규화를 수행하는 방법입니다.
+            
+            제1정규화(1NF) : 각 열에는 하나의 값만 저장되도록 테이블을 분해합니다.
+            
+            제2정규화(2NF) : 부분 함수 종속성(Partial Functional Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            제3정규화(3NF) : 이행적 함수 종속성(Transitive Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            보이스-코드 정규형(BCNF) : 후보키가 아닌 열이 후보키에 종속되는 함수 종속성을 제거하기 위해 테이블을 분해합니다.
+            
+            제4정규화(4NF) : 다중 값 종속성(Multi-valued Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            제5정규화(5NF) : 조인 종속성(Join Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            정규화를 수행하면 데이터 중복을 줄일 수 있고, 데이터의 일관성과 무결성을 유지할 수 있으므로 데이터베이스의 성능과 유지보수성을 향상시킬 수 있습니다.', 0, '정규화'),
+            (2, 2, 3, 'MySQL에서 date 형식은 YYYY-MM-DD의 형식으로 표현됩니다.
+            
+            예를 들어, 2023년 4월 15일은 2023-04-15와 같이 표현됩니다.
+            
+            MySQL에서 date 형식을 사용하는 방법은 다음과 같습니다.
+            
+            date 형식의 열을 생성할 때 :
+            mysql
+            Copy code
+            CREATE TABLE sample_table (
+                id INT PRIMARY KEY,
+                name VARCHAR(50),
+                birthdate DATE
+            );
+            date 형식의 값을 INSERT할 때 :
+            mysql
+            Copy code
+            INSERT INTO sample_table (id, name, birthdate)
+            VALUES (1, John, 1990-01-01);
+            date 형식의 값을 SELECT할 때 :
+            mysql
+            Copy code
+            SELECT * FROM sample_table WHERE birthdate = 1990-01-01;
+            MySQL에서는 date 형식 외에도 datetime, timestamp 등의 다양한 날짜와 시간 데이터 형식을 제공합니다. 각각의 데이터 형식은 특정한 상황에 적합한 데이터를 저장할 수 있도록 다양한 옵션을 제공하므로, 상황에 맞게 적절한 데이터 형식을 선택하여 사용하면 됩니다.', 0, 'date형식'), 
+            (3, 3, 2, 'Kotlin에서 안드로이드 앱을 개발할 때 레이아웃을 구성하는 방법은 XML을 사용합니다. XML은 안드로이드 레이아웃을 설계하고 정의하는 데 사용되는 마크업 언어입니다. Kotlin에서는 XML 레이아웃을 활용하여 뷰와 뷰 그룹을 배치하고 구성할 수 있습니다.
+            
+            다음은 Kotlin에서 레이아웃을 구성하는 방법입니다.
+            
+            res/layout 디렉토리에 XML 레이아웃 파일을 생성합니다. 예를 들어, activity_main.xml 파일을 생성합니다.
+            
+            XML 파일에서 뷰와 뷰 그룹을 추가합니다. 예를 들어, LinearLayout 안에 TextView를 추가하는 코드는 다음과 같습니다.
+            
+            xml
+            Copy code
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello World!" />
+            
+            </LinearLayout>
+            Kotlin 코드에서 레이아웃을 사용합니다. 예를 들어, MainActivity에서 activity_main.xml의 레이아웃을 사용하는 코드는 다음과 같습니다.<br>
+            kotlin<br>
+            Copy code<br>
+            class MainActivity : AppCompatActivity() {<br>
+                override fun onCreate(savedInstanceState: Bundle?) {<br>
+                    super.onCreate(savedInstanceState)<br>
+                    setContentView(R.layout.activity_main)<br>
+                }<br>
+            }<br>
+            위의 코드에서 setContentView(R.layout.activity_main) 메서드는 activity_main.xml 파일의 레이아웃을 현재 액티비티의 화면에 설정합니다.<br>
+            <br>
+            Kotlin에서는 안드로이드 스튜디오를 통해 레이아웃을 시각적으로 디자인할 수도 있습니다. 레이아웃 디자인을 위해 Design 탭을 사용하여 뷰와 뷰 그룹을 쉽게 추가하고 구성할 수 있습니다. 또한 Code 탭에서 XML 코드를 확인하고 직접 편집할 수도 있습니다.'<br>
+        </font>
+      </h4>
+      <a href="#"><img src="siren.png" width="60px" height="60px"></a>
+      </div>
+      <div class="answer_like">
+        <a id="yong_answer_like" href="#">
+          <img src="like.png" width="37px" height="37px">
+        </a>
+        <a id="yong_answer_unlike" href="#">
+          <img src="dislike.png" width="37px" height="37px">
+        </a>
+      </div>
+    </div>
+
+    <!-- 사용자의 답변 적어주는 공간 -->
+    <div class="answer_space">
+      <div class="answer_title">
+        <img src="a.png" width="65px" height="65px">
+        <h1>사용자의 답변이 N개 등록되어 있습니다!</h1>
+      </div>
+      <div class="answer_content">
+        <div class="answer_ID">
+          <!-- 뱃지 어떻게 가져올지 생각해야함... 이거 안될것같으면 뭐 질문에서 출력하는 거 처럼 그냥 출력해야지.. -->
+          <img src="C_1.png" width="72px" height="72px" id="badge">
+          <font size=7 id="answer_ID">사용자 ID</font>
+        </div>
+        <h4 class="answer">
+          <font size=3 id="answer_content">&nbsp;데이터베이스에서 정규화(Normalization)는 중복 데이터를 최소화하고 데이터의 일관성과 무결성을 유지하기 위한 과정입니다. 정규화를 통해 데이터 중복을 최소화하여 데이터베이스의 용량을 줄이고 데이터의 일관성을 유지할 수 있습니다.
+
+            다음은 데이터베이스에서 정규화를 수행하는 방법입니다.
+            
+            제1정규화(1NF) : 각 열에는 하나의 값만 저장되도록 테이블을 분해합니다.
+            
+            제2정규화(2NF) : 부분 함수 종속성(Partial Functional Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            제3정규화(3NF) : 이행적 함수 종속성(Transitive Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            보이스-코드 정규형(BCNF) : 후보키가 아닌 열이 후보키에 종속되는 함수 종속성을 제거하기 위해 테이블을 분해합니다.
+            
+            제4정규화(4NF) : 다중 값 종속성(Multi-valued Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            제5정규화(5NF) : 조인 종속성(Join Dependency)을 제거하기 위해 테이블을 분해합니다.
+            
+            정규화를 수행하면 데이터 중복을 줄일 수 있고, 데이터의 일관성과 무결성을 유지할 수 있으므로 데이터베이스의 성능과 유지보수성을 향상시킬 수 있습니다.', 0, '정규화'),
+            (2, 2, 3, 'MySQL에서 date 형식은 YYYY-MM-DD의 형식으로 표현됩니다.
+            
+            예를 들어, 2023년 4월 15일은 2023-04-15와 같이 표현됩니다.
+            
+            MySQL에서 date 형식을 사용하는 방법은 다음과 같습니다.
+            
+            date 형식의 열을 생성할 때 :
+            mysql
+            Copy code
+            CREATE TABLE sample_table (
+                id INT PRIMARY KEY,
+                name VARCHAR(50),
+                birthdate DATE
+            );
+            date 형식의 값을 INSERT할 때 :
+            mysql
+            Copy code
+            INSERT INTO sample_table (id, name, birthdate)
+            VALUES (1, John, 1990-01-01);
+            date 형식의 값을 SELECT할 때 :
+            mysql
+            Copy code
+            SELECT * FROM sample_table WHERE birthdate = 1990-01-01;
+            MySQL에서는 date 형식 외에도 datetime, timestamp 등의 다양한 날짜와 시간 데이터 형식을 제공합니다. 각각의 데이터 형식은 특정한 상황에 적합한 데이터를 저장할 수 있도록 다양한 옵션을 제공하므로, 상황에 맞게 적절한 데이터 형식을 선택하여 사용하면 됩니다.', 0, 'date형식'), 
+            (3, 3, 2, 'Kotlin에서 안드로이드 앱을 개발할 때 레이아웃을 구성하는 방법은 XML을 사용합니다. XML은 안드로이드 레이아웃을 설계하고 정의하는 데 사용되는 마크업 언어입니다. Kotlin에서는 XML 레이아웃을 활용하여 뷰와 뷰 그룹을 배치하고 구성할 수 있습니다.
+            
+            다음은 Kotlin에서 레이아웃을 구성하는 방법입니다.
+            
+            res/layout 디렉토리에 XML 레이아웃 파일을 생성합니다. 예를 들어, activity_main.xml 파일을 생성합니다.
+            
+            XML 파일에서 뷰와 뷰 그룹을 추가합니다. 예를 들어, LinearLayout 안에 TextView를 추가하는 코드는 다음과 같습니다.
+            
+            xml
+            Copy code
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello World!" />
+            
+            </LinearLayout>
+            Kotlin 코드에서 레이아웃을 사용합니다. 예를 들어, MainActivity에서 activity_main.xml의 레이아웃을 사용하는 코드는 다음과 같습니다.<br>
+            kotlin<br>
+            Copy code<br>
+            class MainActivity : AppCompatActivity() {<br>
+                override fun onCreate(savedInstanceState: Bundle?) {<br>
+                    super.onCreate(savedInstanceState)<br>
+                    setContentView(R.layout.activity_main)<br>
+                }<br>
+            }<br>
+            위의 코드에서 setContentView(R.layout.activity_main) 메서드는 activity_main.xml 파일의 레이아웃을 현재 액티비티의 화면에 설정합니다.<br>
+            <br>
+            Kotlin에서는 안드로이드 스튜디오를 통해 레이아웃을 시각적으로 디자인할 수도 있습니다. 레이아웃 디자인을 위해 Design 탭을 사용하여 뷰와 뷰 그룹을 쉽게 추가하고 구성할 수 있습니다. 또한 Code 탭에서 XML 코드를 확인하고 직접 편집할 수도 있습니다.'<br>
+          </font>
+        </h4>
+      </div>
+      <div class="answer_like">
+        <a id="answer_like" href="#">
+          <img src="like.png" width="37px" height="37px">
+          &nbsp;
+          <font size=6>
+            6
+          </font>
+        </a>
+        <a id="answer_unlike" href="#">
+          <img src="dislike.png" width="37px" height="37px">
+          &nbsp;
+          <font size=6>
+            10
+          </font>
+        </a>
+      </div>
+    </div>
+
+    <div class="content"></div>
+
+    <!-- 질문 더보기 -->
+    <div class="level">질문 더보기</div>
+    <div class="questions">
+      <div class="question">
+        <a id="question" href="#">
+          질문1<br>
+          &nbsp;질문제목<br>길면 어쩔껀데?<br>이렇게까지 길면 어떻게 될꼰뒝? 가로가 길면 어떻게 될꺼야?<br>더 길면 어떻게 되지 넘어가니? 어쩔꺼냐구~ 더 길어야하니...? 어디까지 가야하니..? 와 아직도 안됐어 질문이 보통 이렇게 길겠지?
+        </a>
+      </div>
+      <div class="question">
+        <a id="question" href="#">
+          질문2<br>
+        </a>
+      </div>
+      <div class="question">
+        <a id="question" href="#">
+          질문3<br>
+        </a>
+      </div>
+      <div class="question">
+        <a id="question" href="#">
+          질문4<br>
+        </a>
+      </div>
+      <div class="question">
+        <a id="question" href="#">
+          질문5<br>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

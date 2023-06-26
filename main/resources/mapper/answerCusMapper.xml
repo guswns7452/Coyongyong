@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.coyongyong.mapper.answerCusMapper">
+  
+   	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="insert"> 
+   		insert into answer_cus (answerCusNum, questionNum, gradeNum, answerCusContent, answerCusLike, answerCusUnlike, customerID) values
+ 		(#{answerCusNum}, #{questionNum}, #{gradeNum}, #{answerCusContent}, #{answerCusLike}, #{answerCusUnlike}, #{customerID})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="com.example.coyongyong.domain.answerCusVO">
+ 		select * from answer_cus where answerCusNum = #{answerCusNum}
+     </select>
+     
+     <select id="selectByQuestion" resultType="com.example.coyongyong.domain.answerCusVO">
+ 		select * from answer_cus where questionNum = #{questionNum}
+     </select>
+ 	
+     <select id="selectAll" resultType="com.example.coyongyong.domain.answerCusVO">
+     <![CDATA[
+ 		select * from answer_cus
+      ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update answer_cus set answerCusNum =#{answerCusNum}, questionNum =#{questionNum}, gradeNum =#{gradeNum}, 
+			answerCusContent =#{answerCusContent}, answerCusLike =#{answerCusLike},  answerCusUnlike =#{answerCusUnlike}, customerID =#{customerID} 
+		 where answerCusNum = #{answerCusNum}
+    </update>
+    
+    <delete id="delete">
+		delete from answer_cus where answerCusNum = #{answerCusNum}
+    </delete>
+	
+</mapper>  
+
