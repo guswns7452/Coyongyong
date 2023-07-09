@@ -12,7 +12,7 @@
 
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://www.coyongyong.com/" class="flex items-center">
+        <a href="http://localhost:8080" class="flex items-center">
             <!-- ${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon -->
             <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/logo.png" class="h-8 mr-3" alt="Flowbite Logo" />
         </a>
