@@ -1,0 +1,118 @@
+body { margin: 0; }
+main { 
+  font-family: 'Hi Melody', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin-bottom: 200px;
+}
+.top {
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+.toptop {
+  width: 100%;
+}
+main > * {
+  padding: 0.8em;
+  /* color: rgb(119, 130, 254); */
+  /* background-color: rgb(253, 253, 120); */
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.bg-lime-700 {
+  background-color: #0E9F6E !important;
+}
+
+.bg-lime-700:hover {
+  background-color: #057A55 !important;
+}
+
+.bg-lime-700:active {
+  outline:none;
+  border-style:solid;
+  border-width:3px 3px 3px 3px !important;
+  border-color: #31C48D #31C48D #31C48D #31C48D !important;
+}
+
+.banner {
+  position: relative;
+}
+
+.banner_title {
+  position: absolute;
+  color: white;
+  display: none;
+}
+
+.banner:hover {
+  filter: blur(20px);
+}
+
+.banner:hover > .banner_title {
+  display: block;
+}
+
+.flex {
+  display: flex;
+  flex-flow: 1;
+}
+
+/* �ㅻ뒛�� 吏덈Ц 湲�, ��, �숇찓�щ줈 �섑��닿린~ */
+.img_date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grid-cols-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+}
+
+/* 湲��� 踰붿쐞 �쒗븳 */
+.question_title {
+  font-size: 23px;
+  font-weight: bolder !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2;
+/*        height: 4.8em;*/
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2 ;
+  -webkit-box-orient: vertical;
+}
+
+.question_content {
+  display: block;
+  font-size: 17px;
+  font-weight: bolder !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2;
+/*        height: 4.8em;*/
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 7 ;
+  -webkit-box-orient: vertical;
+}
+
+/* 湲� �곸옄 而⑦뀒�대꼫 */
+.container {
+  display: grid;
+	grid-template-rows: 1fr 2fr 4fr 1fr;
+}

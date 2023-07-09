@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Nanum+Gothic:wght@700&display=swap">
 
-<title>koyongyong_QueationGenerate</title>
+<title>Coyongyong_QueationGenerate</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/questionGenerate.css">
 </head>

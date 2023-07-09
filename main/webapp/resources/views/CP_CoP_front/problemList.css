@@ -1,0 +1,46 @@
+/* =============== HEADER =================== */
+.background_color_white {
+    background-color: white;
+    border-radius: 1px;
+    border-color: azure;
+}
+
+.flexflextop{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+.flexcenter{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.flexflexflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tx-center{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px !important;
+}
+.tx-center1{
+    text-align: center;
+}
+.mgg-3{
+    margin-bottom: 18px;
+    margin-top: 70px;
+}
+.mg-3{
+    margin-bottom: 18px;
+}
+.button_color{
+    background-color: #65a30d !important;
+}
+
+.button_color_disabled{
+    background-color: #92d337 !important;
+}

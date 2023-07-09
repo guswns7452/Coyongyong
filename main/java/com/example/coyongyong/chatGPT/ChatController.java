@@ -22,7 +22,7 @@ public class ChatController {
     
     public String chat(@RequestParam String prompt) {
         // create a request
-        ChatRequest request = new ChatRequest(model, prompt, 1000 );
+        ChatRequest request = new ChatRequest(model, prompt, 2000 );
         
         // call the API
         ChatResponse response = restTemplate.postForObject(apiUrl, request, ChatResponse.class);

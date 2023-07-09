@@ -50,7 +50,7 @@ public class questionController {
 		logger.info(" /question/QuestionList URL called. then listquestion method executed.");
 		model.addAttribute("questions", questions);
 		
-		return "CP_CoP_questionMain_C";
+		return "question_main";
 	}
 	
 	@RequestMapping(value = {"/onequestion"}, method = RequestMethod.GET)
@@ -65,7 +65,7 @@ public class questionController {
 		model.addAttribute("questions", questions);
 		model.addAttribute("yongyong", yong);
 		model.addAttribute("answerCus",cus);
-		 
+		
 		return "CP_CoP_oneQuestion";
 	}
 	
@@ -86,7 +86,7 @@ public class questionController {
 		logger.info(vo.toString());
 		logger.info(" /question/writequestion URL called. then listquestion method executed.");
 		
-		  
+		
 		String chat = ChatController.chat(vo.toString());
 		logger.info(chat);
 		int answerYongNum = answerYongService.countLastAnswerYongNum() + 1; //이게 마지막 AnswerYongNum 이 되어야함

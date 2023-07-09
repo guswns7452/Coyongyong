@@ -1,0 +1,35 @@
+/* =============== HEADER =================== */
+body{
+    background-color: #f9fafb;
+}
+.background_color_white {
+    background-color: white;
+    border-radius: 1px;
+    border-color: azure;
+}
+.footer-logo{
+    width:200px;
+}
+/*====================================== */
+
+.flex_mode{
+    display: flex;
+    justify-content: center;
+}
+.sector_flex{
+    width: 40%;
+    padding-top: 150px;
+}
+.dragon-png{
+    margin-bottom : 50px;
+}
+.button_color{
+    background-color: #65a30d !important;
+}
+.font_color_lime{
+    color: #65a30d !important;
+}
+
+.pd-b200 {
+    padding-bottom: 180px;
+}

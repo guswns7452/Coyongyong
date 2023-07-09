@@ -1,0 +1,206 @@
+body { 
+  margin: 0; 
+}
+.top {
+  display: flex;
+  justify-content: center;
+
+}
+.toptop {
+  width: 100%;
+}
+main { 
+  font-family: 'Hi Melody', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin-bottom: 200px;
+}
+
+main > * {
+  padding: 0.8em;
+  /* color: rgb(119, 130, 254); */
+  /* background-color: rgb(253, 253, 120); */
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+}
+
+.content {
+  border: 1px solid #000000;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  
+  display: block;
+  width: 103%;
+}
+
+/* =============== HEADER =================== */
+.background_color_white {
+    background-color: white;
+    border-radius: 1px;
+    border-color: azure;
+}
+
+/* �ㅻ뜑遺�遺� �� */
+
+/* �쒕ぉ */
+.title {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+/* 怨듬��쇱� �꾩껜 �댁슜 �묒꽦遺�遺� */
+.study_journal {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 怨듬��쇱� �댁슜 */
+.date {
+  margin-left: 20px;
+  margin-right: 2%;
+}
+
+.human {
+  margin-left: 20px;
+  width: 110%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* �좉퀬�섍린 */
+.report {
+  width: 115%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.report:hover {
+  color: red;
+}
+
+/* 醫뗭븘�� 踰꾪듉 */
+.like {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.heart {
+  margin: auto;
+}
+
+#like {
+  margin-left: 15%;
+}
+
+.study_journal_content {
+  margin-top: 4%
+  margin-right: 30px;
+}
+
+.contents {
+  display: block;
+  width: 98%;
+
+  margin-left: 20px;
+  margin-top: 20px;
+  display: block;
+  width: 100%; 
+}
+
+/* 泥댄겕諛뺤뒪 */
+.visible {
+  margin-left: auto;
+}
+
+/* �볤� */
+.comment_generate {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+#comment_generate {
+  width: 110%;
+  margin-top: 10px;
+}
+
+.comment {
+  margin-left: 20px;
+}
+
+.study_journal_comment {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.study_journal_comment_list {
+  margin-bottom: 15px;
+}
+
+.element {
+  margin-right: 3px;
+}
+
+/* 肄붾뱶 袁몃�湲� */
+#codeContainer {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+pre code {
+  font-family: "Consolas", "Noto Sans", "Sans Mono", "Courier", monospace;
+  }
+  
+  .hljs::selection,
+  .hljs span::selection {
+  background: darkgrey !important;
+  }
+  .hljs-ln-line{
+  font-family: "Consolas", "Noto Sans", "Sans Mono", "Courier", monospace;
+  color: #c5c8c6;
+  }
+  
+  .hljs-comment{
+  color:#4EC9B0 !important;
+  }
+  
+  /* for block of numbers */
+  .hljs-ln-numbers:nth-child(n) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: top;
+  
+  text-align: right;
+  padding-right: 10px;
+  }
+  
+  .hljs-ln-code:nth-child(n) {
+  padding-left: 10px;
+  }
+  .hljs-ln-code::selection{
+  background: darkgrey;
+  }
