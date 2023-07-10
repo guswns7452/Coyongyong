@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" import="com.example.coyongyong.controller.mypageController"%>
 <!DOCTYPE html>
 <html>
-
+ 
 <head>
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/mypage.css">
