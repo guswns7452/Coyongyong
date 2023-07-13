@@ -100,3 +100,4 @@ wrappers.forEach((wrapper, index) => {
     wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
     wrapper.addEventListener("mouseleave", autoPlay);
 });
+
