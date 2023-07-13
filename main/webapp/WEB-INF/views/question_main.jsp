@@ -101,7 +101,38 @@
         <div class="tw-flex tw-flex-col tw-divide-solid tw-divide-x-0 tw-divide-y tw-divide-slate-200">
             <div class="flex_col jus-center">
                 <div class="flex_mode">
-                    <div class="ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL">
+                    <div class="pd50 text-center ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL tw-flex flex-row">
+                        <div class="tw-flex tw-flex-col mgr30">
+                            <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icongray-letter-c.png" class="width70px">
+                            <div>C</div>
+                        </div>
+    
+                        <div class="tw-flex tw-flex-col mgr30">
+                            <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icongray-java.png" class="width70px">
+                            <div>Java</div>
+                        </div>
+    
+                        <div class="tw-flex tw-flex-col mgr30">
+                            <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/iconpython.png" class="width70px">
+                            <div>python</div>
+                        </div>
+    
+                        <div class="tw-flex tw-flex-col mgr30">
+                            <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icongray-c-logo.png" class="width70px">
+                            <div>C++</div>
+                        </div>
+    
+                        <div class="tw-flex tw-flex-col mgr30">
+                            <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icongray-js.png" class="width70px">
+                            <div>JavaScript</div>
+                        </div>
+    
+                        <div class="tw-flex tw-flex-col">
+                            <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icongray-kotlin.png" class="width70px">
+                            <div>kotlin</div>
+                        </div>
+                    </div>
+                    <div class="pd50 ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL">
                         <div class="font_size25 tw-font-bold">레벨 1</div>
                         <div class="wrapper">
                             <i id="left" class="fa-solid fa-angle-left">
