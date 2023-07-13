@@ -174,33 +174,15 @@
     <!-- 질문 더보기 -->
     <div class="level">질문 더보기</div>
     <div class="questions">
-      <div class="question">
-        <a id="question" href="#">
-          질문1<br>
-          &nbsp;${questions.get(0).questionTitle}<br><font size=1>${questions.get(0).questionContent}</font>
-        </a>
-      </div>
-      <div class="question">
-        <a id="question" href="#">
-          질문2<br>&nbsp;${questions.get(1).questionTitle}<br><font size=1>${questions.get(1).questionContent}</font>
-        </a>
-      </div>
-      <div class="question">
-        <a id="question" href="#">
-          질문3<br>&nbsp;${questions.get(2).questionTitle}<br><font size=1>${questions.get(2).questionContent}</font>
-        </a>
-      </div>
-      <div class="question">
-        <a id="question" href="#">
-          질문4<br>&nbsp;${questions.get(3).questionTitle}<br><font size=1>${questions.get(3).questionContent}</font>
-        </a>
-      </div>
-      <div class="question">
-        <a id="question" href="#">
-          질문5<br>&nbsp;${questions.get(4).questionTitle}<br><font size=1>${questions.get(4).questionContent}</font>
-        </a>
-      </div>
-    </div>
+  		<c:forEach items="${questions}" var="question" varStatus="status">
+    		<div class="question">
+      			<a id="question" href="/question/onequesion?num=${status.index + 1}">
+        			질문${status.index + 1}<br>
+        			&nbsp;${question.questionTitle}<br><font size="1">${question.questionContent}</font>
+      			</a>
+    		</div>
+  		</c:forEach>
+	</div>    
   </main>
 </body>
 </html>

@@ -25,9 +25,13 @@ public class questionVO {
 	public int getquestionCount() {
 		return questionCount;
 	}
-	
-	public void setquestionCount() {
+	//원래 set이었는데 초기화로 해야할 것 같아서 바꿨어
+	public void initquestionCount() {
 		questionCount = 0;
+	}
+	
+	public void setquestionCount(int questionCount) {
+		this.questionCount = questionCount;
 	}
 	
 // questionTitle
