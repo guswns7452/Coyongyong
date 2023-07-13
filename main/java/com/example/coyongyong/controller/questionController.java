@@ -58,7 +58,28 @@ public class questionController {
 	    
 	    return "question_main"; // jsp 파일
 	}
-
+	
+	@RequestMapping(value = {"/questionmain"}, method = RequestMethod.GET)
+	public String questionMain(@RequestParam("language") String language, Model model) throws Exception {
+	    List<questionVO> questions = questionService.readQuestionsTop();
+	    logger.info("/question/QuestionMain URL called. Then listquestion method executed.");
+	    for(int languageNum=1; languageNum<=3; languageNum++) {
+			for (int grade=1; grade<=4; grade++) {
+				for(int top=1;top<=3;top++) {
+					try {
+						logger.info("languageNum : " + languageNum + " grade : " + grade + "top : " + top + questions.get((languageNum-1) * 12 + (grade-1) * 3 + top-1).toString());
+					}
+					catch (Exception e) {
+						
+					}
+				}
+			}
+		}
+	    
+		model.addAttribute("questions", questions);
+	    
+	    return "question_main"; // jsp 파일
+	}
 	
 	@RequestMapping(value = {"/onequestion"}, method = RequestMethod.GET)
 	public String oneQuestion(@RequestParam("num") int num, Model model) throws Exception{

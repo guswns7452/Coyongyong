@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.example.coyongyong.domain.questionVO;
+import com.example.coyongyong.domain.gradeVO;
 
 @Repository
 public class questionDAOImpl implements questionDAO{
@@ -49,167 +51,37 @@ public class questionDAOImpl implements questionDAO{
 	}
 	
 	
-		/* c언어에서 top 1~3 뽑아내기 */
-		//레벨 1
-		public questionVO readTop1Level1inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level1inC");
-			return vo;
-		}
-		public questionVO readTop2Level1inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level1inC");
-			return vo;
-		}
-		public questionVO readTop3Level1inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level1inC");
-			return vo;
-		}
-		//레벨 2
-		public questionVO readTop1Level2inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level2inC");
-			return vo;
-		}
-		public questionVO readTop2Level2inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level2inC");
-			return vo;
-		}
-		public questionVO readTop3Level2inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level2inC");
-			return vo;
-		}
-		//레벨 3
-		public questionVO readTop1Level3inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level3inC");
-			return vo;
-		}
-		public questionVO readTop2Level3inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level3inC");
-			return vo;
-		}
-		public questionVO readTop3Level3inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level3inC");
-			return vo;
-		}
-		//레벨 4
-		public questionVO readTop1Level4inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level4inC");
-			return vo;
-		}
-		public questionVO readTop2Level4inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level4inC");
-			return vo;
-		}
-		public questionVO readTop3Level4inC() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level4inC");
-			return vo;
-		}
+	public List<questionVO> readQuestionsTop() throws Exception{
+		List<questionVO> questionlist = new ArrayList<questionVO>();
+		List<questionVO> temp = new ArrayList<questionVO>();
+		gradeVO grades = new gradeVO();
+		int top,index;
 		
-		/* Python에서 top 1~3 뽑아내기 */
-		//레벨 1
-		public questionVO readTop1Level1inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level1inPython");
-			return vo;
-		}
-		public questionVO readTop2Level1inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level1inPython");
-			return vo;
-		}
-		public questionVO readTop3Level1inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level1inPython");
-			return vo;
-		}
-		//레벨 2
-		public questionVO readTop1Level2inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level2inPython");
-			return vo;
-		}
-		public questionVO readTop2Level2inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level2inPython");
-			return vo;
-		}
-		public questionVO readTop3Level2inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level2inPython");
-			return vo;
-		}
-		//레벨 3
-		public questionVO readTop1Level3inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level3inPython");
-			return vo;
-		}
-		public questionVO readTop2Level3inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level3inPython");
-			return vo;
-		}
-		public questionVO readTop3Level3inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level3inPython");
-			return vo;
-		}
-		//레벨 4
-		public questionVO readTop1Level4inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level4inPython");
-			return vo;
-		}
-		public questionVO readTop2Level4inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level4inPython");
-			return vo;
-		}
-		public questionVO readTop3Level4inPython() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level4inPython");
-			return vo;
-		}
 		
-		/* Java에서 top 1~3 뽑아내기 */
-		//레벨 1
-		public questionVO readTop1Level1inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level1inJava");
-			return vo;
+		
+		for(int languageNum=1; languageNum<=3; languageNum++) {
+			for (int grade=1; grade<=4; grade++) {
+				grades.setgrade(grade); grades.setlanguageNum(languageNum);
+				temp = sqlSession.selectList(namespace + ".selectQuestionsTop", grades);
+				for(top=1;top<=3;top++) {
+					try {
+						index = (languageNum-1) * 12 + (grade-1) * 3 + (top-1);
+//						System.out.println("index : " + index + "languageNum : " + languageNum + " grade : " + grade + " top : " + top + " 내용\n" + temp.get(top-1)+"\n");
+						questionlist.add(index, temp.get(top-1));
+						
+					}
+					catch (Exception e){
+						index = (languageNum-1) * 12 + (grade-1) * 3 + (top-1);
+						questionlist.add(index, null);
+//						System.out.println("index : " + index + "languageNum : " + languageNum + " grade : " + grade + "top : " + top + " null\n");
+//						System.out.println(questionlist);
+					}
+				}
+			}
 		}
-		public questionVO readTop2Level1inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level1inJava");
-			return vo;
-		}
-		public questionVO readTop3Level1inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level1inJava");
-			return vo;
-		}
-		//레벨 2
-		public questionVO readTop1Level2inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level2inJava");
-			return vo;
-		}
-		public questionVO readTop2Level2inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level2inJava");
-			return vo;
-		}
-		public questionVO readTop3Level2inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level2inJava");
-			return vo;
-		}
-		//레벨 3
-		public questionVO readTop1Level3inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level3inJava");
-			return vo;
-		}
-		public questionVO readTop2Level3inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level3inJava");
-			return vo;
-		}
-		public questionVO readTop3Level3inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level3inJava");
-			return vo;
-		}
-		//레벨 4
-		public questionVO readTop1Level4inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop1Level4inJava");
-			return vo;
-		}
-		public questionVO readTop2Level4inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop2Level4inJava");
-			return vo;
-		}
-		public questionVO readTop3Level4inJava() throws Exception{
-			questionVO vo = sqlSession.selectOne(namespace + ".selectTop3Level4inJava");
-			return vo;
-		}
+			
+		return questionlist;
+	}
 	
 	//삭제 요청
 	public void delete(int questionNum) throws Exception{

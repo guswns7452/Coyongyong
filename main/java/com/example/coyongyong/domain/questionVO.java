@@ -84,7 +84,7 @@ public class questionVO {
 	
 	@Override
 	public String toString() {
-		return "CustomerVO [질문번호=" + Integer.toString(questionNum) + ", 조회수=" + Integer.toString(questionCount) + ", 질문 제목=" + questionTitle 
+		return "QuestionVO [질문번호=" + Integer.toString(questionNum) + ", 조회수=" + Integer.toString(questionCount) + ", 질문 제목=" + questionTitle 
 				 + ", 질문 내용=" + questionContent + ", 회원 아이디=" + customerID + ", 등급 번호 =" + Integer.toString(gradeNum) + "]";
 	}
 
