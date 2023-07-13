@@ -44,14 +44,21 @@ public class questionController {
 	
 	// 질문 글 번호를 어떻게 받아올 것?
 	
-	@GetMapping("/questionlist")
-	public String listMember(Model model) throws Exception {
-		List<questionVO> questions = questionService.readQuestionList();
-		logger.info(" /question/QuestionList URL called. then listquestion method executed.");
-		model.addAttribute("questions", questions);
-		
-		return "question_main";
+	
+	@RequestMapping(value = {"/questionlist"}, method = RequestMethod.GET)
+	public String listMember(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {
+	    List<questionVO> questions = questionService.readQuestionList();
+	    
+	    int startIndex = (page - 1) * 10;
+	    int endIndex = Math.min(startIndex + 10, questions.size());
+	    List<questionVO> pageQuestions = questions.subList(startIndex, endIndex);
+	    
+	    logger.info("/question/QuestionList URL called. Then listquestion method executed.");
+	    model.addAttribute("questions", pageQuestions);
+	    
+	    return "question_main"; // jsp 파일
 	}
+
 	
 	@RequestMapping(value = {"/onequestion"}, method = RequestMethod.GET)
 	public String oneQuestion(@RequestParam("num") int num, Model model) throws Exception{
@@ -81,7 +88,7 @@ public class questionController {
 	public String writeQuestionPost(@ModelAttribute("question") questionVO vo, @ModelAttribute("yongyong") answerYongVO vo2) throws Exception{
 		//TODO 아이디 찾아내는 법
 		int questionNum = questionService.countLastQuestionNum() + 1; //이게 마지막 questionNum 이 되어야함
-		vo.setquestionNum(questionNum); vo.setcustomerID("전현준"); vo.setquestionCount(); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage("guswns7452",1));
+		vo.setquestionNum(questionNum); vo.setcustomerID("전현준"); vo.setquestionCount(questionNum); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage("guswns7452",1));
 		questionService.addQuestion(vo);
 		logger.info(vo.toString());
 		logger.info(" /question/writequestion URL called. then listquestion method executed.");
