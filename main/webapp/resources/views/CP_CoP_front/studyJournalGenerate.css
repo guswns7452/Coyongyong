@@ -231,3 +231,173 @@ select:focus {
 #monaco-container {
   margin-top: 4%;
 }
+
+/* 추가 */
+.border-lime-500 {
+  border: 1px solid #0E9F6E !important;
+  border-radius: 8px;
+}
+
+.bg-lime-100 {
+  background-color: #DEF7EC !important;
+}
+
+.divide-lime-500 {
+  border: 1px solid #0E9F6E !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+}
+
+/* 여기까지 */
+
+/* 추가 */
+.background{
+  background-color: white !important;
+  padding-top: 1%;
+  padding: 3%;
+  margin-top: 10%;
+  border: 2px solid #E5E7EB;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 2px #31C48D; */
+}
+/* 여기까지 */
+
+/* 추가된거~ */
+/* 제목 작성 css */
+
+.div {
+  position: relative;
+  width: 300px;
+  margin-bottom: 2%;
+}
+
+.input {
+  font-size: 15px;
+  color: #222222;
+  width: 300px;
+  border: none;
+  border-bottom: solid #31C48D 1px;
+  padding-bottom: 10px;
+  position: relative;
+  background: none;
+  z-index: 5;
+}
+
+.input::placeholder { 
+  color: #aaaaaa; 
+}
+
+.input:focus { 
+  outline: none; 
+}
+
+.span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left : 0%;  /* right로만 바꿔주면 오 - 왼 */
+  background-color: #31C48D;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+.label {
+  position: absolute;
+  color: #aaa;
+  left: 10px;
+  font-size: 20px;
+  bottom: 8px;
+  transition: all .2s;
+}
+
+.input:focus ~ .label, .input:valid ~ .label {
+  font-size: 16px;
+  bottom: 40px;
+  color: #666;
+  font-weight: bold;
+}
+
+.input:focus ~ .span, .input:valid ~ .span {
+  width: 100%;
+}
+
+/* 추가 됨 */
+
+div#editor_content {
+  padding: 16px 24px;
+  border: 1px solid #D6D6D6;
+  border-radius: 4px;
+}
+
+/* #editor:focus {
+  border: none;
+  outline: none;
+} */
+
+.bold-text {
+  font-weight: bold;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.strikeThrough-text {
+  text-decoration: line-through;
+}
+
+#myTextarea {
+  width: 100%;
+  height: 200px;
+  padding: 1%;
+  text-align: left;
+  outline: none;
+}
+
+.studyJournalContent {
+  border: 2px solid #0E9F6E;
+  border-radius: 8px;
+
+  padding: 2%;
+}
+
+.styleBtn {
+  margin-right: 1%;
+}
+
+#myTextarea:focus {
+  border: 0 solid #e5e7eb;
+}
+
+.bg-green-100 {
+  background-color: #DEF7EC !important;
+}
+
+.bg-green-300:hover {
+  background-color: #BCF0DA !important;
+}
+
+#user-menu-button {
+  margin-left: 25px;
+}
+
+.input {
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.input:focus {
+  outline: none !important;
+}
+
+.error_label {
+  margin-top: 2%;
+  margin-left: 2%;
+}
