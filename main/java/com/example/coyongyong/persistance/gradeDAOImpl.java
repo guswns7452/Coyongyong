@@ -36,6 +36,10 @@ public class gradeDAOImpl implements gradeDAO{
 		return vo;
 	}
 	
+	public int readLastGradeNum() throws Exception{
+		int lastGradeNum = sqlSession.selectOne(namespace+".selectLastQuestionNum");
+		return lastGradeNum;
+	}
 
 	public List<gradeVO> readByID(String customerID) throws Exception{
 		List<gradeVO> gradelist = new ArrayList<gradeVO>();

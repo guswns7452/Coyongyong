@@ -3,6 +3,7 @@ package com.example.coyongyong.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,19 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.coyongyong.chatGPT.ChatController;
 import com.example.coyongyong.domain.answerCusVO;
 import com.example.coyongyong.domain.answerYongVO;
+import com.example.coyongyong.domain.customerVO;
 import com.example.coyongyong.domain.questionVO;
 import com.example.coyongyong.service.answerCusService;
 import com.example.coyongyong.service.answerYongService;
+import com.example.coyongyong.service.customerService;
 import com.example.coyongyong.service.gradeService;
 import com.example.coyongyong.service.questionService;
-import com.example.coyongyong.service.customerService;
 
 @Controller
 @RequestMapping(value="/question")
 public class questionController {
 	private static final Logger logger = LoggerFactory.getLogger(questionController.class);
-	
-	HttpServletRequest request;
 	
 	@Autowired
 	private questionService questionService;
@@ -101,27 +101,29 @@ public class questionController {
 	}
 	
 	@RequestMapping(value = {"/writequestion"}, method = RequestMethod.POST)
-	public String writeQuestionPost(@ModelAttribute("question") questionVO vo, @ModelAttribute("yongyong") answerYongVO vo2) throws Exception{
+	public String writeQuestionPost(@ModelAttribute("question") questionVO vo, @ModelAttribute("yongyong") answerYongVO vo2,HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		customerVO customerVO = (customerVO)session.getAttribute("customer");
+		
 		int questionNum = questionService.countLastQuestionNum() + 1; //이게 마지막 questionNum 이 되어야함
-		vo.setquestionNum(questionNum); vo.setcustomerID("전현준"); vo.setquestionCount(questionNum); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage("guswns7452",1));
+		vo.setquestionNum(questionNum); vo.setcustomerID(customerVO.getcustomerID()); vo.setquestionCount(questionNum); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage(customerVO.getcustomerID(),1));
 		questionService.addQuestion(vo);
 		
 		//용용이에게 보낼 String 바꾸기
-		String sendString = "질문자 : " + vo.getcustomerID() + vo.getquestionTitle() + vo.getquestionContent() + ;
+		String sendString = "질문자 : " + vo.getcustomerID() + vo.getquestionTitle() + vo.getquestionContent();
 		logger.info(vo.toString());
 		logger.info(" /question/writequestion URL called. then listquestion method executed.");
 		
 		
-		String chat = ChatController.chat(vo.toString());
+		String chat = ChatController.chat(sendString);
 		logger.info(chat);
 		int answerYongNum = answerYongService.countLastAnswerYongNum() + 1; //이게 마지막 AnswerYongNum 이 되어야함
 		logger.info(Integer.toString(answerYongNum));
 		
 		// TODO 질문 키워드 뽑아내기
-		// TODO 질문 내용 어떻게 줄 개행?
-		// TODO 회원 뽑아내면 등급 뽑아내는 것 해야함 -> 아이디 찾아내기
 		vo2.setanswerYongNum(answerYongNum); vo2.setquestionNum(questionNum); vo2.setanswerYongCorrect(0); vo2.setanswerYongContent(chat.replace("\r\n","<br>")); vo2.setgradeNum(gradeService.checkGradeBylanguage("guswns7452",1)); vo2.setquestionKeyword("");
 		answerYongService.addAnswerYong(vo2);
-		return "redirect:./onequestion?num="+questionNum;
+		
+		return "redirect:/question/onequestion?num="+questionNum;
 	}
 }

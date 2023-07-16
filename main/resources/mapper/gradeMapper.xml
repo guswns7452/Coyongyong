@@ -23,6 +23,10 @@
  		select * from grade where customerID = #{customerID}
      </select>
      
+     <select id="selectLastQuestionNum" resultType="int">
+ 		select max(gradeNum) from grade
+     </select>
+
      <select id="selectByLanguage" parameterType="java.util.Map" resultType="int">
  		select grade from grade where customerID = #{customerID} and languageNum = #{languageNum}
      </select>

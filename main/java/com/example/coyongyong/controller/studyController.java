@@ -1,31 +1,33 @@
 package com.example.coyongyong.controller;
 
-import com.example.coyongyong.domain.*;
-
-import com.example.coyongyong.service.*;
-import com.example.coyongyong.chatGPT.*;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.coyongyong.domain.customerVO;
+import com.example.coyongyong.domain.studyVO;
+import com.example.coyongyong.service.studyService;
 
 @Controller
 @RequestMapping(value="/study")
 public class studyController {
 	private static final Logger logger = LoggerFactory.getLogger(questionController.class);
 	
-	HttpServletRequest request;
+	Date today = new Date();
+	SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
 	
 	@Autowired
 	private studyService studyService;
@@ -53,9 +55,12 @@ public class studyController {
 	}
 	
 	@RequestMapping(value = {"/writestudy"}, method = RequestMethod.POST)
-	public String writeStudyPost(@ModelAttribute("study") studyVO vo) throws Exception{
+	public String writeStudyPost(@ModelAttribute("study") studyVO vo, HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		customerVO customer = (customerVO)session.getAttribute("customer");
+		
 		int studyNum = studyService.countLastStudyNum() + 1;
-		vo.setStudyNum(studyNum); vo.setStudyContent(null); vo.setStudyDate(); vo.setStudyTitle(null); vo.setStudyDate(); vo.setGoodCount(studyNum);
+		vo.setStudyNum(studyNum); vo.setStudyContent(null); vo.setCustomerID(customer.getcustomerID()); vo.setStudyDate(); vo.setStudyTitle(null); vo.setStudyDate(); vo.setGoodCount(studyNum);
 		studyService.addStudy(vo);
 		logger.info(vo.toString());
 		logger.info("/study/writestudy URL called. then studylist method executed.");
