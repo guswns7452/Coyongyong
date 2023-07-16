@@ -7,7 +7,6 @@ import com.example.coyongyong.persistance.questionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class questionServiceImpl implements questionService {
 	

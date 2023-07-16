@@ -130,12 +130,12 @@
         </div>
         <section class="dark:bg-gray-900">
           <div id="top">
-            <form action="/">
+            <form action="http://localhost:8080/study/writestudy" method="post">
               <div class="block gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2 w-full">
                   <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white w-full">공부일지 제목
                     작성</label>
-                  <input type="text" name="name" id="name"
+                  <input type="text" name="studyTitle" id="studyTitle"
                     class="bg-gray-50 border border-primary-300 text-primary-900 text-sm rounded-lg focus:ring-0 border-primary-700 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 margin-bottom input"
                     placeholder="공부일지 제목을 작성하세요." required="">
                 </div>
@@ -222,10 +222,10 @@
                         작성</label>
                       <textarea id="description"
                         class="flex p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-primary-300 focus:ring-0 border-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 studyJournalContent input" rows="15"
-                        placeholder="공부일지 내용을 작성하세요." required=""></textarea>
+                        placeholder="공부일지 내용을 작성하세요." required="" name = "studyContent"> </textarea>
                       <div id="monaco-container" style="height: 50px;"></div>
                       <div class="submit_btn">
-                        <input type="submit"
+                        <input type="submit" 
                           class="text-white bg-lime-700 hover:bg-green-500 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 justify-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                           value="제출하기">
                         </input>

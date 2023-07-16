@@ -107,7 +107,7 @@ public class questionController {
 		questionService.addQuestion(vo);
 		
 		//용용이에게 보낼 String 바꾸기
-		String sendString = "질문자 : " + vo.getcustomerID() + vo.getquestionTitle() + vo.getquestionContent() + ;
+		String sendString = "질문자 : " + vo.getcustomerID() + vo.getquestionTitle() + vo.getquestionContent();
 		logger.info(vo.toString());
 		logger.info(" /question/writequestion URL called. then listquestion method executed.");
 		
