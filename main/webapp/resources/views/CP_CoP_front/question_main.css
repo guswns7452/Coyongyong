@@ -235,7 +235,9 @@
     margin-top: 50px;
 }
 
-
+.mgr30{
+	margin-right: 30px;
+}
 
 .temptemp{
     display: flex;
@@ -325,6 +327,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.width70px{
+	width: 70px;
+}
+
+.h-70{
+	height: 70px;
+	text-overflow: ellipsis;
+	overflow: clip;
+}
+
+.h-110{
+	height: 110px;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .carousel .card {

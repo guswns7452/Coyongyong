@@ -7,14 +7,27 @@ main {
   width: 100%;
   height: 100%;
   padding: 0px;
-  margin-bottom: 200px;
 }
 .top {
   display: flex;
   justify-content: center;
+  background-color: #F3F4F6;
+  padding-bottom: 5%;
 }
 .toptop {
   width: 60%;
+  margin-top: 5%;
+}
+.background {
+  padding-top: 5%;
+}
+.background_white {
+  background-color: #FFFFFF;
+  padding: 2%;
+  margin-top: 1%;
+  padding-bottom: 5%;
+  border: 2px solid #E5E7EB;
+  border-radius: 4px;
 }
 main > * {
   padding: 0.8em;
@@ -53,6 +66,11 @@ li {
   margin-left: 9px;
 }
 
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1.2fr 1fr;
+}
+
 /* =============== HEADER =================== */
 .background_color_white {
   background-color: white;
@@ -65,7 +83,8 @@ li {
 /* �쒕ぉ */
 .title {
   display: flex;
-  margin-top: 100px;
+  margin-top: 2%;
+  margin-left: 1%;
 }
 
 /* 怨듬��쇱� 寃��됲븯湲� */
@@ -135,6 +154,11 @@ li {
   padding: 0 6px;
 }
 
+.column-center {
+  display: flex;
+  align-items: center;
+}
+
 /* 由ъ뒪�� 袁몃�湲�! */
 
 .li {
@@ -148,6 +172,12 @@ li {
   border-bottom: none;
   display: block;
   width: 98%;
+}
+
+.li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* .li {
@@ -184,4 +214,58 @@ li {
 
   top: 50%;
   left: 50%;
+}
+
+.pagination-circular li.current {
+  border: 1px solid #1779ba;
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  font-size: 18px;
+}
+
+.pagination-circular li.disabled {
+  border: 1px solid #cacaca;
+  padding: 0.285em 0.8em;
+  border-radius: 5000px;
+  font-size: 18px;
+}
+
+.pagination-circular a {
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  border: 1px solid #1779ba;
+  font-size: 18px;
+}
+
+.pagination-circular li:not(.disabled):hover a {
+  background: #1779ba;
+  color: #fefefe;
+}
+
+.pagination-circular li a {
+  transition: background 0.15s ease-in, color 0.15s ease-in;
+}
+
+.studyJournal_content {
+  display: block;
+  font-size: 17px;
+  font-weight: bolder !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2;
+/*        height: 4.8em;*/
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.word-space {
+  word-spacing: 5%;
+}
+
+.pagination-button {
+  margin: 0 1%;
 }
