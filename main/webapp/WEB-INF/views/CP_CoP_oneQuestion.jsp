@@ -174,15 +174,16 @@
     <!-- 질문 더보기 -->
     <div class="level">질문 더보기</div>
     <div class="questions">
-  		<c:forEach items="${questions}" var="question" varStatus="status">
+  		<c:forEach items="${questions}" var="question" varStatus="status" end="3">
     		<div class="question">
       			<a id="question" href="/question/onequesion?num=${status.index + 1}">
-        			질문${status.index + 1}<br>
-        			&nbsp;${question.questionTitle}<br><font size="1">${question.questionContent}</font>
+        		질문${status.index + 1}<br>
+        		&nbsp;${question.questionTitle}<br><font size="1">${question.questionContent}</font>
       			</a>
     		</div>
   		</c:forEach>
-	</div>    
+	</div>
+    
   </main>
 </body>
 </html>

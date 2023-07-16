@@ -57,8 +57,6 @@ public class questionDAOImpl implements questionDAO{
 		gradeVO grades = new gradeVO();
 		int top,index;
 		
-		
-		
 		for(int languageNum=1; languageNum<=3; languageNum++) {
 			for (int grade=1; grade<=4; grade++) {
 				grades.setgrade(grade); grades.setlanguageNum(languageNum);
@@ -68,7 +66,6 @@ public class questionDAOImpl implements questionDAO{
 						index = (languageNum-1) * 12 + (grade-1) * 3 + (top-1);
 //						System.out.println("index : " + index + "languageNum : " + languageNum + " grade : " + grade + " top : " + top + " 내용\n" + temp.get(top-1)+"\n");
 						questionlist.add(index, temp.get(top-1));
-						
 					}
 					catch (Exception e){
 						index = (languageNum-1) * 12 + (grade-1) * 3 + (top-1);

@@ -11,8 +11,8 @@
  	</select>
  	
      <insert id="insert"> 
-   		insert into customer (customerID, customerPW, name, tel, Email, lastChangedPwDat) values
- 		(#{answerYongNum}, #{questionNum}, #{gradeNum}, #{answerYongContent}, #{answerYongCorrect}, #{questionKeyword})
+   		insert into customer (customerID, customerPW, name, tel, Email, lastChangedPwDay, customerNickname, customerImage, customerLike, customerIntro) values
+ 		(#{customerID}, #{customerPW}, #{name}, #{tel}, #{Email}, #{lastChangedPwDay}, #{customerNickname}, #{customerImage}, #{customerLike} , #{customerIntro})
      </insert> 
  	
      <select id="selectByid" resultType="com.example.coyongyong.domain.customerVO">
@@ -26,8 +26,8 @@
      </select>
  	
      <update id="update">
-	 	update answeryong set customerID =#{customerID}, customerPW =#{customerPW}, name =#{name}, 
-			tel =#{tel}, Email =#{Email}, lastChangedPwDat =#{lastChangedPwDat} 
+	 	update customer set customerID =#{customerID}, customerPW =#{customerPW}, name =#{name}, 
+			tel =#{tel}, Email =#{Email}, lastChangedPwDay =#{lastChangedPwDay} , customerNickname =#{customerNickname} , customerImage =#{customerImage} , customerLike =#{customerLike} , customerIntro =#{customerIntro}
 		 where customerID = #{customerID}
     </update>
  

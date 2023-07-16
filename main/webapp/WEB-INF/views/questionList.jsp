@@ -1,25 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.example.coyongyong.controller.mypageController"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+    import="com.example.coyongyong.controller.mypageController" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+
     <!DOCTYPE html>
     <html lang="ko">
-    
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Nanum+Gothic:wght@700&display=swap">
-        <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
-        <script th:src="@{/node_modules/monaco-editor/min/vs/loader.js}"></script>
-        <script th:src="@{/node_modules/monaco-editor/min/vs/editor/editor.main.nls.js}"></script>
-        <script th:src="@{/node_modules/monaco-editor/min/vs/editor/editor.main.js}"></script>
-        <title>코테</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/problem.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/default.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
-    
+
+
+        <title>coyongyong_questionList</title>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/questionList.css">
     </head>
-    
+
     <body>
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
           <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -114,64 +116,121 @@
             </div>
           </div>
         </nav>
-    
-        <div class="content"></div>
-        <div id="container">
-            <div id="left">
-                <div id="question">
-                    <h1>문제 1 : A+B<br><br></h1>
-                    <h2>문제</h2>
-                    <h3>
-                        두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
-                        <br><br>
-                    </h3>
-                    <h2>
-                        입력 <br>
-                    </h2>
-                    <h3>
-                        첫째 줄에 A와 B가 주어진다. (0 < A, B < 10) <br><br></h3>
-                    <h2>
-                        출력 <br>
-                    </h2>
-                    <h3>
-                        첫째 줄에 A+B를 출력한다.
-                        <br><br>
-                    </h3>
+
+        <main>
+            <div class="top">
+                <div class="toptop">
+                    <div>
+                        <div>
+                            <font size=6>언어 선택하기</font>
+                        </div>
+                        <div
+                            class="pd50 text-center ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL flex flex-row w-full justify-center">
+                            <a href="#">
+                                <div class="flex tw-flex-col mgr30">
+                                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/water_nicon.png" class="width70px">
+                                    <div>C</div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="flex tw-flex-col mgr30">
+                                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/water_yongyong.png" class="width70px">
+                                    <div>Java</div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="flex tw-flex-col mgr30">
+                                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/fire_yongyong.png" class="width70px">
+                                    <div>python</div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="flex tw-flex-col mgr30">
+                                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png" class="width70px">
+                                    <div>C++</div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="flex tw-flex-col mgr30">
+                                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/uni.png" class="width70px">
+                                    <div>JavaScript</div>
+                                </div>
+                            </a>
+
+                            <a href="#">
+                                <div class="flex tw-flex-col">
+                                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/nicon.png" class="width70px">
+                                    <div>kotlin</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="background_white background">
+
+                        <div class="title">
+                            <font size=5>
+                                질문 목록
+                            </font>
+                        </div>
+                        <div class="list">
+                            <div class="flex margin-left justify-between items-center margin-top2">
+                                <a class="questionGenerate_btn items-top" href="#">나도 질문하러 가기</a>
+                                <div class="study_search">
+                                    <input type="search" class="search_txt" name="" placeholder="search...">
+                                    <a class="search_btn" href="#">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lists">
+                                <ul id="listContainer"></ul>
+                                <div class="content"></div>
+                            </div>
+                            <div class="">
+                                <div id="pagination" class="pagination-circular flex"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-    
             </div>
-            <div id="right">
-                <div class="white_font_color">사용 언어</div>
-                <div id="monaco" style="height:70vh"></div>
-                <button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 fixed right-5 purpleButton">제출하기</button>
+        </main>
+
+        <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+            <div class="mx-auto max-w-screen-xl text-center">
+                <a class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+                    <img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/logo.png" class="footer-logo">
+                </a>
+                <p class="my-6 text-gray-500 dark:text-gray-400">TUKOREA CP-CoP Dragon and Horse Coding knowledge
+                    sharing site
+                    with ChatGPT API</p>
+
+                <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+                    <li>
+                        <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="mr-4 hover:underline md:mr-6 ">Email</a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.tukorea.ac.kr/tukorea/index.do#none"
+                            class="mr-4 hover:underline md:mr-6 ">TUKOREA</a>
+                    </li>
+                </ul>
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
+                        href="https://www.tukorea.ac.kr/tukorea/index.do#none" class="hover:underline">TUKOREA</a>. All
+                    Rights
+                    Reserved.</span>
             </div>
-        </div>
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs/loader.js"></script>
-    
-        <script>
-            var editor;
-    
-            require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs' } });
-            require(['vs/editor/editor.main'], function () {
-                editor = monaco.editor.create(document.getElementById('monaco'), {
-                    theme: 'vs-dark',
-                    fontFamily: 'Consolas',
-                    automaticLayout: true,
-                    fontSize: 25,
-                    language: 'c',
-                    value: [
-                        '#include <stdio.h>',
-                        'int main(){',
-                        '}'
-                    ].join('\n')
-                });
-            });
-        </script>
-        <!-- <script src="Main.js"></script> -->
+        </footer>
+
+        <script src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/questionList.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
-    
     </body>
-    
+
     </html>
