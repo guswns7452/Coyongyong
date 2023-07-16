@@ -12,6 +12,7 @@ public class studyVO {
 	private String studyContent;
 	private int goodCount;
 	private String studyDate;
+	private String studyCode;
 	
 	public int getStudyNum() {
 		return studyNum;
@@ -63,6 +64,14 @@ public class studyVO {
 	
 	public String getStudyDate() {
 		return studyDate;
+	}
+	
+	public String getStudyCode() {
+		return studyCode;
+	}
+	
+	public void setStudyCode(String studyCode) {
+		this.studyCode = studyCode;
 	}
 	
 	public void setStudyDate() {

@@ -37,5 +37,33 @@ public class problemController {
 		return "problem";
 	}
 	
+	//근데 problemService가 없는데
+	/*@RequestMapping(value = {"/list"}, method = RequestMethod.GET)
+	public String problemList(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {
+	    List<problemVO> problems = problemService.readProblemList();
+	    
+	    int startIndex = (page - 1) * 5;
+	    int endIndex = Math.min(startIndex + 5, problems.size());
+	    List<problemVO> pageproblems = problems.subList(startIndex, endIndex);
+	    
+	    logger.info("/problem/List URL called. Then listproblem method executed.");
+	    model.addAttribute("problems", pageproblems);
+	    
+	    return "problemlist"; // jsp 파일
+	}
 	
+	
+	@RequestMapping(value = {"/play"}, method = RequestMethod.GET)
+	public String problemPlay(@RequestParam("num") int num, Model model) throws Exception{
+		problemVO problem = problemService.readProblem(num);
+		List<problemVO> problems = problemService.readProblemList();
+		
+		
+		logger.info(" /problem/play URL called. then listproblem method executed.");
+		model.addAttribute("problem", problem);
+		model.addAttribute("problems", problems);
+		
+		return "problem";
+	}
+	*/
 }

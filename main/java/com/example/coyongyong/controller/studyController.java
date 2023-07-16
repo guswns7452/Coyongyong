@@ -27,41 +27,57 @@ public class studyController {
 	
 	HttpServletRequest request;
 	
-	@GetMapping("/list")
-	public String studyList() throws Exception {
-		return "studyJournalList";
+	@Autowired
+	private studyService studyService;
+	
+	@RequestMapping(value = {"/list"}, method = RequestMethod.GET)
+	public String studyList(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {
+	    List<studyVO> study = studyService.readAllStudy();
+	    
+	    int startIndex = (page - 1) * 10;
+	    int endIndex = Math.min(startIndex + 10, study.size());
+	    List<studyVO> pageStudy = study.subList(startIndex, endIndex);
+	    
+	    logger.info("/study/list URL called. Then studylist method executed.");
+	    model.addAttribute("pageStudy", pageStudy);
+	    
+	    return "studyJournalList"; // jsp 파일
 	}
 	
-	@GetMapping("/write")
-	public String studyWrite() throws Exception {
+	@RequestMapping(value = {"/writestudy"}, method = RequestMethod.GET)
+	public String studyWrite(Model model) throws Exception{
+		
+		logger.info(" /study/writestudy URL called. then studylist method executed.");
+		
 		return "studyJournalGenerate";
 	}
 	
+	@RequestMapping(value = {"/writestudy"}, method = RequestMethod.POST)
+	public String writeStudyPost(@ModelAttribute("study") studyVO vo) throws Exception{
+		int studyNum = studyService.countLastStudyNum() + 1;
+		vo.setStudyNum(studyNum); vo.setStudyContent(null); vo.setStudyDate(); vo.setStudyTitle(null); vo.setStudyDate(); vo.setGoodCount(studyNum);
+		studyService.addStudy(vo);
+		logger.info(vo.toString());
+		logger.info("/study/writestudy URL called. then studylist method executed.");
+		
+		return "redirect:./view?num="+studyNum;
+	}
+
+	/*
 	@GetMapping("/view")
 	public String studyView() throws Exception {
 		return "studyJournalView";
 	}
-
-//	@RequestMapping(value = {"/writequestion"}, method = RequestMethod.POST)
-//	public String writeQuestionPost(@ModelAttribute("question") questionVO vo, @ModelAttribute("yongyong") answerYongVO vo2) throws Exception{
-//		//TODO 아이디 찾아내는 법
-//		int questionNum = questionService.countLastQuestionNum() + 1; //이게 마지막 questionNum 이 되어야함
-//		vo.setquestionNum(questionNum); vo.setcustomerID("전현준"); vo.setquestionCount(); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage("guswns7452",1));
-//		questionService.addQuestion(vo);
-//		logger.info(vo.toString());
-//		logger.info(" /question/writequestion URL called. then listquestion method executed.");
-//		
-//		  
-//		String chat = ChatController.chat(vo.toString());
-//		logger.info(chat);
-//		int answerYongNum = answerYongService.countLastAnswerYongNum() + 1; //이게 마지막 AnswerYongNum 이 되어야함
-//		logger.info(Integer.toString(answerYongNum));
-//		
-//		// TODO 질문 키워드 뽑아내기
-//		// TODO 질문 내용 어떻게 줄 개행?
-//		// TODO 회원 뽑아내면 등급 뽑아내는 것 해야함 -> 아이디 찾아내기
-//		vo2.setanswerYongNum(answerYongNum); vo2.setquestionNum(questionNum); vo2.setanswerYongCorrect(0); vo2.setanswerYongContent(chat.replace("\r\n","<br>")); vo2.setgradeNum(gradeService.checkGradeBylanguage("guswns7452",1)); vo2.setquestionKeyword("");
-//		answerYongService.addAnswerYong(vo2);
-//		return "redirect:./onequestion?num="+questionNum;
-//	}
+	*/
+	@RequestMapping(value = {"/view"}, method = RequestMethod.GET)
+	public String studyView(@RequestParam("num") int num, Model model) throws Exception{
+		studyVO study = studyService.readStudyByNum(num);
+		List<studyVO> studylist = studyService.readAllStudy();
+		
+		logger.info(" /study/OneQuestion URL called. then listquestion method executed.");
+		model.addAttribute("study", study);
+		model.addAttribute("studies", studylist);
+		
+		return "studyJournalView";
+	}
 }

@@ -32,7 +32,11 @@ public class studyServiceImpl implements studyService {
     public List<studyVO> readAllStudy() throws Exception {
         return studyDAO.selectAll();
     }
-
+    
+    public int countLastStudyNum() throws Exception{
+		return studyDAO.readLastStudyNum();
+	}
+    
     @Override
     public void addStudy(studyVO study) throws Exception {
         studyDAO.insert(study);

@@ -10,6 +10,8 @@ public interface studyDAO {
     studyVO selectById(String customerID) throws Exception;
     List<studyVO> selectByGoodCount(int goodCount) throws Exception;
     List<studyVO> selectAll() throws Exception;
+    public int readLastStudyNum() throws Exception;
     void update(studyVO study) throws Exception;
     void delete(int studyNum) throws Exception;
+    
 }

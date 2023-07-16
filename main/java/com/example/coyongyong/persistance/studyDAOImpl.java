@@ -29,6 +29,12 @@ public class studyDAOImpl implements studyDAO {
     public studyVO selectById(String customerID) throws Exception {
         return sqlSession.selectOne(namespace + ".selectById", customerID);
     }
+    
+    public int readLastStudyNum() throws Exception{
+		// INT라서 그런가?
+		int lastStudyNum = sqlSession.selectOne(namespace+".selectLastStudyNum");
+		return lastStudyNum; 
+	} 
 
     @Override
     public List<studyVO> selectByGoodCount(int goodCount) throws Exception {

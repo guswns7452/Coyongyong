@@ -27,6 +27,10 @@
  		select * from study where goodCount = #{goodCount}
      </select>
      
+     <select id="selectLastStudyNum" resultType="int">
+ 		select max(studyNum) from study
+     </select>
+     
      <select id="selectAll" resultType="com.example.coyongyong.domain.studyVO">
      <![CDATA[
  		select * from study
