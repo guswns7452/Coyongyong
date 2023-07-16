@@ -28,6 +28,10 @@ public class gradeServiceImpl implements gradeService{
 		return gradeDAO.readByID(customerID);
 	}
 	
+	public int countLastGradeNum() throws Exception{
+		return gradeDAO.readLastGradeNum();
+	}
+
 	public int checkGradeBylanguage(String customerID, int languageNum) throws Exception{
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("customerID", customerID);

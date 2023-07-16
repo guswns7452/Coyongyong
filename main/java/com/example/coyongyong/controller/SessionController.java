@@ -7,18 +7,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
+import com.example.coyongyong.domain.customerVO;
+
 @Controller
 public class SessionController {
 	private static final Logger logger = LoggerFactory.getLogger(questionController.class);
 	
+	
 	public String sessionCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession();
+		customerVO customer = (customerVO)session.getAttribute("customer");
 		
-		if(session.getAttribute("customer") == null){
+		if(customer == null){
 			logger.info("로그인이 되어있지 않아 로그인 페이지로 갑니다.");
 			return "login";
 		}
 		
 		return "true";
 	}
+	
 }

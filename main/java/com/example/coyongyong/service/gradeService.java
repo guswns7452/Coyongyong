@@ -12,4 +12,5 @@ public interface gradeService {
 	public void addGrade(gradeVO grade) throws Exception;
 	public void deleteGrade(int gradeNum) throws Exception;
 	public void updateGrade(gradeVO grade) throws Exception;
+	public int countLastGradeNum() throws Exception;
 }
