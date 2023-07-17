@@ -1,17 +1,4 @@
-const code = `<script>
-var editor;
-
-require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs' } });
-require(['vs/editor/editor.main'], function () {
-  editor = monaco.editor.create(document.getElementById('monaco'), {
-    theme: 'vs-dark',
-    fontFamily: 'Consolas',
-    automaticLayout: true,
-    fontSize: 17,
-    language: 'c',
-  });
-});
-</script>`;
+const code = document.getElementById('innerCode').innerHTML;
 
 if (code) {
     const codeContainer = document.getElementById('codeContainer');

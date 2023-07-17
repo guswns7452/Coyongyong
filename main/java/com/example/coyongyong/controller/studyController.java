@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.coyongyong.domain.customerVO;
 import com.example.coyongyong.domain.studyVO;
-import com.example.coyongyong.service.*;
+import com.example.coyongyong.service.customerService;
+import com.example.coyongyong.service.studyService;
 
 @Controller
 @RequestMapping(value="/study")
@@ -39,6 +40,10 @@ public class studyController {
 	@Autowired
 	private customerService customerService;
 	
+	@Autowired
+	SessionController sessioncontroller;
+	
+	
 	@RequestMapping(value = {"/list"}, method = RequestMethod.GET)
 	public String studyList(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {
 	    List<studyVO> study = studyService.readAllStudy();
@@ -54,11 +59,13 @@ public class studyController {
 	}
 	
 	@RequestMapping(value = {"/writestudy"}, method = RequestMethod.GET)
-	public String studyWrite(Model model) throws Exception{
+	public String studyWrite(Model model,HttpServletRequest request) throws Exception{
+		if(sessioncontroller.sessionCheck(request) == "true") {
+			logger.info(" /study/writestudy URL called. then studylist method executed.");
+			return "studyJournalGenerate";
+		}
+		return "redirect:/login"; 
 		
-		logger.info(" /study/writestudy URL called. then studylist method executed.");
-		
-		return "studyJournalGenerate";
 	}
 	
 

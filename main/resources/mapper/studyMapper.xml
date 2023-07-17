@@ -11,8 +11,8 @@
  	</select>
  	
      <insert id="insert"> 
-   		insert into study (studyNum, customerID, gradeNum, studyTitle, studyContent, goodCount, studyDate) values
- 		(#{studyNum}, #{customerID}, #{gradeNum}, #{studyTitle}, #{studyContent}, #{goodCount}, #{studyDate})
+   		insert into study (studyNum, customerID, gradeNum, studyTitle, studyContent, goodCount, studyDate , studyCode) values
+ 		(#{studyNum}, #{customerID}, #{gradeNum}, #{studyTitle}, #{studyContent}, #{goodCount}, #{studyDate} , #{studyCode})
      </insert> 
  	
      <select id="selectByNum" resultType="com.example.coyongyong.domain.studyVO">

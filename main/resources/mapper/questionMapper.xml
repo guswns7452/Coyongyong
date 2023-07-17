@@ -11,8 +11,8 @@
  	</select>
  	
      <insert id="insert"> 
-   		insert into question (questionNum, questionCount, questionTitle, questionContent, questionDate, customerID, gradeNum) values
- 		(#{questionNum}, #{questionCount}, #{questionTitle}, #{questionContent}, #{questionDate}, #{customerID}, #{gradeNum})
+   		insert into question (questionNum, questionCount, questionTitle, questionContent, questionDate, customerID, gradeNum, questionCode, questionError, questionLanguageNum) values
+ 		(#{questionNum}, #{questionCount}, #{questionTitle}, #{questionContent}, #{questionDate}, #{customerID}, #{gradeNum}, #{questionCode}, #{questionError}, #{questionLanguageNum})
      </insert> 
  	
      <select id="selectByid" resultType="com.example.coyongyong.domain.questionVO">

@@ -12,6 +12,9 @@ public class questionVO {
 	private String questionDate;
 	private String customerID;
 	private int gradeNum;
+	private String questionCode;
+	private String questionError;
+	private int questionLanguageNum;
 	
 //	회원 아이디	
 	public int getquestionNum() {
@@ -82,6 +85,33 @@ public class questionVO {
 		this.gradeNum = gradeNum;
 	}
 	
+	
+//	질문 코드
+	public String getquestionCode() {
+		return questionCode;
+	}
+	// -> DB에 저장해야 하니까 set이 필요
+	public void setquestionCode(String questionCode) {
+		this.questionCode = questionCode;
+	}
+
+//	질문 코드
+	public String getquestionError() {
+		return questionError;
+	}
+	// -> DB에 저장해야 하니까 set이 필요
+	public void setquestionError(String questionError) {
+		this.questionError = questionError;
+	}
+
+//	질문 코드
+	public int getquestionLanguageNum() {
+		return questionLanguageNum;
+	}
+	// -> DB에 저장해야 하니까 set이 필요
+	public void setquestionLanguageNum(int questionLanguageNum) {
+		this.questionLanguageNum = questionLanguageNum;
+	}
 	@Override
 	public String toString() {
 		return "QuestionVO [질문번호=" + Integer.toString(questionNum) + ", 조회수=" + Integer.toString(questionCount) + ", 질문 제목=" + questionTitle 

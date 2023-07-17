@@ -58,7 +58,7 @@
                     <a href="#"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
                   </li>
-                  <form class="hover:bg-gray-100 dark:hover:bg-gray-600" action="http://localhost:8080/logout" method="post">
+                  <form class="hover:bg-gray-100 dark:hover:bg-gray-600" action="/logout" method="post">
 				    <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
 				        Sign out
 				    </button>
@@ -82,7 +82,7 @@
                 class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                   <a href="/"
-                    class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                    class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     aria-current="page">Home</a>
                 </li>
                 <li>
@@ -120,7 +120,7 @@
                         class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         로그인 하세요
                     </h1>
-                    <form class="space-y-4 md:space-y-6" name=form action="http://localhost:8080/login" method="post">
+                    <form class="space-y-4 md:space-y-6" name=form action="/login" method="post">
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 아이디</label>

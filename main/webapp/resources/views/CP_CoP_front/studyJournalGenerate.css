@@ -18,7 +18,6 @@ main {
   width: 100%;
   height: 100%;
   padding: 0px;
-  margin-bottom: 200px;
 }
 .margin-bottom {
   margin-bottom: 3%;
@@ -58,6 +57,25 @@ textarea {
   border-color: #046C4E #046C4E #046C4E #046C4E !important;
 }
 
+/* 추가 */
+.border-lime-500 {
+  border: 1px solid #0E9F6E !important;
+  border-radius: 8px;
+}
+
+.bg-lime-100 {
+  background-color: #DEF7EC !important;
+}
+
+.divide-lime-500 {
+  border: 1px solid #0E9F6E !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+}
+
+/* 여기까지 */
+
 .bg-lime-700 {
   background-color: #0E9F6E !important;
 }
@@ -73,35 +91,39 @@ textarea {
   border-color: #31C48D #31C48D #31C48D #31C48D !important;
 }
 
-.input {
-  background-color: #FFFFFF;
-  box-shadow: 2px 2px 2px #31C48D;
+
+/* 추가 */
+.background{
+  background-color: white !important;
+  padding-top: 1%;
+  padding: 3%;
+  margin-top: 10%;
+  border: 2px solid #E5E7EB;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 2px #31C48D; */
 }
+/* 여기까지 */
 
 /* =============== HEADER =================== */
-.background_color_white {
-  background-color: white;
-  border-radius: 1px;
-  border-color: azure;
-}
 
-/* �ㅻ뜑遺�遺� �� */
 
-/* 吏덈Ц �앹꽦�섎뒗 遺�遺� */
-/* �쒕ぉ */
+/* 헤더부분 끝 */
+
+/* 질문 생성하는 부분 */
+/* 제목 */
 .title {
   display: flex;
   margin-top: 2%;
 }
 
-/* 吏덈Ц �쒕ぉ �낅젰�섍린 */
+/* 질문 제목 입력하기 */
 
 /* flex */
 #flex {
   display: flex;
   flex-grow: 1;
 }
-/* 移댄뀒怨좊━ �좏깮 */
+/* 카테고리 선택 */
 
 .option{
   border : 1px solid #D1D5DB;
@@ -129,7 +151,7 @@ select:focus {
   border-radius: 8px;
 }
 
-/* private 紐⑤뱶 �좏깮 */
+/* private 모드 선택 */
 .mr-4 {
   margin-top: 5px;
 }
@@ -149,14 +171,14 @@ select:focus {
   border-color: #000000 #000000 #000000 #000000; 
 } */
 
-/* �ㅻ쪟 �묒꽦, 吏덈Ц �묒꽦 遺�遺� */
-/* �묒꽦�좊븣 湲곕낯 */
+/* 오류 작성, 질문 작성 부분 */
+/* 작성할때 기본 */
 #message {
   resize: none;
   margin-bottom: 15px;
 }
 
-/* 踰꾪듉 �뚮��� �� �④낵二쇨린 */
+/* 버튼 눌렀을 때 효과주기 */
 
 .button {
   border-radius: 20px;
@@ -180,7 +202,7 @@ select:focus {
   box-shadow: 3px 3px 3px rgb(166, 169, 166);
 }
 
-/* 怨듬��쇱� �댁슜 �묒꽦 */
+/* 공부일지 내용 작성 */
 
 .study_journal_content {
   /* width:880px;
@@ -201,7 +223,7 @@ select:focus {
   resize: none;
 }
 
-/* �쒖텧 踰꾪듉 */
+/* 제출 버튼 */
 .submit_btn {
   justify-content: flex-end;
   display: flex;
@@ -212,7 +234,7 @@ select:focus {
   margin-bottom: 3% ;
 }
 
-/* �뚯젣紐� 湲곕낯 */
+/* 소제목 기본 */
 
 #title {
   margin-left: 20px;
@@ -230,38 +252,13 @@ select:focus {
 
 #monaco-container {
   margin-top: 4%;
+  display: none;
 }
 
-/* 추가 */
-.border-lime-500 {
-  border: 1px solid #0E9F6E !important;
-  border-radius: 8px;
+#code-label {
+	display: none;
 }
 
-.bg-lime-100 {
-  background-color: #DEF7EC !important;
-}
-
-.divide-lime-500 {
-  border: 1px solid #0E9F6E !important;
-  border-right: none !important;
-  border-left: none !important;
-  border-top: none !important;
-}
-
-/* 여기까지 */
-
-/* 추가 */
-.background{
-  background-color: white !important;
-  padding-top: 1%;
-  padding: 3%;
-  margin-top: 10%;
-  border: 2px solid #E5E7EB;
-  border-radius: 10px;
-  /* box-shadow: 2px 2px 2px #31C48D; */
-}
-/* 여기까지 */
 
 /* 추가된거~ */
 /* 제목 작성 css */
@@ -390,7 +387,7 @@ div#editor_content {
 
 .input {
   background-color: transparent !important;
-  outline: none !important;
+  ouline: none !important;
 }
 
 .input:focus {

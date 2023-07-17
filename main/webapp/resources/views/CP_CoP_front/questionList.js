@@ -15,7 +15,7 @@ const titleList = ["title1", "title2", "title3", "title1", "title2", "title3", "
 const contentList = [
     "Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1Content of post 1",
     "Content of post 2",
-    "Content of post 3", "Content of post 1",
+    "Content of post 3", "Co ntent of post 1",
     "Content of post 2",
     "Content of post 3", "Content of post 1",
     "Content of post 2",

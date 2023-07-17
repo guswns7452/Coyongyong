@@ -32,9 +32,6 @@ main {
     background: #FFFFFF !important;
 }
 
-.block {
-    background-color: #F3F4F6;
-}
 
 .flex-grow {
     display: flex;

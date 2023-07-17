@@ -19,6 +19,7 @@ import com.example.coyongyong.chatGPT.ChatController;
 import com.example.coyongyong.domain.answerCusVO;
 import com.example.coyongyong.domain.answerYongVO;
 import com.example.coyongyong.domain.customerVO;
+import com.example.coyongyong.domain.gradeVO;
 import com.example.coyongyong.domain.questionVO;
 import com.example.coyongyong.service.answerCusService;
 import com.example.coyongyong.service.answerYongService;
@@ -49,6 +50,8 @@ public class questionController {
 	@Autowired
 	private ChatController ChatController;
 	
+	@Autowired
+	SessionController sessioncontroller;
 	// 질문 글 번호를 어떻게 받아올 것?
 	
 	
@@ -83,10 +86,13 @@ public class questionController {
 		List<questionVO> questions = questionService.readQuestionList();
 		answerYongVO yong = answerYongService.readAnswerYongByQuestion(num);
 		List<answerCusVO> cus = answerCusService.readAnswerCusByQuestion(num);
+		gradeVO grade = gradeService.readGrade(question.getgradeNum());
 		
 		logger.info(" /question/OneQuestion URL called. then listquestion method executed.");
 		model.addAttribute("question", question);
 		model.addAttribute("questions", questions);
+		model.addAttribute("gradeCustomer", grade);
+		yong.setanswerYongContent(yong.getanswerYongContent().replace("\n","<br>"));
 		model.addAttribute("yongyong", yong);
 		model.addAttribute("answerCus",cus);
 		
@@ -94,10 +100,14 @@ public class questionController {
 	}
 	
 	@RequestMapping(value = {"/writequestion"}, method = RequestMethod.GET)
-	public String writeQuestion(Model model) throws Exception{
+	public String writeQuestion(Model model,HttpServletRequest request) throws Exception{
 		//customer 정보를 불러와야겠네요.
-		logger.info(" /question/writequestion URL called. then listquestion method executed.");
-		return "questionGenerate";
+		if(sessioncontroller.sessionCheck(request) == "true") {
+			logger.info(" /question/writequestion URL called. then listquestion method executed.");
+			return "questionGenerate";
+		}
+		return "redirect:/login"; 
+		
 	}
 	
 	@RequestMapping(value = {"/writequestion"}, method = RequestMethod.POST)
@@ -106,11 +116,12 @@ public class questionController {
 		customerVO customerVO = (customerVO)session.getAttribute("customer");
 		
 		int questionNum = questionService.countLastQuestionNum() + 1; //이게 마지막 questionNum 이 되어야함
-		vo.setquestionNum(questionNum); vo.setcustomerID(customerVO.getcustomerID()); vo.setquestionCount(questionNum); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage(customerVO.getcustomerID(),1));
+		vo.setquestionNum(questionNum); vo.setcustomerID(customerVO.getcustomerID()); vo.setquestionCount(0); vo.setquestionDate(); vo.setgradeNum(gradeService.checkGradeBylanguage(customerVO.getcustomerID(),vo.getquestionLanguageNum()));
+		logger.info(Integer.toString(vo.getquestionLanguageNum()));
 		questionService.addQuestion(vo);
 		
 		//용용이에게 보낼 String 바꾸기
-		String sendString = "질문자 : " + vo.getcustomerID() + vo.getquestionTitle() + vo.getquestionContent();
+		String sendString = "질문자 : " + vo.getcustomerID() + "질문 제목" + vo.getquestionTitle() + vo.getquestionContent() + "질문 코드" + vo.getquestionCode();
 		logger.info(vo.toString());
 		logger.info(" /question/writequestion URL called. then listquestion method executed.");
 		
