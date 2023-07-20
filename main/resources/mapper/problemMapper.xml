@@ -23,7 +23,7 @@
  		select * from problem where languageNum = #{languageNum} and grade = #{grade}
      </select>
  	
-     <select id="selectAll" resultType="com.example.coyongyong.domain.questionVO">
+     <select id="selectAll" resultType="com.example.coyongyong.domain.problemVO">
      <![CDATA[
  		select * from problem
       ]]> 

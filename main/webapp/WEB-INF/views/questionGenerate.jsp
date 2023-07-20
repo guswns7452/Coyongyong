@@ -35,8 +35,7 @@
 	<nav class="bg-white border-gray-200 dark:bg-gray-900">
 		<div
 			class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-			<a href="/" class="flex items-center"> <!-- ${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon -->
-				<img
+			<a href="/" class="flex items-center"> <!-- icon --> <img
 				src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/logo.png"
 				class="h-8 mr-3" alt="Flowbite Logo" />
 			</a>
@@ -96,10 +95,10 @@
 					<span class="sr-only">Open main menu</span>
 					<svg class="w-5 h-5" aria-hidden="true"
 						xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-								<path stroke="currentColor" stroke-linecap="round"
+            <path stroke="currentColor" stroke-linecap="round"
 							stroke-linejoin="round" stroke-width="2"
 							d="M1 1h15M1 7h15M1 13h15" />
-							</svg>
+          </svg>
 				</button>
 			</div>
 			<!--  -->
@@ -129,9 +128,38 @@
 	</nav>
 	<main>
 		<div class="top">
-			<div class="toptop bg-gray-100 rounded-lg p-2.5">
+			<!-- 이거 bg-gray-100에서 바꿨지렁 추가~ -->
+			<div class="toptop bg-green-50 rounded-lg p-2.5">
 				<div class="title">
 					<font size=6> 질문 작성 </font>
+					<!-- 여기부터 추가할꺼임 -->
+					<div class="tooltip margin-left">
+						<button class="tooltip-icon">
+							<div class="information">tip</div>
+						</button>
+						<div class="tooltip-content">
+							<!-- 많은 내용 -->
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Morbi nec purus quam. Nam in urna eget odio malesuada sodales.
+								Integer semper enim vel purus hendrerit, nec dignissim est
+								cursus. Nulla vel ex vel tellus volutpat rutrum non eget justo.
+								Nulla facilisi. Fusce sit amet nisi sed orci gravida rhoncus sed
+								nec tortor. Aliquam erat volutpat. Integer tempor pellentesque
+								augue ac eleifend.</p>
+							<p>Donec faucibus, lectus non blandit bibendum, ipsum eros
+								condimentum lacus, nec interdum libero risus eu urna. Sed
+								ultricies diam id ex dapibus posuere. Aenean ullamcorper semper
+								orci, in facilisis orci eleifend eu. Sed ac consequat mauris.
+								Curabitur rhoncus, mi at luctus tincidunt, lectus lectus gravida
+								erat, ac fringilla elit ligula vitae risus. In eu lacinia
+								ligula. Integer in efficitur felis. Vivamus vitae dapibus odio.
+								Aenean in ipsum volutpat, aliquet felis id, scelerisque leo. Sed
+								pellentesque convallis iaculis. In placerat sagittis nulla id
+								tincidunt.</p>
+							<!-- 많은 내용 -->
+						</div>
+					</div>
+					<!-- 여기까지 추가 -->
 				</div>
 				<section class="dark:bg-gray-900 background">
 					<div id="top">
@@ -185,16 +213,17 @@
 																<svg aria-hidden="true" class="w-5 h-5"
 																	fill="currentColor" viewBox="0 0 20 20"
 																	xmlns="http://www.w3.org/2000/svg">
-																			<path fill-rule="evenodd"
+                                  <path fill-rule="evenodd"
 																		d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
 																		clip-rule="evenodd"></path>
-																		</svg>
+                                </svg>
 																<span class="sr-only">Close modal</span>
 															</button>
 														</div>
 
 														<form action="#">
-															<div class="grid gap-4 mb-4 sm:grid-cols-2">
+															<!-- 이거 sm:grid-cols-2없앰 추가로 검색할껀가? -->
+															<div class="grid gap-4 mb-4">
 																<div class="sm:col-span-2 justify-center">
 																	<div id="monaco code-input"
 																		style="width: 600px; height: 400px"></div>
@@ -210,7 +239,8 @@
 													</div>
 												</div>
 											</div>
-											<form class="border-lime-500">
+											<!-- 여기 class에 margin-bottom 추가해줌. -->
+											<form class="border-lime-500 margin-bottom">
 												<div
 													class="w-full mb-4 rounded-lg bg-lime-100 dark:bg-gray-700 dark:border-gray-600">
 													<div
@@ -235,7 +265,18 @@
 														contentEditable='true' height="200px" required></div>
 												</div>
 											</form>
-											<form class="border-lime-500">
+											<!-- 여기 오류작성 form 자체로 아예 바뀜 -->
+											<form class="border-lime-500 margin-bottom">
+												<div
+													class="w-full mb-4 rounded-lg bg-lime-100 dark:bg-gray-700 dark:border-gray-600">
+													<div
+														class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600 divide-lime-500">
+														<button
+															class="block text-white bg-lime-700
+                              focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+															type="button" id="toggleFormButton">오류 작성 하고싶어요!</button>
+													</div>
+												</div>
 												<label for="description"
 													class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white error_label">오류
 													내용 작성</label>
@@ -247,6 +288,7 @@
 														contentEditable='true' height="200px"></div>
 												</div>
 											</form>
+											<!-- 여기까지 -->
 											<div class="border-lime-500" id="code-label">
 												<label for="description"
 													class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white error_label">질문할
@@ -256,10 +298,12 @@
 												</div>
 												<div id="monaco-container"></div>
 											</div>
+											<!-- 여기 버튼에 data-modal-toggle 추가 -->
 											<div class="submit_btn">
 												<input type=""
 													class="text-white bg-lime-700 hover:bg-green-500 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 justify-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-													value="제출하기" onclick="submitForm()">
+													data-modal-toggle="readProductModal" value="제출하기"
+													onclick="submitForm()">
 											</div>
 										</div>
 									</div>
@@ -270,6 +314,48 @@
 				</section>
 			</div>
 		</div>
+		<!-- 여기 용용이 답변 기다리는 내용의 modal 추가 -->
+		<!-- Main modal -->
+		<div id="readProductModal" tabindex="-1" aria-hidden="true"
+			class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+			<div class="relative p-4 w-full max-w-xl h-full md:h-auto">
+				<!-- Modal content -->
+				<div
+					class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+					<!-- Modal header -->
+					<div class="flex justify-center">
+						<div class="flex flex-column mb-4 rounded-t sm:mb-5"
+							style="margin-top: 10px;">
+							<img
+								src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"
+								width="100px" height="100px" class="maargin-left maargin-top">
+							<div>
+								<font size=6> 용용이가 답변을 생성중이에요~<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;잠시만 기다려주세요~
+								</font>
+							</div>
+							<div role="status flex items-center"
+								class="margin-top maaargin-left maargin-bottom">
+								<svg aria-hidden="true"
+									class="inline w-12 h-12 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-green-500"
+									viewBox="0 0 100 101" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+                  <path
+										d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+										fill="currentColor" />
+                  <path
+										d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+										fill="currentFill" />
+                </svg>
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 요기까지 -->
+
 	</main>
 
 
@@ -313,49 +399,52 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs/loader.js"></script>
 
 	<script>
-		function submitForm() {
-			var divContent = document.getElementById('myTextarea').innerHTML;
-			var hiddenInput = document.createElement('input');
+    function submitForm() {
+      var divContent = document.getElementById('myTextarea').innerHTML;
+      var hiddenInput = document.createElement('input');
 
-			// 숫자로 변환 1.C 2.Py 3.Java
-			var divContentlanguage = Number(document
-					.getElementById('categoryLanguage').options[document
-					.getElementById("categoryLanguage").selectedIndex].value);
-			var hiddenInputlanguage = document.createElement('input');
+      // 숫자로 변환 1.C 2.Py 3.Java
+      var divContentlanguage = Number(document
+        .getElementById('categoryLanguage').options[document
+          .getElementById("categoryLanguage").selectedIndex].value);
+      var hiddenInputlanguage = document.createElement('input');
 
-			var divContentError = document.getElementById('myTextareaError').innerHTML;
-			var hiddenInputError = document.createElement('input');
+      var divContentError = document.getElementById('myTextareaError').innerHTML;
+      var hiddenInputError = document.createElement('input');
 
-			hiddenInput.type = 'hidden';
-			hiddenInput.name = 'questionContent';
+      hiddenInput.type = 'hidden';
+      hiddenInput.name = 'questionContent';
 
-			hiddenInputError.type = 'hidden';
-			hiddenInputError.name = 'questionError';
+      hiddenInputError.type = 'hidden';
+      hiddenInputError.name = 'questionError';
 
-			hiddenInputlanguage.type = 'hidden';
-			hiddenInputlanguage.name = 'questionLanguageNum';
+      hiddenInputlanguage.type = 'hidden';
+      hiddenInputlanguage.name = 'questionLanguageNum';
 
-			hiddenInput.value = divContent;
-			hiddenInputError.value = divContentError;
-			hiddenInputlanguage.value = divContentlanguage;
+      hiddenInput.value = divContent;
+      hiddenInputError.value = divContentError;
+      hiddenInputlanguage.value = divContentlanguage;
 
-			document.getElementById('writeQuestion').appendChild(hiddenInput);
-			document.getElementById('writeQuestion').appendChild(
-					hiddenInputError);
-			document.getElementById('writeQuestion').appendChild(
-					hiddenInputlanguage);
+      document.getElementById('writeQuestion').appendChild(hiddenInput);
+      document.getElementById('writeQuestion').appendChild(
+        hiddenInputError);
+      document.getElementById('writeQuestion').appendChild(
+        hiddenInputlanguage);
 
-			if (divContent.trim() != '') {
-				document.getElementById('writeQuestion').submit();
-			} else {
-				alert("질문 내용을 작성하세요!");
-			}
-		}
-	</script>
+      if (divContent.trim() != '') {
+        document.getElementById('writeQuestion').submit();
+      } else {
+        alert("질문 내용을 작성하세요!");
+      }
+    }
+  </script>
 
+	<!-- 이거 script태그 추가됨~ 이게 그거 오류 내용 작성할꺼면 버튼 누르면 text작성할 수 있지렁 -->
 	<script>
-		var editor;
-		var lang;
+    // JavaScript 코드 추가
+    document.addEventListener("DOMContentLoaded", function () {
+      const formElement = document.getElementById("myTextareaError");
+      const toggleFormButton = document.getElementById("toggleFormButton");
 
 		function checkLanguage() {
 			var divContentlanguage = Number(document
@@ -371,112 +460,143 @@
 				else if (divContentlanguage == 3)
 					lang = 'java';
 				document.getElementById('defaultModalButton1').setAttribute('data-modal-toggle', 'defaultModal');
+      // 폼 초기 상태: 비활성화
+      formElement.setAttribute("contentEditable", "false");
 
-				document.getElementById('monaco code-input').innerHTML = "";
-				require
-						.config({
-							paths : {
-								'vs' : 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs'
-							}
-						});
-				
-				require([ 'vs/editor/editor.main' ], function() {
-					editor = monaco.editor.create(document
-							.getElementById('monaco code-input'), {
-						theme : 'vs-dark',
-						fontFamily : 'Consolas',
-						automaticLayout : true,
-						fontSize : 17,
-						language : lang
-					});
-				});
+      // 버튼 클릭 시 폼 활성화/비활성화 토글
+      toggleFormButton.addEventListener("click", function () {
+        formElement.setAttribute("contentEditable", "true");
+      });
+    });
+  </script>
+	<!-- 요기까지 -->
 
-			}
-		}
+	<!-- 이거 script 바뀜 추가로 검색하겠지? alert지웠지롱 -->
+	<script>
+    var editor;
+    var lang;
 
-		function addCodeForm() {
-			if (editor.getValue()) {
-				var hiddenInputCode = document.createElement('input');
+    function checkLanguage() {
+      var divContentlanguage = Number(document
+        .getElementById('categoryLanguage').options[document
+          .getElementById("categoryLanguage").selectedIndex].value);
+	  
+      if (divContentlanguage == 0) {
+			document.getElementById('monaco code-input').innerHTML = "언어를 먼저 선택해주세요.";
+	  } 
+      else 
+		{
+      	if (divContentlanguage == 1) { lang = 'c';} 
+	      else if (divContentlanguage == 2){ lang = 'python'; }
+	      else if (divContentlanguage == 3){ lang = 'java'; }
+      
+      
+        document.getElementById('monaco code-input').innerHTML = "";
+        require
+          .config({
+            paths: {
+              'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs'
+            }
+          });
 
-				hiddenInputCode.type = 'hidden';
-				hiddenInputCode.name = 'questionCode';
-				hiddenInputCode.value = editor.getValue();
-				document.getElementById('writeQuestion').appendChild(
-						hiddenInputCode);
-			}
-		}
-	</script>
+        require(['vs/editor/editor.main'], function () {
+          editor = monaco.editor.create(document
+            .getElementById('monaco code-input'), {
+            theme: 'vs-dark',
+            fontFamily: 'Consolas',
+            automaticLayout: true,
+            fontSize: 17,
+            language: lang
+          });
+        });
+
+      }
+    }
+
+    function addCodeForm() {
+      if (editor.getValue()) {
+        var hiddenInputCode = document.createElement('input');
+
+        hiddenInputCode.type = 'hidden';
+        hiddenInputCode.name = 'questionCode';
+        hiddenInputCode.value = editor.getValue();
+        document.getElementById('writeQuestion').appendChild(
+          hiddenInputCode);
+      }
+    }
+  </script>
+	<!-- 여기까지 -->
 
 	<script>
 		// Monaco Editor 스크립트 로드
-	</script>
+  </script>
 
 	<script>
-		function submitCode() {
-			// Monaco 에디터의 내용 가져오기
-			var editorContent = editor.getValue();
+    function submitCode() {
+      // Monaco 에디터의 내용 가져오기
+      var editorContent = editor.getValue();
 
-			var divContentlanguage = Number(document
-					.getElementById('categoryLanguage').options[document
-					.getElementById("categoryLanguage").selectedIndex].value);
-			var lang;
+      var divContentlanguage = Number(document
+        .getElementById('categoryLanguage').options[document
+          .getElementById("categoryLanguage").selectedIndex].value);
+      var lang;
 
-			if (divContentlanguage == 1)
-				lang = 'c';
-			else if (divContentlanguage == 2)
-				lang = 'python';
-			else if (divContentlanguage == 3)
-				lang = 'java';
+      if (divContentlanguage == 1)
+        lang = 'c';
+      else if (divContentlanguage == 2)
+        lang = 'python';
+      else if (divContentlanguage == 3)
+        lang = 'java';
 
-			// editorContent를 원하는 방식으로 처리
-			console.log("Monaco 에디터 내용:", editorContent);
-			// 여기서는 콘솔에 로그를 출력하도록 예시로 작성하였습니다.
+      // editorContent를 원하는 방식으로 처리
+      console.log("Monaco 에디터 내용:", editorContent);
+      // 여기서는 콘솔에 로그를 출력하도록 예시로 작성하였습니다.
 
-			require
-					.config({
-						paths : {
-							'vs' : 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs'
-						}
-					});
-			require(
-					[ 'vs/editor/editor.main' ],
-					function() {
-						// Monaco Editor 인스턴스 생성
+      require
+        .config({
+          paths: {
+            'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs'
+          }
+        });
+      require(
+        ['vs/editor/editor.main'],
+        function () {
+          // Monaco Editor 인스턴스 생성
 
-						document.getElementById('monaco-container').innerHTML = "";
-						var editordown = monaco.editor.create(document
-								.getElementById('monaco-container'), {
-							value : editorContent,
-							language : lang,
-							automaticLayout : true,
-							theme : 'vs-dark'
-						});
+          document.getElementById('monaco-container').innerHTML = "";
+          var editordown = monaco.editor.create(document
+            .getElementById('monaco-container'), {
+            value: editorContent,
+            language: lang,
+            automaticLayout: true,
+            theme: 'vs-dark'
+          });
 
-						var lineCount = editor.getModel().getLineCount();
-						// Monaco Editor의 높이를 계산하기 위한 기본 높이 값
-						var lineHeight = 21; // 한 줄의 높이 (예시 값)
-						// Monaco Editor 요소 선택
-						var monacoContainer = document
-								.getElementById('monaco-container');
-						// Monaco Editor의 높이 계산
-						var editorHeight = lineCount * lineHeight;
-						// Monaco Editor 요소의 높이 설정
-						monacoContainer.style.height = editorHeight + 'px';
+          var lineCount = editor.getModel().getLineCount();
+          // Monaco Editor의 높이를 계산하기 위한 기본 높이 값
+          var lineHeight = 21; // 한 줄의 높이 (예시 값)
+          // Monaco Editor 요소 선택
+          var monacoContainer = document
+            .getElementById('monaco-container');
+          // Monaco Editor의 높이 계산
+          var editorHeight = lineCount * lineHeight;
+          // Monaco Editor 요소의 높이 설정
+          monacoContainer.style.height = editorHeight + 'px';
 
-						// Monaco Editor에 값이 있는지 확인하여 출력 여부 결정
-						if (editorContent) {
-							console.log('값이 있음!');
-							document.getElementById('monaco-container').style.display = 'block'; // Monaco Editor 숨김
-							document.getElementById('code-label').style.display = 'block';
+          // Monaco Editor에 값이 있는지 확인하여 출력 여부 결정
+          if (editorContent) {
+            console.log('값이 있음!');
+            document.getElementById('monaco-container').style.display = 'block'; // Monaco Editor 숨김
+            document.getElementById('code-label').style.display = 'block';
 
-						} else {
-							console.log('값이 없음!');
-							document.getElementById('monaco-container').style.display = 'none'; // Monaco Editor 숨김
-							document.getElementById('code-label').style.display = 'none';
-						}
-					});
-		}
-	</script>
+          } else {
+            console.log('값이 없음!');
+            document.getElementById('monaco-container').style.display = 'none'; // Monaco Editor 숨김
+            document.getElementById('code-label').style.display = 'none';
+          }
+        });
+    }
+  </script>
 
 
 </body>

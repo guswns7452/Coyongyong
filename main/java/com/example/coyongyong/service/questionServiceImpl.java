@@ -2,10 +2,11 @@ package com.example.coyongyong.service;
 
 import java.util.List;
 
-import com.example.coyongyong.domain.questionVO;
-import com.example.coyongyong.persistance.questionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.coyongyong.domain.questionVO;
+import com.example.coyongyong.persistance.questionDAO;
 
 @Service
 public class questionServiceImpl implements questionService {
@@ -28,6 +29,10 @@ public class questionServiceImpl implements questionService {
 	
 	public int countLastQuestionNum() throws Exception{
 		return questionDAO.readLastQuestionNum();
+	}
+	
+	public List<questionVO> readByLanguageNum(int questionLanguageNum) throws Exception{
+		return questionDAO.readByLanguageNum(questionLanguageNum);
 	}
 	
 	public void addQuestion(questionVO question) throws Exception{

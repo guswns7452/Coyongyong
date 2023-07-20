@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-  import="com.example.coyongyong.controller.mypageController" %>
-  
+  import="com.example.coyongyong.controller.mypageController" %>	
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
   <!DOCTYPE html>
   <html lang="ko">
@@ -91,7 +90,7 @@
                     aria-current="page">Home</a>
                 </li>
                 <li>
-                  <a href="/question/questionmain?language=c"
+                  <a href="/problem/list?language=c"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">질문</a>
                 </li>
                 <li>
@@ -112,17 +111,165 @@
         </nav>
     <div class="bg-gray-50 flexflextop">
       <div class="flexcenter">
+      <h1 class=" font-bold text-3xl pd50 text-center tx-center ">언어 선택</h1>
+      <div
+					class=" width47per text-center ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL flex tw-flex flex-row">
+					<c:choose>
+						<c:when test="${language eq 'c'}">
+							<c:set var="languageNum" value="1" />
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=c"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/letter-c.png"
+									class="width70px">
+									<div>C</div>
+								</a>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=java"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-java.png"
+									class="width70px">
+									<div>Java</div>
+								</a>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=python"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-python.png"
+									class="width70px">
+									<div>python</div>
+								</a>
+							</div>
+
+							<%-- <div class="tw-flex tw-flex-col mgr30">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-c-logo.png"
+									class="width70px">
+								<div>C++</div>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-js.png"
+									class="width70px">
+								<div>JavaScript</div>
+							</div>
+
+							<div class="tw-flex tw-flex-col">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-kotlin.png"
+									class="width70px">
+								<div>kotlin</div>
+							</div> --%>
+						</c:when>
+						<c:when test="${language eq 'java'}">
+							<c:set var="languageNum" value="3" />
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=c"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-letter-c.png"
+									class="width70px">
+									<div>C</div>
+								</a>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=java"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/java.png"
+									class="width70px">
+									<div>Java</div>
+								</a>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=python"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-python.png"
+									class="width70px">
+									<div>python</div>
+								</a>
+							</div>
+
+							<%-- <div class="tw-flex tw-flex-col mgr30">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-c-logo.png"
+									class="width70px">
+								<div>C++</div>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-js.png"
+									class="width70px">
+								<div>JavaScript</div>
+							</div>
+
+							<div class="tw-flex tw-flex-col">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-kotlin.png"
+									class="width70px">
+								<div>kotlin</div>
+							</div> --%>
+						</c:when>
+						<c:when test="${language eq 'python'}">
+							<c:set var="languageNum" value="2" />
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=c"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-letter-c.png"
+									class="width70px">
+									<div>C</div>
+								</a>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=java"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-java.png"
+									class="width70px">
+									<div>Java</div>
+								</a>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<a href="/problem/list?language=python"> <img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/python.png"
+									class="width70px">
+									<div>python</div>
+								</a>
+							</div>
+
+							<%-- <div class="tw-flex tw-flex-col mgr30">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-c-logo.png"
+									class="width70px">
+								<div>C++</div>
+							</div>
+
+							<div class="tw-flex tw-flex-col mgr30">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-js.png"
+									class="width70px">
+								<div>JavaScript</div>
+							</div>
+
+							<div class="tw-flex tw-flex-col">
+								<img
+									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/gray-kotlin.png"
+									class="width70px">
+								<div>kotlin</div>
+							</div> --%>
+						</c:when>
+					</c:choose>
+					</div>
         <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white tx-center">레벨 1</h2>
         <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
           <div>
             <div
               class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A + B</h5>
+              <a href="/problem/play?num=${problems.get(0).problemNum}&language=${language}">
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${problems.get(0).problemTitle}</h5>
               </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A+B를 구하시오</p>
+              <p class="targetget mb-3 font-normal text-gray-700 dark:text-gray-400">자리 배정해주는<br>피시방 알바생</p>
               <div class="text-right">
-                <a href="#"
+                <a href="/problem/play?num=${problems.get(0).problemNum}&language=${language}"
                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   GO
                   <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -137,12 +284,12 @@
           <div>
             <div
               class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A - B</h5>
+              <a href="/problem/play?num=${problems.get(1).problemNum}&language=${language}">
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${problems.get(1).problemTitle}</h5>
               </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A-B를 구하시오</p>
+              <p class="targetget mb-3 font-normal text-gray-700 dark:text-gray-400">반짝 반짝 작은별.<br>아름답게 빛나네</p>
               <div class="text-right">
-                <a href="#"
+                <a href="/problem/play?num=${problems.get(0).problemNum}&language=${language}"
                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   GO
                   <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -157,12 +304,12 @@
           <div>
             <div
               class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">사칙연산</h5>
+              <a href="/problem/play?num=${problems.get(2).problemNum}&language=${language}">
+                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${problems.get(2).problemTitle}</h5>
               </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">사칙연산하기</p>
+              <p class="targetget mb-3 font-normal text-gray-700 dark:text-gray-400">덧셈을 해서 제자리로<br>돌아오는 수를 찾아보아요</p>
               <div class="text-right">
-                <a href="#"
+                <a href="/problem/play?num=${problems.get(2).problemNum}&language=${language}"
                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   GO
                   <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -186,7 +333,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -202,7 +349,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -218,7 +365,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -228,61 +375,17 @@
         <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
           <div>
             <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A + B</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A+B를 구하시오</p>
-              <div class="text-right">
-                <a href="#"
-                  class="button_color inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
               </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mg-3 mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A - B</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A-B를 구하시오</p>
               <div class="text-right">
-                <a href="#"
-                  class="button_color inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">사칙연산</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">사칙연산하기</p>
-              <div class="text-right">
-                <a href="#"
-                  class="button_color inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
+                <button type="button"
+                  class="button_color_disabled text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -298,7 +401,7 @@
               <div class="text-right">
                 <button type="button"
                   class="button_color_disabled text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -314,7 +417,7 @@
               <div class="text-right">
                 <button type="button"
                   class="button_color_disabled text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -330,7 +433,39 @@
               <div class="text-right">
                 <button type="button"
                   class="button_color_disabled text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="text-right">
+                <button type="button"
+                  class="button_color_disabled text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="text-right">
+                <button type="button"
+                  class="button_color_disabled text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -340,61 +475,17 @@
         <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
           <div>
             <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A + B</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A+B를 구하시오</p>
-              <div class="text-right">
-                <a href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-purple-700 rounded-lg hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
               </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A - B</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A-B를 구하시오</p>
               <div class="text-right">
-                <a href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-purple-700 rounded-lg hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">사칙연산</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">사칙연산하기</p>
-              <div class="text-right">
-                <a href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-purple-700 rounded-lg hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
+                <button type="button"
+                  class="text-white bg-purple-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -410,7 +501,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-purple-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -426,7 +517,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-purple-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -442,7 +533,39 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-purple-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="text-right">
+                <button type="button"
+                  class="text-white bg-purple-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="text-right">
+                <button type="button"
+                  class="text-white bg-purple-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -452,61 +575,17 @@
         <div class="grid grid-cols-3 md:grid-cols-3 gap-6">
           <div>
             <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A + B</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A+B를 구하시오</p>
-              <div class="text-right">
-                <a href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
               </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">A - B</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A-B를 구하시오</p>
               <div class="text-right">
-                <a href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="margin-20 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">사칙연산</h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">사칙연산하기</p>
-              <div class="text-right">
-                <a href="#"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-600 rounded-lg hover:bg-pink-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  GO
-                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </a>
+                <button type="button"
+                  class="text-white bg-pink-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -522,7 +601,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-pink-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -538,7 +617,7 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-pink-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -554,7 +633,39 @@
               <div class="text-right">
                 <button type="button"
                   class="text-white bg-pink-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  disabled>준비중</button>
+                  disabled>레벨 미달성</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="text-right">
+                <button type="button"
+                  class="text-white bg-pink-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="bg-white margin-20 max-w-sm p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                <div class="mg-3 h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="text-right">
+                <button type="button"
+                  class="text-white bg-pink-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled>레벨 미달성</button>
               </div>
             </div>
           </div>
@@ -566,6 +677,7 @@
 
 
 
+    </div>
     </div>
     <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
       <div class="mx-auto max-w-screen-xl text-center">

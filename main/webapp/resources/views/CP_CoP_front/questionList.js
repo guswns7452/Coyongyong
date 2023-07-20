@@ -42,10 +42,9 @@ function displayList() {
     const endIndex = startIndex + itemsPerPage;
     const paginatedList = titleList.slice(startIndex, endIndex);
     const listContainer = document.getElementById('listContainer');
-    listContainer.innerHTML = '';
+    
 
     paginatedList.forEach((item, index) => {
-        const listItem = document.createElement('a');
         const listContent = contentList[startIndex + index] || ''; // 작성글 내용
         const imgSrc = imgList[startIndex + index] || 'appliance-repair.png'; // 이미지 소스
         const authorName = nameList[startIndex + index] || ''; // 작성자 이름
@@ -53,28 +52,9 @@ function displayList() {
         const nowTime = nowTimeList[startIndex + index] || '';
         const answerCount = answerCountList[startIndex + index] || 0;
 
-        listItem.innerHTML = `
-      <div class="w-full word-space grid">
-        <font size=5>${item}</font>
-        <div class="studyJournal_content">${listContent}</div>
-        <div class="flex justify-between column-center">
-        <div class="flex items-center space-x-4 bg-black">
-          <img class="w-7 h-7 rounded-full" src="${imgSrc}" alt=""/>
-            <span class="font-medium dark:text-white">
-              ${authorName}
-            </span>
-          </div>
-          <div>
-            <font size=2>게시날짜 ${nowTime}</font>
-            <font size=2>답변개수 ${answerCount}</font>
-            <font size=2>조회수 ${watchingCount}</font>
-          </div>
-        </div>
-      </div>`;
+      
 
-        listItem.href = hrefList[startIndex + index] || '#'; // 링크
-        listContainer.appendChild(listItem);
-        listItem.classList.add('li');
+        
     });
 
     displayPagination();

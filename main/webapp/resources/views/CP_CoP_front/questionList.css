@@ -64,7 +64,7 @@ li {
 }
 
 .content {
-    border: 1px solid #000000;
+    border: 1px solid #6A6D78;
     border-right: none;
     border-left: none;
     border-bottom: none;
@@ -72,6 +72,7 @@ li {
     margin-right: 8px;
     margin-left: 9px;
 }
+
 
 .grid {
     display: grid;
@@ -157,17 +158,17 @@ li {
     border-color: azure;
 }
 
-/* �ㅻ뜑遺�遺� �� */
+/* 占썬끇�쐭�겫占썽겫占� 占쏙옙 */
 
-/* 吏덈Ц 紐⑸줉 遺�遺� */
-/* �쒕ぉ */
+/* 筌욌뜄揆 筌뤴뫖以� �겫占썽겫占� */
+/* 占쎌뮆�걠 */
 .title {
     display: flex;
     margin-top: 2%;
     margin-left: 1%;
 }
 
-/* 怨듬��쇱� 寃��됲븯湲� */
+/* �⑤벉占쏙옙�눘占� 野껓옙占쎈맪釉�疫뀐옙 */
 
 #study_search {
     display: flex;
@@ -249,7 +250,7 @@ li {
     items-align: top;
 }
 
-/* 由ъ뒪�� 袁몃�湲�! */
+/* �뵳�딅뮞占쏙옙 熬곷챶占썸묾占�! */
 
 .li {
     padding: 10px;
