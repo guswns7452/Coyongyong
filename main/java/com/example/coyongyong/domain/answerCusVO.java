@@ -5,11 +5,29 @@ public class answerCusVO {
 	private int answerCusNum;
 	private int questionNum;
 	private int gradeNum;
+	private String answerCusTitle;
+	private String answerCusCode;
 	private String answerCusContent;
 	private int answerCusLike;
 	private int answerCusUnlike;
 	private String customerID;
-
+	
+	public String getanswerCusTitle() {
+		return answerCusTitle;
+	}
+	
+	public void setanswerCusTitle(String answerCusTitle) {
+		this.answerCusTitle = answerCusTitle;
+	}
+	
+	public String getanswerCusCode() {
+		return answerCusCode;
+	}
+	
+	public void setanswerCusCode(String answerCusCode) {
+		this.answerCusCode = answerCusCode;
+	}
+	
 	// 회원 답변 번호
 	public int getanswerCusNum() {
 		return answerCusNum;

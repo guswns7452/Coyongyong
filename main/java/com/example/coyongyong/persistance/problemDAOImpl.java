@@ -1,11 +1,12 @@
 package com.example.coyongyong.persistance;
 
-import com.example.coyongyong.domain.problemVO;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.example.coyongyong.domain.problemVO;
 
 @Repository
 public class problemDAOImpl implements problemDAO {
@@ -32,13 +33,14 @@ public class problemDAOImpl implements problemDAO {
     @Override
     public List<problemVO> selectByGradeAndLanguage(int grade, int languageNum) throws Exception {
         problemVO problem = new problemVO();
-        problem.setGrade(grade);
-        problem.setLanguageNum(languageNum);
+        problem.setgrade(grade);
+        problem.setlanguageNum(languageNum);
         return sqlSession.selectList(namespace + ".selectByGradeAndLanguage", problem);
     }
 
     @Override
     public List<problemVO> selectAll() throws Exception {
+    	System.out.println("DAO : "+sqlSession.selectList(namespace + ".selectAll"));
         return sqlSession.selectList(namespace + ".selectAll");
     }
 

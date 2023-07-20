@@ -1,14 +1,14 @@
 package com.example.coyongyong.persistance;
 
 import java.util.ArrayList;
-import org.apache.ibatis.session.SqlSession;
 import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
-import com.example.coyongyong.domain.questionVO;
 import com.example.coyongyong.domain.gradeVO;
+import com.example.coyongyong.domain.questionVO;
 
 @Repository
 public class questionDAOImpl implements questionDAO{
@@ -19,11 +19,13 @@ public class questionDAOImpl implements questionDAO{
 	private static final String namespace = "com.example.coyongyong.mapper.questionMapper";
 
 	//추가 메소드
+	@Override
 	public void add(questionVO question) throws Exception{
 		sqlSession.insert(namespace + ".insert", question);
 	}
 	
 	//리스트화 메소드
+	@Override
 	public List<questionVO> readList() throws Exception{
 		List<questionVO> quesionlist = new ArrayList<questionVO>();
 		quesionlist = sqlSession.selectList(namespace + ".selectAll");
@@ -31,6 +33,7 @@ public class questionDAOImpl implements questionDAO{
 	}
 	
 	//읽기 메소드
+	@Override
 	public questionVO read(int questionNum) throws Exception {
 	    // 1. questionCount 조회
 	    questionVO vo = sqlSession.selectOne(namespace + ".selectByid", questionNum);
@@ -43,14 +46,14 @@ public class questionDAOImpl implements questionDAO{
 	    
 	    return vo; 
 	} 
-	
+	@Override
 	public int readLastQuestionNum() throws Exception{
 		// INT라서 그런가?
 		int lastQuestionNum = sqlSession.selectOne(namespace+".selectLastQuestionNum");
 		return lastQuestionNum; 
 	}
 	
-	
+	@Override
 	public List<questionVO> readQuestionsTop() throws Exception{
 		List<questionVO> questionlist = new ArrayList<questionVO>();
 		List<questionVO> temp = new ArrayList<questionVO>();
@@ -80,7 +83,16 @@ public class questionDAOImpl implements questionDAO{
 		return questionlist;
 	}
 	
+	@Override
+	public List<questionVO> readByLanguageNum(int questionLanguageNum) throws Exception{
+		List<questionVO> questionlist = new ArrayList<questionVO>();
+		questionlist = sqlSession.selectList(namespace + ".selectByLanguageNum", questionLanguageNum);
+		
+		return questionlist;
+	}
+	
 	//삭제 요청
+	@Override
 	public void delete(int questionNum) throws Exception{
 		sqlSession.delete(namespace + ".delete", questionNum);
 	}

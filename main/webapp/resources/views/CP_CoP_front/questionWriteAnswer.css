@@ -1,10 +1,12 @@
-abody { 
+@charset "UTF-8";
+
+body { 
   margin: 0; 
 }
 .top {
   display: flex;
   justify-content: center;
-  background: #F3FAF7;
+  background: #F3F4F6;
 }
 .toptop {
   width: 60%;
@@ -12,38 +14,15 @@ abody {
 #top {
   margin-top: 5%;
 }
-// �섎뒗 �놁뿀��
-#code-label {
-	display: none !important;
-}
 main { 
   font-family: 'Hi Melody', cursive;
   font-family: 'Nanum Gothic', sans-serif;
   width: 100%;
   height: 100%;
   padding: 0px;
-  margin-bottom: 200px;
 }
 .margin-bottom {
   margin-bottom: 3%;
-}
-.maargin-bottom {
-  margin-bottom: 8%;
-}
-.margin-left {
-  margin-left: 1%;s
-}
-.margin-top {
-  margin-top: 2%;
-}
-.maargin-top {
-  margin-top: 10%;
-}
-.maargin-left {
-  margin-left: 38%;
-}
-.maaargin-left {
-  margin-left: 43%;
 }
 
 main > * {
@@ -80,22 +59,7 @@ textarea {
   border-color: #046C4E #046C4E #046C4E #046C4E !important;
 }
 
-.bg-lime-700 {
-  background-color: #0E9F6E !important;
-}
-
-.bg-lime-700:hover {
-  background-color: #057A55 !important;
-}
-
-.bg-lime-700:active {
-  outline:none;
-  border-style:solid;
-  border-width:3px 3px 3px 3px !important;
-  border-color: #31C48D #31C48D #31C48D #31C48D !important;
-}
-
-/* 異붽� */
+/* 추가 */
 .border-lime-500 {
   border: 1px solid #0E9F6E !important;
   border-radius: 8px;
@@ -112,125 +76,69 @@ textarea {
   border-top: none !important;
 }
 
-/* �댄똻 �ㅽ��� */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+/* 여기까지 */
+
+.bg-lime-700 {
+  background-color: #0E9F6E !important;
 }
 
-/* �댄똻 肄섑뀗痢� */
-.tooltip .tooltip-content {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  background-color: #4B5563;
-  color: #fff;
-  border-radius: 4px;
-  padding: 8px;
-  margin-top: 1%;
-  transition: opacity 0.3s, visibility 0.3s;
-  bottom: -420%;
-  left: 400%;
-  transform: translateX(-50%);
-  white-space: pre-wrap; /* 媛�濡� 以꾨컮轅덉쓣 �꾪븳 �띿꽦 異붽� */
-  word-wrap: break-word; /* 媛�濡� 以꾨컮轅덉쓣 �꾪븳 �띿꽦 異붽� */
-  overflow-y: scroll; /* �몃줈 �ㅽ겕濡ㅼ쓣 �꾪븳 �띿꽦 異붽� */
-  max-height: 200px;
-  z-index: 9999;
+.bg-lime-700:hover {
+  background-color: #057A55 !important;
 }
 
-.tooltip-content {
-  height: 500px;
-  width: 500px;
+.bg-lime-700:active {
+  outline:none;
+  border-style:solid;
+  border-width:3px 3px 3px 3px !important;
+  border-color: #31C48D #31C48D #31C48D #31C48D !important;
 }
 
-/* �댄똻 �쒖떆 �꾩씠肄� */
-.tooltip .tooltip-icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: #f44336;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 30px;
-}
 
-.items-center {
-  display: flex;
-  align-items: center;
-}
-
-.information {
-  height: 30px;
-  width: 30px;
-}
-
-.justify-center {
-  display: flex;
-  justify-content: center !important;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-/* �댄똻 �몃쾭 �� �댄똻 肄섑뀗痢� �쒖떆 */
-.tooltip:hover .tooltip-content {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* �ш린源뚯� */
-
-/* 異붽� */
+/* 추가 */
 .background{
   background-color: white !important;
   padding-top: 1%;
-  padding: 3%;
+  padding: 5%;
   margin-top: 1%;
   border: 2px solid #E5E7EB;
   border-radius: 10px;
   /* box-shadow: 2px 2px 2px #31C48D; */
 }
+/* 여기까지 */
 
-.bg-gray-50 {
-  background-color: #F9FAFB !important;
+.img {
+  width: 5%;
 }
 
-/* �ш린源뚯� */
-
-/* .input {
+.white-block {
+  border: 2px solid #E5E7EB;
+  border-radius: 4px;
   background-color: #FFFFFF;
-  box-shadow: 2px 2px 2px #31C48D;
-} */
+  padding: 5%;
+  padding-top: 4%;
+  margin-bottom: 5%;
+  margin-top: 1%;
+}
 
 /* =============== HEADER =================== */
-.background_color_white {
-  background-color: white;
-  border-radius: 1px;
-  border-color: azure;
-}
 
-/* �ㅻ뜑遺�遺� �� */
 
-/* 吏덈Ц �앹꽦�섎뒗 遺�遺� */
-/* �쒕ぉ */
+/* 헤더부분 끝 */
+
+/* 질문 생성하는 부분 */
+/* 제목 */
 .title {
   display: flex;
-  margin-top: 2%;
 }
 
-/* 吏덈Ц �쒕ぉ �낅젰�섍린 */
+/* 질문 제목 입력하기 */
 
 /* flex */
 #flex {
   display: flex;
   flex-grow: 1;
 }
-/* 移댄뀒怨좊━ �좏깮 */
+/* 카테고리 선택 */
 
 .option{
   border : 1px solid #D1D5DB;
@@ -258,7 +166,7 @@ select:focus {
   border-radius: 8px;
 }
 
-/* private 紐⑤뱶 �좏깮 */
+/* private 모드 선택 */
 .mr-4 {
   margin-top: 5px;
 }
@@ -278,14 +186,14 @@ select:focus {
   border-color: #000000 #000000 #000000 #000000; 
 } */
 
-/* �ㅻ쪟 �묒꽦, 吏덈Ц �묒꽦 遺�遺� */
-/* �묒꽦�좊븣 湲곕낯 */
+/* 오류 작성, 질문 작성 부분 */
+/* 작성할때 기본 */
 #message {
   resize: none;
   margin-bottom: 15px;
 }
 
-/* 踰꾪듉 �뚮��� �� �④낵二쇨린 */
+/* 버튼 눌렀을 때 효과주기 */
 
 .button {
   border-radius: 20px;
@@ -309,9 +217,11 @@ select:focus {
   box-shadow: 3px 3px 3px rgb(166, 169, 166);
 }
 
-/* 怨듬��쇱� �댁슜 �묒꽦 */
+/* 공부일지 내용 작성 */
 
 .study_journal_content {
+  /* width:880px;
+  height:1000px; */
   font-size:20px;
 
   outline: -webkit-focus-ring-color auto 1px;
@@ -328,11 +238,7 @@ select:focus {
   resize: none;
 }
 
-.questionContent {
-  margin-bottom: 4%;
-}
-
-/* �쒖텧 踰꾪듉 */
+/* 제출 버튼 */
 .submit_btn {
   justify-content: flex-end;
   display: flex;
@@ -343,7 +249,7 @@ select:focus {
   margin-bottom: 3% ;
 }
 
-/* �뚯젣紐� 湲곕낯 */
+/* 소제목 기본 */
 
 #title {
   margin-left: 20px;
@@ -355,13 +261,16 @@ select:focus {
   overflow-y: auto;
 }
 
-#monaco-container {
-  margin-bottom: 4%;
-  margin-top: 2%;
+.studyJournalContent {
+  height: 100%;
 }
 
-/* 異붽��쒓굅~ */
-/* �쒕ぉ �묒꽦 css */
+#monaco-container {
+  margin-top: 4%;
+}
+
+/* 추가된거~ */
+/* 제목 작성 css */
 
 .div {
   position: relative;
@@ -393,7 +302,7 @@ select:focus {
   display: block;
   position: absolute;
   bottom: 0;
-  left : 0%;  /* right濡쒕쭔 諛붽퓭二쇰㈃ �� - �� */
+  left : 0%;  /* right로만 바꿔주면 오 - 왼 */
   background-color: #31C48D;
   width: 0;
   height: 2px;
@@ -408,7 +317,6 @@ select:focus {
   font-size: 20px;
   bottom: 8px;
   transition: all .2s;
-  z-index: 2;
 }
 
 .input:focus ~ .label, .input:valid ~ .label {
@@ -422,19 +330,33 @@ select:focus {
   width: 100%;
 }
 
-.input {
-  background-color: transparent !important;
-  ouline: none !important;
-}
-
-.input:focus {
-  outline: none !important;
-}
+/* 추가 됨 */
 
 div#editor_content {
   padding: 16px 24px;
   border: 1px solid #D6D6D6;
   border-radius: 4px;
+}
+
+/* #editor:focus {
+  border: none;
+  outline: none;
+} */
+
+.bold-text {
+  font-weight: bold;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.strikeThrough-text {
+  text-decoration: line-through;
 }
 
 #myTextarea {
@@ -443,12 +365,6 @@ div#editor_content {
   padding: 1%;
   text-align: left;
   outline: none;
-}
-#myTextareaError {
-  width: 100%;
-  height: 150px;
-  outline: none;
-  
 }
 
 .studyJournalContent {
@@ -478,11 +394,16 @@ div#editor_content {
   margin-left: 25px;
 }
 
-.question_label {
-  margin-left: 1%;
+.input {
+  background-color: transparent !important;
+  ouline: none !important;
+}
+
+.input:focus {
+  outline: none !important;
 }
 
 .error_label {
   margin-top: 2%;
-  margin-left: 1%;
+  margin-left: 2%;
 }

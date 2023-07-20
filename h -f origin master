@@ -1,0 +1,207 @@
+[33mcommit 8036934ffad328b7e1e549fe76a178f748947b88[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Tue Jul 18 02:57:31 2023 +0900
+
+    make question study
+    
+    1. monaco editor 생성 (언어 관련하여)
+    2. question 출력 대부분 완료함
+    3. writequestion  DB에 코드, 오류, 언어 넣어서 저장
+    4. writestudy code DB에 넣기
+
+[33mcommit ae33360b311d2ee09802bab345bbf0ba8f81ca16[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Sun Jul 16 23:00:22 2023 +0900
+
+    css js
+
+[33mcommit e4fc6df69f3bf7fa9b5ac43c7a43ed2b59490bcf[m
+Merge: 06ea77a b3b0d8d
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Sun Jul 16 22:41:31 2023 +0900
+
+    Merge branch 'master' of https://github.com/guswns7452/dragon_and_horse
+
+[33mcommit 06ea77a3225ec12c06f296c2f3cd19314272ae27[m
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Sun Jul 16 22:31:57 2023 +0900
+
+    민지 2023.07.16
+    
+    회의 전에 study 데이터베이스 연동한 거
+
+[33mcommit b3b0d8d5b4eab82df5e7743a0c84ba9fe2bf8cf8[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Sun Jul 16 22:30:39 2023 +0900
+
+    add signup Grade
+    
+    회원가입 시 등급 추가
+
+[33mcommit aab943d8c7a570ce2ffc4e803de74e9d2c150046[m
+Merge: 7270be5 ac538f6
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Sun Jul 16 16:11:23 2023 +0900
+
+    Merge branch 'master' of https://github.com/guswns7452/dragon_and_horse
+
+[33mcommit 7270be5fa3e2e293d478d2ba6624e2a7c0d6b38b[m
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Sun Jul 16 16:11:14 2023 +0900
+
+    민지 2023.07.16
+    
+    테스트 해야해서 보내는 거. 아무것도 아님
+
+[33mcommit ac538f648ab69e90a7969e58f93528d6293bdc39[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Sun Jul 16 16:09:07 2023 +0900
+
+    login, signup, questionmain출력
+    
+    그 외 아이콘 추가, 세부적 버튼 수정, 세션 등록, 세션 등록 시 정보 출력 여부 등등.
+
+[33mcommit abcb8b1c368415ba8342731eb7da062f86be9f2c[m
+Merge: 3ee94a1 8413511
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Thu Jul 13 18:59:00 2023 +0900
+
+    Merge pull request #4 from min9-525/master
+    
+    oneQuestion
+
+[33mcommit 3ee94a122abc980216e40d44321c3742e2a8198e[m
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Thu Jul 13 18:58:18 2023 +0900
+
+    question List 수정
+    
+    Top question List를 수정했습니다.
+    네.
+
+[33mcommit 8413511e93e81939c749d305b43b5c0c2d8014c9[m
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Thu Jul 13 16:05:35 2023 +0900
+
+    oneQuestion
+
+[33mcommit f4626c7cb1194fd4fc6cae7c793d66bf2e0da142[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Thu Jul 13 15:44:09 2023 +0900
+
+    commit jsp2
+
+[33mcommit fdd4710fab99e12ca3c11a3191cdec1d193f8706[m
+Merge: cedcc45 db4df3a
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Thu Jul 13 15:41:33 2023 +0900
+
+    Merge pull request #3 from min9-525/master
+    
+    민지 2023.07.23
+
+[33mcommit db4df3a8979439cd517a25bd50457cb820363c2a[m
+Merge: b54a2a0 cedcc45
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Thu Jul 13 15:39:54 2023 +0900
+
+    Merge branch 'master' into master
+
+[33mcommit b54a2a08bb131f55fb2768efa9e68d9022a5dbee[m
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Thu Jul 13 15:32:33 2023 +0900
+
+    민지 2023.07.23
+    
+    1. 언어별로 레벨별로 top1~3 뽑아내는 mapper, dao, 서비스 코드 작성
+    2. oneQuestion.jsp에 href http://localhost:8080/question/onequesion?num=1에서 1이라는 곳에 변수를 넣어서 바뀌게끔
+    3. questionController에 list index로 접근해서 한개씩 띄워줬으면
+    일단 1번~10번이지만, 페이지가 넘어갈때마다 바뀌게끔 하는 코드 작성
+    4. read할 때 마다 데이터베이스 조회수 증가
+
+[33mcommit cedcc459cc23c4aeede4782fe94472f361ed8d87[m
+Merge: 2998c6f 801b319
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Wed Jul 12 03:20:07 2023 +0900
+
+    Merge branch 'master' of https://github.com/guswns7452/dragon_and_horse
+
+[33mcommit 2998c6f1fb3217ff3413cd17175d3fb08c5f0834[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Wed Jul 12 03:19:56 2023 +0900
+
+    question main
+
+[33mcommit 801b3190df653762a750934cd003ca128675e4bd[m
+Merge: 7f16e44 d39377b
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Mon Jul 10 14:18:19 2023 +0900
+
+    Merge pull request #2 from min9-525/master
+    
+    Update mypage_problem.jsp
+
+[33mcommit d39377bd930543cfb67f27fe3d6f9fa139258b42[m
+Author: min9-525 <102501739+min9-525@users.noreply.github.com>
+Date:   Mon Jul 10 14:03:10 2023 +0900
+
+    Update mypage_problem.jsp
+
+[33mcommit 7f16e4489f5fd4a6a8136c7b5d1ffcccea9829ca[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jul 10 03:23:19 2023 +0900
+
+    fix localhost href
+
+[33mcommit c65017e0a6ef9ee8580408a42fc1eec45523deb1[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jul 10 02:56:42 2023 +0900
+
+    버튼 연동 완료
+
+[33mcommit d5774380437e59410c43c96256d08a20f9bbac27[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Wed Jun 28 23:31:55 2023 +0900
+
+    20230628
+    
+    수정 질문 css
+
+[33mcommit 638758ec43b930c61315ac44e3ed3d137be7554d[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jun 26 23:35:23 2023 +0900
+
+    additional Service,VO,DAO
+
+[33mcommit 84f5b9891fb648d9b6b565f7c1a50e31b69d0eef[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jun 26 23:28:09 2023 +0900
+
+    나머지 VO.DAO.Service 생성
+
+[33mcommit f3e3a9f5d65616382eef1bb71f1389626a3b3285[m
+Merge: 5bcf9b8 df5ed6f
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jun 26 15:37:27 2023 +0900
+
+    Merge pull request #1 from guswns7452/footer
+    
+    Update application.properties
+
+[33mcommit df5ed6f54d73995767b0182a71af6abecc976147[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jun 26 15:33:22 2023 +0900
+
+    Update application.properties
+
+[33mcommit 5bcf9b87fc95479435be713e8d95771398e37a58[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jun 26 14:32:41 2023 +0900
+
+    hide api key
+
+[33mcommit 5072e12bf37427bd7ce98ff37bfc86532c99053d[m
+Author: 전현준 <31847789+guswns7452@users.noreply.github.com>
+Date:   Mon Jun 26 13:49:41 2023 +0900
+
+    init

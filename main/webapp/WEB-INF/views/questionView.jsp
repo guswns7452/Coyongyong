@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"
 	import="com.example.coyongyong.controller.mypageController"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -138,7 +142,9 @@
 			<div class="toptop">
 				<!-- 질문에 대한 내용 적어주는 공간. -->
 				<div class="white-block">
-					<img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/letter-q.png" class="img">
+					<img
+						src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/letter-q.png"
+						class="img">
 					<div class="question_title">
 						<span id="question_title"> <font size=4>${question.questionTitle}
 						</font>
@@ -153,10 +159,15 @@
 								<c:when test="${gradeCustomer.languageNum eq 2}">Python</c:when>
 								<c:when test="${gradeCustomer.languageNum eq 1}">Java</c:when>
 							</c:choose>
-							 - ${gradeCustomer.grade} level</h3>
+							- ${gradeCustomer.grade} level
+						</h3>
 						<h4>&nbsp;&nbsp;${question.questionContent}</h4>
 						<div id="codeContainer"></div>
 						<div style="display: none;" id="innerCode">${question.questionCode}</div>
+						<div class="flex justify-end">
+							<!-- 여기 답변하러가기 버튼 추가~ -->
+							<button class="bg-lime-700">답변하러가기</button>
+						</div>
 					</div>
 				</div>
 				<!-- <div class="content"></div> -->
@@ -165,7 +176,9 @@
 				<div class="white-block">
 					<!-- 용용이 png 대신에 이거 넣으면 됨. -->
 					<div class="flex justify-between">
-						<img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png" class="img">
+						<img
+							src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"
+							class="img">
 						<div>
 							<button data-dropdown-toggle="dot_dropdown_share"
 								data-dropdown-placement="bottom" aria-expanded="false">
@@ -181,8 +194,10 @@
 					<font size=4> 용용이의 답변이 있습니다!</font>
 					<div class="yongyong_answer">
 						<h4 class="yongyong_answer_content">
-							<font size=3>&nbsp;${yongyong.answerYongContent}
-							</font>
+							<font size=3>&nbsp;${yongyong.answerYongContent} </font>
+							<div id="yongyongcodeContainer">
+								<div id="yongyonginnerCode" style="display: none;"></div>
+
 						</h4>
 					</div>
 					<div class="answer_like">
@@ -191,98 +206,79 @@
 								<button type="button"
 									class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex items-center"
 									id="subscribe">
-									<img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/click.png" width="30px" height="30px" class="heart">
-									<font size=5>&nbsp;채택하기</font>
+									<img
+										src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/click.png"
+										width="30px" height="30px" class="heart"> <font size=5>&nbsp;채택하기</font>
 								</button>
 							</a>
 						</div>
 					</div>
 				</div>
 
-				<!-- 사용자의 답변 적어주는 공간 -->
-				<div class="white-block">
-					<!-- 여기 div로 묶이고, dot_dropdown은 밑에 이씀 이거 추가~ -->
-					<div class="answer_space">
-						<div class="answer_title">
-							<h1>사용자의 답변이 N개 등록되어 있습니다!</h1>
-						</div>
-						<div class="flex justify-between">
-							<div class="answer_content">
-								<figure class="max-w-screen-md title">
-									<figcaption class="flex items-center mt-6 space-x-3">
-										<img class="w-10 h-10 rounded-full" src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/appliance-repair.png"
-											alt="profile picture">
-										<div
-											class="items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-											<div class="grid-2">
-												<cite class="pr-3 font-medium text-gray-900 dark:text-white">김밍디</cite>
-												<font size=1>좋아요 : 5000 | 싫어요 : 0</font>
+				<c:forEach items="${answerCus}" var="answer" varStatus="i">
+					<!-- 사용자의 답변 적어주는 공간 -->
+					<div class="white-block">
+						<!-- 여기 div로 묶이고, dot_dropdown은 밑에 이씀 이거 추가~ -->
+						<div class="answer_space">
+							<div class="flex justify-between">
+								<div class="answer_content">
+									<figure class="max-w-screen-md title">
+										<figcaption class="flex items-center mt-6 space-x-3">
+											<img class="w-10 h-10 rounded-full"
+												src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/appliance-repair.png"
+												alt="profile picture">
+											<div
+												class="items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+												<div class="grid-2">
+													<cite
+														class="pr-3 font-medium text-gray-900 dark:text-white">${answer.customerID} 
+													</cite>
+
+												</div>
 											</div>
-										</div>
-									</figcaption>
-								</figure>
-								<h4 class="answer">
-									<font size=3 id="answer_content multiline-text">&nbsp;데이터베이스에서
-										정규화(Normalization)는 중복 데이터를 최소화하고 데이터의 일관성과 무결성을 유지하기 위한
-										과정입니다. 정규화를 통해 데이터 중복을 최소화하여 데이터베이스의 용량을 줄이고 데이터의 일관성을 유지할 수
-										있습니다. 다음은 데이터베이스에서 정규화를 수행하는 방법입니다. 제1정규화(1NF) : 각 열에는 하나의 값만
-										저장되도록 테이블을 분해합니다. 제2정규화(2NF) : 부분 함수 종속성(Partial Functional
-										Dependency)을 제거하기 위해 테이블을 분해합니다. 제3정규화(3NF) : 이행적 함수
-										종속성(Transitive Dependency)을 제거하기 위해 테이블을 분해합니다. 보이스-코드
-										정규형(BCNF) : 후보키가 아닌 열이 후보키에 종속되는 함수 종속성을 제거하기 위해 테이블을 분해합니다.
+										</figcaption>
+									</figure>
+									<h4 class="answer">
+										<font size=3 id="answer_content multiline-text">${answer.answerCusContent} <br>
 
-										제4정규화(4NF) : 다중 값 종속성(Multi-valued Dependency)을 제거하기 위해 테이블을
-										분해합니다. 제5정규화(5NF) : 조인 종속성(Join Dependency)을 제거하기 위해 테이블을
-										분해합니다. 정규화를 수행하면 데이터 중복을 줄일 수 있고, 데이터의 일관성과 무결성을 유지할 수 있으므로
-										데이터베이스의 성능과 유지보수성을 향상시킬 수 있습니다.', 0, '정규화'), (2, 2, 3,
-										'MySQL에서 date 형식은 YYYY-MM-DD의 형식으로 표현됩니다. 예를 들어, 2023년 4월 15일은
-										2023-04-15와 같이 표현됩니다. MySQL에서 date 형식을 사용하는 방법은 다음과 같습니다.
-
-										MySQL에서는 date 형식 외에도 datetime, timestamp 등의 다양한 날짜와 시간 데이터 형식을
-										제공합니다. 각각의 데이터 형식은 특정한 상황에 적합한 데이터를 저장할 수 있도록 다양한 옵션을 제공하므로,
-										상황에 맞게 적절한 데이터 형식을 선택하여 사용하면 됩니다.', 0, 'date형식'), (3, 3, 2,
-										'Kotlin에서 안드로이드 앱을 개발할 때 레이아웃을 구성하는 방법은 XML을 사용합니다. XML은 안드로이드
-										레이아웃을 설계하고 정의하는 데 사용되는 마크업 언어입니다. Kotlin에서는 XML 레이아웃을 활용하여 뷰와
-										뷰 그룹을 배치하고 구성할 수 있습니다. 다음은 Kotlin에서 레이아웃을 구성하는 방법입니다.
-
-										res/layout 디렉토리에 XML 레이아웃 파일을 생성합니다. 예를 들어, activity_main.xml
-										파일을 생성합니다. Kotlin에서는 안드로이드 스튜디오를 통해 레이아웃을 시각적으로 디자인할 수도 있습니다.
-										레이아웃 디자인을 위해 Design 탭을 사용하여 뷰와 뷰 그룹을 쉽게 추가하고 구성할 수 있습니다. 또한
-										Code 탭에서 XML 코드를 확인하고 직접 편집할 수도 있습니다.'<br>
-									</font>
-								</h4>
-							</div>
-							<div>
-								<button data-dropdown-toggle="dot_dropdown"
-									data-dropdown-placement="bottom" aria-expanded="false">
-									<svg class="w-6 h-6 text-gray-800 dark:text-white"
-										aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-										fill="currentColor" viewBox="0 0 4 15">
+										</font>
+									</h4>
+								</div>
+								<div>
+									<button data-dropdown-toggle="dot_dropdown"
+										data-dropdown-placement="bottom" aria-expanded="false">
+										<svg class="w-6 h-6 text-gray-800 dark:text-white"
+											aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+											fill="currentColor" viewBox="0 0 4 15">
                     <path
-											d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+												d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
                   </svg>
-								</button>
+									</button>
+								</div>
 							</div>
-						</div>
-						<div class="answer_like">
-							<a id="answer_like">
-								<button type="button"
-									class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-									id="like">
-									<img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/like.png" width="30px" height="30px" class="heart">
-									마음에 들어요
-								</button>
-							</a> <a id="answer_unlike">
-								<button type="button"
-									class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-									id="like">
-									<img src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/unlike.png" width="30px" height="30px" class="heart">
-									마음에 들지 않아요
-								</button>
-							</a>
+							<div class="answer_like">
+								<a id="answer_like">
+									<button type="button"
+										class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+										id="like">
+										<img
+											src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/like.png"
+											width="30px" height="30px" class="heart"> 마음에 들어요
+									</button>
+								</a> <a id="answer_unlike">
+									<button type="button"
+										class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+										id="like">
+										<img
+											src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/unlike.png"
+											width="30px" height="30px" class="heart"> 마음에 들지 않아요
+									</button>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
+
+				</c:forEach>
 
 
 			</div>
@@ -293,85 +289,32 @@
 			<div class="flex-grow">
 				<div class="flex questionList">
 					<div></div>
-					<a class="question" href="#">
-						<div id="question">
-							<div class="flex items-center space-x-4">
-								<img class="w-7 h-7 rounded-full" src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/fire_yongyong.png" alt="" />
-								<span class="font-medium dark:text-white"> 민지 킴 </span>
-							</div>
-							<!-- 여기 추가 ㅇㅇ -->
-							<div class="grid-question-list">
-								<div class="question_title">
-									<font size="3"> &nbsp;이건 제목이에용~ 제목은 두줄까지~ 더 되면? 더 있으면?
-										어떻게 될껀데 </font>
+					<c:forEach items="${questions}" var="question" begin="1" end="4">
+					<c:set var="i"><%= java.lang.Math.round(java.lang.Math.random() * 140) %></c:set>
+					
+						<a class="question" href="#">
+							<div id="question">
+								<div class="flex items-center space-x-4">
+									<img class="w-7 h-7 rounded-full"
+										src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/uni.png"
+										alt="" /> <span class="font-medium dark:text-white"> ${questions.get(i).customerID}
+									</span>
 								</div>
-								<div class="question_content">
-									<font size=2> &nbsp;이건 내용이에요~이건 내용이에요~이건 내용이에요~이건
-										내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~
-										이건 내용이에요~ </font>
-								</div>
-							</div>
-						</div>
-					</a> <a class="question" href="#">
-						<div id="question">
-							<div class="flex items-center space-x-4">
-								<img class="w-7 h-7 rounded-full" src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/uni.png" alt="" /> <span
-									class="font-medium dark:text-white"> 권호시 </span>
-							</div>
-							<!-- 여기 추가 ㅇㅇ -->
-							<div class="grid-question-list">
-								<div class="question_title">
-									<font size="3"> &nbsp;이건 제목이에용~ 제목은 두줄까지~ 더 되면? 더 있으면?
-										어떻게 될껀데 </font>
-								</div>
-								<div class="question_content">
-									<font size=2> &nbsp;이건 내용이에요~이건 내용이에요~이건 내용이에요~이건
-										내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~
-										이건 내용이에요~ </font>
+								<!-- 여기 추가 ㅇㅇ -->
+								<div class="grid-question-list">
+									<div class="question_title">
+										<font size="4"> ${questions.get(i).questionTitle}
+										</font>
+									</div>
+									<div class="question_content">
+										<font size=2> ${questions.get(i).questionContent}
+										</font>
+									</div>
 								</div>
 							</div>
-						</div>
-					</a> <a class="question" href="#">
-						<div id="question">
-							<div class="flex items-center space-x-4">
-								<img class="w-7 h-7 rounded-full" src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/water_yongyong.png"
-									alt="" /> <span class="font-medium dark:text-white"> 우지
-								</span>
-							</div>
-							<!-- 여기 추가 ㅇㅇ -->
-							<div class="grid-question-list">
-								<div class="question_title">
-									<font size="3"> &nbsp;이건 제목이에용~ 제목은 두줄까지~ 더 되면? 더 있으면?
-										어떻게 될껀데 </font>
-								</div>
-								<div class="question_content">
-									<font size=2> &nbsp;이건 내용이에요~이건 내용이에요~이건 내용이에요~이건
-										내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~
-										이건 내용이에요~ </font>
-								</div>
-							</div>
-						</div>
-					</a> <a class="question" href="#">
-						<div id="question">
-							<div class="flex items-center space-x-4">
-								<img class="w-7 h-7 rounded-full" src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/water_nicon.png" alt="" />
-								<span class="font-medium dark:text-white"> 민규 킴 </span>
-							</div>
-							<!-- 여기 추가 ㅇㅇ -->
-							<div class="grid-question-list">
-								<div class="question_title">
-									<font size="3"> &nbsp;이건 제목이에용~ 제목은 두줄까지~ 더 되면? 더 있으면?
-										어떻게 될껀데 </font>
-								</div>
-								<div class="question_content">
-									<font size=2> &nbsp;이건 내용이에요~이건 내용이에요~이건 내용이에요~이건
-										내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~이건 내용이에요~
-										이건 내용이에요~ </font>
-								</div>
-							</div>
-						</div>
-					</a>
-					<div></div>
+						</a>
+					</c:forEach>
+
 				</div>
 			</div>
 		</div>
@@ -438,14 +381,18 @@
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
-	<script>hljs.initHighlightingOnLoad();</script>
-	<script>hljs.initLineNumbersOnLoad();</script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
+	<script>
+		hljs.initLineNumbersOnLoad();
+	</script>
 
 
 	<script>
-                var text = "첫 번째 문장\n두 번째 문장\n세 번째 문장";
-                document.getElementById("multiline-text").innerText = text;
-            </script>
+		var text = "첫 번째 문장\n두 번째 문장\n세 번째 문장";
+		document.getElementById("multiline-text").innerText = text;
+	</script>
 </body>
 
 </html>

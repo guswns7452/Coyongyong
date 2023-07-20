@@ -120,29 +120,30 @@
         <div id="container">
             <div id="left">
                 <div id="question">
-                    <h1>문제 1 : A+B<br><br></h1>
+                    <h1>문제 ${problem.problemNum} : ${problem.problemTitle}<br><br></h1>
                     <h2>문제</h2>
                     <h3>
-                        두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+                        ${problem.problemContent}
                         <br><br>
                     </h3>
                     <h2>
                         입력 <br>
                     </h2>
                     <h3>
-                        첫째 줄에 A와 B가 주어진다. (0 < A, B < 10) <br><br></h3>
+                        ${problem.problemInput} <br><br></h3>
                     <h2>
                         출력 <br>
                     </h2>
                     <h3>
-                        첫째 줄에 A+B를 출력한다.
+                        ${problem.problemOutput}
                         <br><br>
                     </h3>
                 </div>
     
             </div>
             <div id="right">
-                <div class="white_font_color">사용 언어</div>
+                <div class="white_font_color">사용 언어 : ${language}</div>
+                <div id="language" hidden>${language}</div>
                 <div id="monaco" style="height:70vh"></div>
                 <button type="button" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 fixed right-5 purpleButton">제출하기</button>
             </div>
@@ -152,6 +153,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs/loader.js"></script>
     
         <script>
+        	var lang = document.getElementById("language").innerHTML;
             var editor;
     
             require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs' } });
@@ -160,13 +162,8 @@
                     theme: 'vs-dark',
                     fontFamily: 'Consolas',
                     automaticLayout: true,
-                    fontSize: 25,
-                    language: 'c',
-                    value: [
-                        '#include <stdio.h>',
-                        'int main(){',
-                        '}'
-                    ].join('\n')
+                    fontSize: 20,
+                    language: lang
                 });
             });
         </script>

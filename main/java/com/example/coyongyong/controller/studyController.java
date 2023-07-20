@@ -45,15 +45,12 @@ public class studyController {
 	
 	
 	@RequestMapping(value = {"/list"}, method = RequestMethod.GET)
-	public String studyList(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {
+	public String studyList(@RequestParam("page") int page, Model model) throws Exception {
 	    List<studyVO> study = studyService.readAllStudy();
 	    
-	    int startIndex = (page - 1) * 10;
-	    int endIndex = Math.min(startIndex + 10, study.size());
-	    List<studyVO> pageStudy = study.subList(startIndex, endIndex);
-	    
 	    logger.info("/study/list URL called. Then studylist method executed.");
-	    model.addAttribute("pageStudy", pageStudy);
+	    model.addAttribute("studys", study);
+	    model.addAttribute("page", page);
 	    
 	    return "studyJournalList"; // jsp 파일
 	}
@@ -69,34 +66,6 @@ public class studyController {
 	}
 	
 
-	/*
-	@RequestMapping(value = {"/writestudy"}, method = RequestMethod.POST)
-	public String writeStudyPost(@ModelAttribute("study") studyVO vo, HttpServletRequest request) throws Exception{
-		HttpSession session = request.getSession();
-		customerVO customer = (customerVO)session.getAttribute("customer");
-		
-		int studyNum = studyService.countLastStudyNum() + 1;
-		vo.setStudyNum(studyNum); vo.setStudyContent(null); vo.setCustomerID(customer.getcustomerID()); vo.setStudyDate(); vo.setStudyTitle(null); vo.setStudyDate(); vo.setGoodCount(studyNum);
-		studyService.addStudy(vo);
-		logger.info(vo.toString());
-		logger.info("/study/writestudy URL called. then studylist method executed.");
-		
-		return "redirect:./view?num="+studyNum;
-	}*/
-	
-	/*@RequestMapping(value = {"/writestudy"}, method = RequestMethod.POST)
-	public String writeStudyPost(@ModelAttribute("study") studyVO vo) throws Exception{
-	    int studyNum = studyService.countLastStudyNum() + 1;
-	    vo.setStudyNum(studyNum);
-	    vo.setStudyDate();
-	    vo.setGoodCount(studyNum);
-	    studyService.addStudy(vo);
-	    logger.info(vo.toString());
-	    logger.info("/study/writestudy URL called. then studylist method executed.");
-
-	    return "redirect:./view?num="+studyNum;
-	}*/
-
 
 	@RequestMapping(value = {"/writestudy"}, method = RequestMethod.POST)
 	public String writeStudyPost(@ModelAttribute("study") studyVO vo, HttpServletRequest request) throws Exception{
@@ -105,9 +74,6 @@ public class studyController {
 		try {
 			HttpSession session = request.getSession();
 			customer = (customerVO)session.getAttribute("customer");
-			
-			
-		 
 		}
 		catch(Exception e){
 			//로그인이 되어 있지 않으면 객체 등록이 되어있지 않은거

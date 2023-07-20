@@ -28,6 +28,10 @@
  	<select id="selectLastQuestionNum" resultType="int">
  		select max(questionNum) from question
      </select>
+     
+     <select id="selectByLanguageNum" resultType="com.example.coyongyong.domain.questionVO">
+ 		select * from question where questionlanguageNum = #{questionLanguageNum};
+     </select>
  	
  	<!-- languageNum = 1(C)인 곳에서 조회수 top 3 뽑아내기 -->
  	<!-- languageNum = 2(python) -->		
