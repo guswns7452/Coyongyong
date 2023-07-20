@@ -11,8 +11,8 @@
  	</select>
  	
      <insert id="insert"> 
-   		insert into answer_cus (answerCusNum, questionNum, gradeNum, answerCusContent, answerCusLike, answerCusUnlike, customerID) values
- 		(#{answerCusNum}, #{questionNum}, #{gradeNum}, #{answerCusContent}, #{answerCusLike}, #{answerCusUnlike}, #{customerID})
+   		insert into answer_cus (answerCusNum, questionNum, answerCusTitle, answerCusCode, gradeNum, answerCusContent, answerCusLike, answerCusUnlike, customerID) values
+ 		(#{answerCusNum}, #{questionNum}, #{answerCusTitle}, #{answerCusCode} ,#{gradeNum}, #{answerCusContent}, #{answerCusLike}, #{answerCusUnlike}, #{customerID})
      </insert> 
  	
      <select id="selectByid" resultType="com.example.coyongyong.domain.answerCusVO">
@@ -27,6 +27,10 @@
      <![CDATA[
  		select * from answer_cus
       ]]> 
+     </select>
+     
+     <select id="selectLastAnswerCusNum" resultType="int">
+ 		select max(answerCusNum) from answer_cus
      </select>
  	
      <update id="update">

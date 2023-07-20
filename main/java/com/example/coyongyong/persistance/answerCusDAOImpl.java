@@ -40,6 +40,12 @@ public class answerCusDAOImpl implements answerCusDAO {
 		return answerCuslist;
 	}
 	
+	public int readLastAnswerCusNum() throws Exception{
+		// INT라서 그런가?
+		int lastAnswerCusNum = sqlSession.selectOne(namespace+".selectLastAnswerCusNum");
+		return lastAnswerCusNum; 
+	}
+	
 	public void delete(int answerCusNum) throws Exception {
 		sqlSession.delete(namespace + ".delete", answerCusNum);
 	}

@@ -21,6 +21,7 @@ import com.example.coyongyong.domain.answerYongVO;
 import com.example.coyongyong.domain.customerVO;
 import com.example.coyongyong.domain.gradeVO;
 import com.example.coyongyong.domain.questionVO;
+import com.example.coyongyong.domain.studyVO;
 import com.example.coyongyong.service.answerCusService;
 import com.example.coyongyong.service.answerYongService;
 import com.example.coyongyong.service.customerService;
@@ -98,7 +99,26 @@ public class questionController {
 		
 		return "questionView";
 	}
-	
+/*	
+	@RequestMapping(value = {"/onequestion"}, method = RequestMethod.GET)
+	public String oneQuestion(@RequestParam("num") int num, Model model) throws Exception{
+		questionVO question = questionService.readQuestion(num);
+		List<questionVO> questions = questionService.readQuestionList();
+		answerYongVO yong = answerYongService.readAnswerYongByQuestion(num);
+		List<answerCusVO> cus = answerCusService.readAnswerCusByQuestion(num);
+		gradeVO grade = gradeService.readGrade(question.getgradeNum());
+		
+		logger.info(" /question/OneQuestion URL called. then listquestion method executed.");
+		model.addAttribute("question", question);
+		model.addAttribute("questions", questions);
+		model.addAttribute("gradeCustomer", grade);
+		yong.setanswerYongContent(yong.getanswerYongContent().replace("\n","<br>"));
+		model.addAttribute("yongyong", yong);
+		model.addAttribute("answerCus",cus);
+		
+		return "questionView";
+	}
+	*/
 	@RequestMapping(value = {"/writequestion"}, method = RequestMethod.GET)
 	public String writeQuestion(Model model,HttpServletRequest request) throws Exception{
 		//customer 정보를 불러와야겠네요.
@@ -109,6 +129,7 @@ public class questionController {
 		return "redirect:/login"; 
 		
 	}
+	
 	
 	@RequestMapping(value = {"/writequestion"}, method = RequestMethod.POST)
 	public String writeQuestionPost(@ModelAttribute("question") questionVO vo, @ModelAttribute("yongyong") answerYongVO vo2,HttpServletRequest request) throws Exception{
@@ -136,5 +157,50 @@ public class questionController {
 		answerYongService.addAnswerYong(vo2);
 		
 		return "redirect:/question/onequestion?num="+questionNum;
+	}
+	
+	@RequestMapping(value = {"/writequestionanswer"}, method = RequestMethod.GET)
+	public String writeQuestionAnswer(@RequestParam("questionNum") int questionNum, Model model,HttpServletRequest request) throws Exception{
+		if(sessioncontroller.sessionCheck(request) == "true") {
+			questionVO question = questionService.readQuestion(questionNum);
+			logger.info(" /question/questionwriteanswer URL called. then listquestion method executed.");
+			model.addAttribute("questionNum", questionNum);
+			model.addAttribute("question", question);
+			
+			return "questionWriteAnswer";
+		}
+		return "redirect:/login"; 		
+	}
+	
+	@RequestMapping(value = {"/writequestionanswer"}, method = RequestMethod.POST)
+	public String writeStudyPost(@ModelAttribute("answerCus") answerCusVO vo, HttpServletRequest request, Model model) throws Exception{
+		int answerNum = 1;
+		customerVO customer = null;
+		//List<answerCusVO> countAnswerCus = null;
+		try {
+			
+			
+			HttpSession session = request.getSession();
+			customer = (customerVO)session.getAttribute("customer");
+			
+		}
+		catch(Exception e){
+			//로그인이 되어 있지 않으면 객체 등록이 되어있지 않은거
+			//jsp에서는 logining 객체가 등록되어 있으면 -> 로그인 상태 / 없으면 -> 로그아웃 상태
+			logger.info("로그인 되어있지 않음.");
+		}
+		
+		answerNum = answerCusService.countLastAnswerCusNum() + 1;
+	    vo.setanswerCusNum(answerNum);
+	    vo.setcustomerID(customer.getcustomerID());
+	    vo.setanswerCusLike(0);
+	    vo.setanswerCusUnlike(0);
+	    vo.setgradeNum(answerNum);
+	    vo.setquestionNum(1);
+	    answerCusService.addAnswerCus(vo);
+	    logger.info(vo.toString());
+	    logger.info(" /question/writequestionanswer URL called. then listquestion method executed.");
+		return "redirect:./onequestion?num="+"1";
+		
 	}
 }

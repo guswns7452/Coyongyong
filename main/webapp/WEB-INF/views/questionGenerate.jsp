@@ -363,7 +363,6 @@
 					.getElementById("categoryLanguage").selectedIndex].value);
 			if (divContentlanguage == 0) {
 				document.getElementById('monaco code-input').innerHTML = "언어를 먼저 선택해주세요.";
-				alert('언어를 먼저 선택해주세요!');
 			} else {
 				if (divContentlanguage == 1)
 					lang = 'c';

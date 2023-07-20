@@ -1,0 +1,409 @@
+@charset "UTF-8";
+
+body { 
+  margin: 0; 
+}
+.top {
+  display: flex;
+  justify-content: center;
+  background: #F3F4F6;
+}
+.toptop {
+  width: 60%;
+}
+#top {
+  margin-top: 5%;
+}
+main { 
+  font-family: 'Hi Melody', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+}
+.margin-bottom {
+  margin-bottom: 3%;
+}
+
+main > * {
+  padding: 0.8em;
+  /* color: rgb(119, 130, 254); */
+  /* background-color: rgb(253, 253, 120); */
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.text-gray-900 {
+  color: #374151 !important;
+}
+
+.text-green-300 {
+  color: #84E1BC !important;
+}
+
+.border-primary-700:focus {
+  outline:none;
+  border-style:solid;
+  border-width:2px 2px 2px 2px !important;
+  border-color: #046C4E #046C4E #046C4E #046C4E !important;
+}
+
+/* 추가 */
+.border-lime-500 {
+  border: 1px solid #0E9F6E !important;
+  border-radius: 8px;
+}
+
+.bg-lime-100 {
+  background-color: #DEF7EC !important;
+}
+
+.divide-lime-500 {
+  border: 1px solid #0E9F6E !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+}
+
+/* 여기까지 */
+
+.bg-lime-700 {
+  background-color: #0E9F6E !important;
+}
+
+.bg-lime-700:hover {
+  background-color: #057A55 !important;
+}
+
+.bg-lime-700:active {
+  outline:none;
+  border-style:solid;
+  border-width:3px 3px 3px 3px !important;
+  border-color: #31C48D #31C48D #31C48D #31C48D !important;
+}
+
+
+/* 추가 */
+.background{
+  background-color: white !important;
+  padding-top: 1%;
+  padding: 5%;
+  margin-top: 1%;
+  border: 2px solid #E5E7EB;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 2px #31C48D; */
+}
+/* 여기까지 */
+
+.img {
+  width: 5%;
+}
+
+.white-block {
+  border: 2px solid #E5E7EB;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  padding: 5%;
+  padding-top: 4%;
+  margin-bottom: 5%;
+  margin-top: 1%;
+}
+
+/* =============== HEADER =================== */
+
+
+/* 헤더부분 끝 */
+
+/* 질문 생성하는 부분 */
+/* 제목 */
+.title {
+  display: flex;
+}
+
+/* 질문 제목 입력하기 */
+
+/* flex */
+#flex {
+  display: flex;
+  flex-grow: 1;
+}
+/* 카테고리 선택 */
+
+.option{
+  border : 1px solid #D1D5DB;
+  border-radius : 8px;
+  background-color: #F9FAFB;
+  font-weight: 400;
+  color : #111827;
+  padding : 5px;
+  width :200px;
+  text-align: left;
+  cursor : pointer;
+  font-size : 13px;
+
+  align-items: center;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+}
+
+select:focus {
+  outline: none;
+  border-style: none;
+
+  border: 0.5px solid #E1EFFE;
+  border-radius: 8px;
+}
+
+/* private 모드 선택 */
+.mr-4 {
+  margin-top: 5px;
+}
+
+.flex-end {
+  justify-content: space-between;
+}
+
+.language-selecter {
+  width: 50%;
+}
+/* 
+.language-selecter:focus {
+  outline: none;
+  border-style: solid;
+  border-width:3px 3px 3px 3px;
+  border-color: #000000 #000000 #000000 #000000; 
+} */
+
+/* 오류 작성, 질문 작성 부분 */
+/* 작성할때 기본 */
+#message {
+  resize: none;
+  margin-bottom: 15px;
+}
+
+/* 버튼 눌렀을 때 효과주기 */
+
+.button {
+  border-radius: 20px;
+  border: 1px solid rgb(221, 221, 221);
+  background-color: rgb(221, 221, 221);
+
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 5px;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.button:hover {
+  border-radius: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.button:active {
+  border: 1px solid rgb(166, 169, 166);
+  box-shadow: 3px 3px 3px rgb(166, 169, 166);
+}
+
+/* 공부일지 내용 작성 */
+
+.study_journal_content {
+  /* width:880px;
+  height:1000px; */
+  font-size:20px;
+
+  outline: -webkit-focus-ring-color auto 1px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 2%;
+
+  display: flex;
+  flex-direction: column;
+
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+/* 제출 버튼 */
+.submit_btn {
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 3%;
+}
+
+.code-btn {
+  margin-bottom: 3% ;
+}
+
+/* 소제목 기본 */
+
+#title {
+  margin-left: 20px;
+}
+
+.editor-container {
+  min-height: 50px;
+  height: auto;
+  overflow-y: auto;
+}
+
+.studyJournalContent {
+  height: 100%;
+}
+
+#monaco-container {
+  margin-top: 4%;
+}
+
+/* 추가된거~ */
+/* 제목 작성 css */
+
+.div {
+  position: relative;
+  width: 300px;
+  margin-bottom: 2%;
+}
+
+.input {
+  font-size: 15px;
+  color: #222222;
+  width: 300px;
+  border: none;
+  border-bottom: solid #31C48D 1px;
+  padding-bottom: 10px;
+  position: relative;
+  background: none;
+  z-index: 5;
+}
+
+.input::placeholder { 
+  color: #aaaaaa; 
+}
+
+.input:focus { 
+  outline: none; 
+}
+
+.span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left : 0%;  /* right로만 바꿔주면 오 - 왼 */
+  background-color: #31C48D;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+.label {
+  position: absolute;
+  color: #aaa;
+  left: 10px;
+  font-size: 20px;
+  bottom: 8px;
+  transition: all .2s;
+}
+
+.input:focus ~ .label, .input:valid ~ .label {
+  font-size: 16px;
+  bottom: 40px;
+  color: #666;
+  font-weight: bold;
+}
+
+.input:focus ~ .span, .input:valid ~ .span {
+  width: 100%;
+}
+
+/* 추가 됨 */
+
+div#editor_content {
+  padding: 16px 24px;
+  border: 1px solid #D6D6D6;
+  border-radius: 4px;
+}
+
+/* #editor:focus {
+  border: none;
+  outline: none;
+} */
+
+.bold-text {
+  font-weight: bold;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.strikeThrough-text {
+  text-decoration: line-through;
+}
+
+#myTextarea {
+  width: 100%;
+  height: 200px;
+  padding: 1%;
+  text-align: left;
+  outline: none;
+}
+
+.studyJournalContent {
+  border: 2px solid #0E9F6E;
+  border-radius: 8px;
+
+  padding: 2%;
+}
+
+.styleBtn {
+  margin-right: 1%;
+}
+
+#myTextarea:focus {
+  border: 0 solid #e5e7eb;
+}
+
+.bg-green-100 {
+  background-color: #DEF7EC !important;
+}
+
+.bg-green-300:hover {
+  background-color: #BCF0DA !important;
+}
+
+#user-menu-button {
+  margin-left: 25px;
+}
+
+.input {
+  background-color: transparent !important;
+  ouline: none !important;
+}
+
+.input:focus {
+  outline: none !important;
+}
+
+.error_label {
+  margin-top: 2%;
+  margin-left: 2%;
+}

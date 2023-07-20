@@ -26,6 +26,9 @@ public class answerCusServiceImpl implements answerCusService{
 		return answerCus.size();
 	}
 	
+	public int countLastAnswerCusNum() throws Exception{
+		return answerCusDAO.readLastAnswerCusNum();
+	}
 	public List<answerCusVO> readAnswerCusList() throws Exception{
 		return answerCusDAO.readList();
 	}
@@ -33,6 +36,7 @@ public class answerCusServiceImpl implements answerCusService{
 	public void addAnswerCus(answerCusVO answerCus) throws Exception{
 		answerCusDAO.add(answerCus);
 	}
+
 	
 	public void deleteAnswerCus(int answerCusNum) throws Exception{
 		answerCusDAO.delete(answerCusNum);
@@ -41,4 +45,5 @@ public class answerCusServiceImpl implements answerCusService{
 	public void updateAnswerCus(answerCusVO answerCus) throws Exception{
 		answerCusDAO.update(answerCus);
 	}
+	
 }
