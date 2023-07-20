@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -145,10 +146,38 @@
 							</div>
 						</div>
 						<div class="lists">
-							<ul id="listContainer"></ul>
+							<ul id="listContainer">
+							<c:forEach items="${studys}" var="study" varStatus="i"
+									begin="${(page-1)*10}" end="${page*10-1}">
+									<li><a
+										href="/study/list?page=${study.studyNum}">
+											<div class="w-full word-space content">
+												<font size=5>${study.studyTitle}</font>
+												<div class="studyJournal_content">${study.studyContent}</div>
+												<div class="flex justify-between column-center">
+													<div class="flex items-center space-x-4 bg-black">
+														<img class="w-7 h-7 rounded-full"
+															src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/${customerImage}"
+															alt="" /> <span class="font-medium dark:text-white">
+															${study.customerID} </span>
+													</div>
+													<div>
+														<font size=2>게시날짜 ${study.studyDate}</font> <font
+															size=2>좋아요 수 ${study.goodCount}</font> 
+												</div>
+											</div>
+									</a></li>
+								</c:forEach>
+							
+							</ul>
 							<div class="content"></div>
 						</div>
-						<div id="pagination" class="pagination-circular flex"></div>
+						<div id="pagination" class="pagination-circular flex">
+								<c:forEach var="k" begin="1" end="${fn:length(studys)/10+1}">
+									<li class="pagination-button"><a href="/study/list?page=${k}">${k}</a></li>
+								</c:forEach> 
+								<li class="pagination-button"><a href="/study/list?page=${page+1}">Next</a></li>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -184,8 +213,8 @@
 		</div>
 	</footer>
 
-	<script
-		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/studyJournalList.js"></script>
+	<%-- <script
+		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/studyJournalList.js"></script> --%>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 </body>

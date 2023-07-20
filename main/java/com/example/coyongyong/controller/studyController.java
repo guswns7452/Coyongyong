@@ -45,15 +45,12 @@ public class studyController {
 	
 	
 	@RequestMapping(value = {"/list"}, method = RequestMethod.GET)
-	public String studyList(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {
+	public String studyList(@RequestParam("page") int page, Model model) throws Exception {
 	    List<studyVO> study = studyService.readAllStudy();
 	    
-	    int startIndex = (page - 1) * 10;
-	    int endIndex = Math.min(startIndex + 10, study.size());
-	    List<studyVO> pageStudy = study.subList(startIndex, endIndex);
-	    
 	    logger.info("/study/list URL called. Then studylist method executed.");
-	    model.addAttribute("pageStudy", pageStudy);
+	    model.addAttribute("studys", study);
+	    model.addAttribute("page", page);
 	    
 	    return "studyJournalList"; // jsp 파일
 	}

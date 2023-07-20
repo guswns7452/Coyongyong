@@ -1,9 +1,10 @@
 package com.example.coyongyong.service;
 
-import com.example.coyongyong.domain.customerVO;
-import com.example.coyongyong.persistance.customerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.coyongyong.domain.customerVO;
+import com.example.coyongyong.persistance.customerDAO;
 
 
 @Service

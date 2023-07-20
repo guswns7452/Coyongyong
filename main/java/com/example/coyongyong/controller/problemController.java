@@ -1,13 +1,21 @@
 package com.example.coyongyong.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.coyongyong.domain.problemVO;
+import com.example.coyongyong.service.problemService;
 
 @Controller
 @RequestMapping(value="/problem")
@@ -17,24 +25,41 @@ public class problemController {
 	@Autowired
 	SessionController sessioncontroller;
 	
+	@Autowired
+	problemService problemservice;
+	
 	@GetMapping("/list")
-	public String problemList(HttpServletRequest request) throws Exception {
+	public String problemList(@RequestParam("language") String language, HttpServletRequest request, Model model) throws Exception {
 		if(sessioncontroller.sessionCheck(request) == "true") {
-
+			List<problemVO> problems = problemservice.readAll();
+			System.out.println(problems);
+			model.addAttribute("problems",problems);
+			model.addAttribute("language",language);
 			return "problemlist";
 		}
 		return "redirect:/login"; 
 	}
 	
-	@GetMapping("/play")
-	public String problemPlay(HttpServletRequest request) throws Exception {
+	@RequestMapping(value = {"/play"}, method = RequestMethod.GET)
+	public String problemPlay(@RequestParam("language") String language, @RequestParam("num") int num, HttpServletRequest request, Model model) throws Exception {
 		if(sessioncontroller.sessionCheck(request) == "true") {
+			problemVO problem = problemservice.readProblemByid(num);
+			model.addAttribute("problem",problem);
+			model.addAttribute("language",language);
 			return "problem";
 		}
 		return "redirect:/login"; 
-		
 	}
 	
+	
+	@RequestMapping(value = {"/play"}, method = RequestMethod.POST)
+	public String problemPlayPost(@RequestParam("language") String language, @RequestParam("code") String code, HttpServletRequest request, Model model) throws Exception {
+		if(sessioncontroller.sessionCheck(request) == "true") {
+			language
+			return "problem";
+		}
+		return "redirect:/login"; 
+	}
 	//근데 problemService가 없는데
 	/*@RequestMapping(value = {"/list"}, method = RequestMethod.GET)
 	public String problemList(@RequestParam(required = false, defaultValue = "1") int page, Model model) throws Exception {

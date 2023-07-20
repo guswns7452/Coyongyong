@@ -404,6 +404,7 @@
 					<div
 						class="pd50 ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL">
 						<div class="font_size25 tw-font-bold">레벨 ${k.current}</div>
+						<button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="height:40px;">질문 더보기</button>
 						<div class="wrapper">
 							<!-- <i id="left" class="fa-solid fa-angle-left"> <svg
 									style="width: 18px; margin-top: 7px; margin-left: 15px;"
