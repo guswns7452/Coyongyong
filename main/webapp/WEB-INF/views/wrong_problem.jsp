@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/problem.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/right_problem.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"/>
 	<link rel="apple-touch-icon" href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"/>
@@ -102,7 +102,7 @@
                 </li>
                 <li>
                   <a href="#"
-                    class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">About</a>
+                    class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
                 </li>
               </ul>
             </div>
@@ -110,88 +110,18 @@
         </nav>
 
 	<div id="container">
-		<div id="left">
-			<div id="question">
-				<h1>
-					문제 ${problem.problemNum} : ${problem.problemTitle}<br>
-					<br>
-				</h1>
-				<h2>문제</h2>
-				<h3>
-					${problem.problemContent} <br>
-					<br>
-				</h3>
-				<h2>
-					입력 <br>
-				</h2>
-				<h3>
-					${problem.problemInput} <br>
-					<br>
-				</h3>
-				<h2>
-					출력 <br>
-				</h2>
-				<h3>
-					${problem.problemOutput} <br>
-					<br>
-				</h3>
-			</div>
-
+		<img class="congra" src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/frustrated.png">
+		<div class="h3">아쉽네요..</div>
+		<div class="h1">오답입니다!</div>
+		<div>
+			<a href="/problem/list?language=c"><input type="button" 
+					class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 purpleButton"
+					value="코딩 테스트 바로가기"></a>
+					
 		</div>
-		<div id="right">
-			<div class="white_font_color">사용 언어 : ${language}</div>
-			<div id="language" hidden>${language}</div>
-			<form id="problemForm"
-				action="/problem/play?language=${language}&num=${num}" method="post">
-				<div id="monaco" style="height: 70vh"></div>
-				<input id="submitButton" type="button" data-modal-target="readProductModal" data-modal-toggle="readProductModal"
-					class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 fixed right-5 purpleButton"
-					value="제출하기" onclick="submitForm()">
-			</form>
-		</div>
-		<!-- 여기 용용이 답변 기다리는 내용의 modal 추가 -->
-		<!-- Main modal -->
-		<div id="readProductModal" tabindex="-1" aria-hidden="true"
-			class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-			<div class="relative p-4 w-full max-w-xl h-full md:h-auto">
-				<!-- Modal content -->
-				<div
-					class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-					<!-- Modal header -->
-					<div class="flex justify-center">
-						<div class="flex flex-column mb-4 rounded-t sm:mb-5"
-							style="margin-top: 10px;">
-							<img
-								src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"
-								width="100px" height="100px" class="maargin-left maargin-top">
-							<div>
-								<font size=6> 용용이가 채점중이에요~<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;잠시만 기다려주세요~
-								</font>
-							</div>
-							<div role="status flex items-center"
-								class="margin-top maaargin-left maargin-bottom">
-								<svg aria-hidden="true"
-									class="inline w-12 h-12 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-green-500"
-									viewBox="0 0 100 101" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-	                  <path
-										d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-										fill="currentColor" />
-	                  <path
-										d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-										fill="currentFill" />
-	                </svg>
-								<span class="sr-only">Loading...</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- 요기까지 -->
-
 	</div>
+	
+
 	
 	<footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
 		<div class="mx-auto max-w-screen-xl text-center">
@@ -223,49 +153,6 @@
 	</footer>
 
 
-
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs/loader.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
-
-	<script>
-        	var lang = document.getElementById("language").innerHTML;
-            var editor;
-    
-            require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs' } });
-            require(['vs/editor/editor.main'], function () {
-                editor = monaco.editor.create(document.getElementById('monaco'), {
-                    theme: 'vs-dark',
-                    fontFamily: 'Consolas',
-                    automaticLayout: true,
-                    fontSize: 20,
-                    language: lang
-                });
-            });
-            
-            function submitForm() {
-                if (editor.getValue()) {
-                var hiddenInputCode = document.createElement('input');
-
-                hiddenInputCode.type = 'hidden';
-                hiddenInputCode.name = 'code';
-                hiddenInputCode.value = editor.getValue();
-                document.getElementById('problemForm').appendChild(
-                    hiddenInputCode);
-                
-
-                document.getElementById('problemForm').submit();
-                }
-            }
-            
-            
-            document.addEventListener("DOMContentLoaded", function(event) {
-            	  document.getElementById('submitButton').click();
-            	});
-        </script>
 </body>
 
 </html>

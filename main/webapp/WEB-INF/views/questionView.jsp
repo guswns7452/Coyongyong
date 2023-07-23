@@ -5,7 +5,6 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -29,6 +28,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gowun+Dodum&family=Hi+Melody&family=Jua&family=Nanum+Gothic:wght@800&family=Poor+Story&display=swap"
 	rel="stylesheet">
+
 <link rel="icon"
 	href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png" />
 <link rel="apple-touch-icon"
@@ -123,10 +123,10 @@
 					<li><a href="/question/questionmain?language=c"
 						class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">질문</a>
 					</li>
-					<li><a href="/study/list"
+					<li><a href="/study/list?page"
 						class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">공부일지</a>
 					</li>
-					<li><a href="/problem/list"
+					<li><a href="/problem/list?language=c"
 						class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">코딩테스트</a>
 					</li>
 					<li><a href="#"
@@ -136,7 +136,7 @@
 			</div>
 		</div>
 	</nav>
-
+	
 	<main>
 		<div class="top block">
 			<div class="toptop">
@@ -146,24 +146,49 @@
 						src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/letter-q.png"
 						class="img">
 					<div class="question_title">
-						<span id="question_title"> <font size=4>${question.questionTitle}
-						</font>
-						</span> <span id="question_title"> <font size=2>${question.customerID}&nbsp;|&nbsp;${question.questionDate}</font>
+						<div class="flex justify-between">
+							<span id="question_title"> 
+								<font size=4>${question.questionTitle}</font>
+							</span>
+							<div>
+								<button data-dropdown-toggle="dot_dropdown_share"
+									data-dropdown-placement="bottom" aria-expanded="false">
+									<svg class="w-6 h-6 text-gray-800 dark:text-white"
+										aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+										fill="currentColor" viewBox="0 0 4 15">
+                    <path
+											d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                  </svg>
+								</button>
+							</div>
+						</div>
+						<span id="question_title"> <font size=2>${question.customerID}&nbsp;|&nbsp;${question.questionDate}</font>
 						</span>
 					</div>
 					<div class="question_content">
-						<!-- 이거는 더 이쁘게 어떻게 꾸밀지 생각좀~ -->
-						<h3 id="question_language">
-							<c:choose>
-								<c:when test="${gradeCustomer.languageNum eq 1}">C언어</c:when>
-								<c:when test="${gradeCustomer.languageNum eq 2}">Python</c:when>
-								<c:when test="${gradeCustomer.languageNum eq 1}">Java</c:when>
-							</c:choose>
-							- ${gradeCustomer.grade} level
+						<!-- 여기 추가 오류 내용이랑 content라는 줄 추가해줌.
+            오류랑 코드 사이에 있는 content라는 줄은 없애도 괜찮을듯..? -->
+						<!-- 이거 언어가 제대로 세로로 출력이 안되는것같아서 추가함. -->
+						<div class="flex direction-column">
+							<h3 id="question_language" class="justify-start">
+								<c:choose>
+									<c:when test="${gradeCustomer.languageNum eq 1}">C언어</c:when>
+									<c:when test="${gradeCustomer.languageNum eq 2}">Python</c:when>
+									<c:when test="${gradeCustomer.languageNum eq 1}">Java</c:when>
+								</c:choose>
+								- ${gradeCustomer.grade} level
 						</h3>
-						<h4>&nbsp;&nbsp;${question.questionContent}</h4>
-						<div id="codeContainer"></div>
-						<div style="display: none;" id="innerCode">${question.questionCode}</div>
+						</div>
+						<!-- 여기까지 -->
+						<font size=3>&nbsp;${question.questionContent}<br>
+						</font>
+						<div class="content"></div>
+						<h4 id="margin-bottom
+            ">오류 내용 넣기</h4>
+						<div class="content"></div>
+						<div id="codeContainer">
+							<div id="innerCode" style="display: none;">${question.questionCode}</div>
+						</div>
 						<div class="flex justify-end">
 							<!-- 여기 답변하러가기 버튼 추가~ -->
 							<button class="bg-lime-700">답변하러가기</button>
@@ -179,25 +204,19 @@
 						<img
 							src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"
 							class="img">
-						<div>
-							<button data-dropdown-toggle="dot_dropdown_share"
-								data-dropdown-placement="bottom" aria-expanded="false">
-								<svg class="w-6 h-6 text-gray-800 dark:text-white"
-									aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-									fill="currentColor" viewBox="0 0 4 15">
-                  <path
-										d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                </svg>
-							</button>
-						</div>
 					</div>
 					<font size=4> 용용이의 답변이 있습니다!</font>
-					<div class="yongyong_answer">
-						<h4 class="yongyong_answer_content">
-							<font size=3>&nbsp;${yongyong.answerYongContent} </font>
-							<div id="yongyongcodeContainer">
-								<div id="yongyonginnerCode" style="display: none;"></div>
-
+					<!-- 여기 div 두개 추가하고 yongyong_answer에 있는 id추가된거임! -->
+					<div class="yongyong_answer" id="yongyong_answer_">
+						<span id="yongyong_textContent" style="display: none;">
+							${yongyong.answerYongContent} </span>
+						<div id="yongyong_answer_aboveContent"></div>
+						<!-- 이거 id바꿨어용 추가추가 -->
+						<div id="yongyongcodeContainer">
+							<div id="yongyonginnerCode" style="display: none;"></div>
+						</div>
+						<div id="yongyong_answer_belowContent"></div>
+						<!-- 여기까지 -->
 						</h4>
 					</div>
 					<div class="answer_like">
@@ -279,7 +298,7 @@
 					</div>
 
 				</c:forEach>
-
+				
 
 			</div>
 
@@ -314,27 +333,29 @@
 							</div>
 						</a>
 					</c:forEach>
-
 				</div>
 			</div>
 		</div>
-		<!-- dot-dropdown 추가 -->
-		<div
-			class="w-48 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white hidden"
-			id="dot_dropdown">
-			<button type="button"
-				class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-				공유하기 📩</button>
-			<button type="button"
-				class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-				신고하기 📢</button>
-		</div>
+		<!-- dot-dropdown 다 바뀜! 추가라고 검색하겠지? -->
 		<div
 			class="w-48 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white hidden"
 			id="dot_dropdown_share">
-			<button type="button"
+			<button type="button" data-dropdown-toggle="dropdown_share"
+				data-dropdown-placement="bottom" aria-expanded="false"
 				class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
 				공유하기 📩</button>
+		</div>
+		<div
+			class="w-48 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white hidden"
+			id="dropdown_share">
+			<div
+				class="inline-flex items-center w-full direction-column focus:outline-none">
+				<button type="button"
+					class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+					복사하기 📤</button>
+				<input type="text" value="https://www.todomate.net/#/"
+					class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+			</div>
 		</div>
 	</main>
 
@@ -369,8 +390,6 @@
 
 	<!-- flowbite 설정 -->
 	<script
-		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/questionView.js"></script>
-	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 
 	<!-- 코드 스타일 시트 -->
@@ -378,21 +397,21 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/hybrid.min.css">
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
-	<script>
-		hljs.initHighlightingOnLoad();
-	</script>
-	<script>
-		hljs.initLineNumbersOnLoad();
-	</script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script>hljs.initLineNumbersOnLoad();</script>
+
+	<script
+		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/temp.js"></script>
 
 
 	<script>
-		var text = "첫 번째 문장\n두 번째 문장\n세 번째 문장";
-		document.getElementById("multiline-text").innerText = text;
-	</script>
+    var text = "첫 번째 문장\n두 번째 문장\n세 번째 문장";
+    // document.getElementById("multiline-text").innerText = text;
+  </script>
 </body>
 
 </html>

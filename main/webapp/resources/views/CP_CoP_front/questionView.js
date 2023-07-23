@@ -1,48 +1,58 @@
-const inputContent = `
-\`\`\`C
-이잉
-\`\`\`
+const yongyongAnswerElement = document.getElementById("yongyong_textContent");
+    const inputContent = yongyongAnswerElement.innerHTML.replace(/`/g, '\`');
 
-\`\`\`python
-printf
-\`\`\`
+    console.log(inputContent);
 
-\`\`\`css
-.bg-lime-700:hover {
-    background-color: #057A55 !important;
-}
-\`\`\`
-\`\`\`css
-.bg-lime-700:hover {
-    background-color: #057A55 !important;
-}
-\`\`\`
-`;
+    const regex =/```(\w+)\n([\s\S]+?)```/g;
+    let codeBlocks = [];
+    let codeLanguages = [];
+    let codeContents = [];
+    let matches;
 
-const regex = /```(\S+)\n([\s\S]+?)\n```/g;
-let codeBlocks = [];
-let codeLanguages = [];
-let codeContents = [];
-let matches;
+    while ((matches = regex.exec(inputContent)) !== null) {
+        const languageName = matches[1].trim();
+        const codeContent = matches[2].trim();
 
-while ((matches = regex.exec(inputContent)) !== null) {
-    const languageName = matches[1].trim();
-    const codeContent = matches[2].trim();
+        // Create the code block object and push it to the codeBlocks array
+        const codeBlock = {
+            language: languageName,
+            code: codeContent,
+        };
 
-    // Create the code block object and push it to the codeBlocks array
-    const codeBlock = {
-        language: languageName,
-        code: codeContent,
-    };
+        codeBlocks.push(codeBlock);
+        codeLanguages.push(languageName);
+        codeContents.push(codeContent);
+    }
 
-    codeBlocks.push(codeBlock);
-    codeLanguages.push(languageName);
-    codeContents.push(codeContent);
-}
+    const codeBlocksStartIndex = inputContent.indexOf('```');
+    const codeBlocksEndIndex = inputContent.lastIndexOf('```');
+    const aboveContentBlocks = inputContent.slice(0, codeBlocksStartIndex);
+    const belowContentBlocks = inputContent.slice(codeBlocksEndIndex + 3);
 
-// Print the modified codeBlocks array, including all the extracted code blocks
-console.log(codeContents);
-console.log(codeLanguages);
+    console.log("Above the content:");
+    console.log(aboveContentBlocks);
+
+    console.log("Below the content:");
+    console.log(belowContentBlocks);
+
+    const aboveContentDiv = document.getElementById('yongyong_answer_aboveContent');
+    const belowContentDiv = document.getElementById('yongyong_answer_belowContent');
+
+    // Check if the above and below content blocks are equal
+    if (aboveContentBlocks === belowContentBlocks) {
+        // Display only one of them (you can choose to display above or below)
+        aboveContentDiv.innerHTML = aboveContentBlocks;
+        belowContentDiv.style.display = "none";
+    } else {
+        aboveContentDiv.innerHTML = aboveContentBlocks;
+        belowContentBlocks.replace('\n','<br>');
+        belowContentDiv.innerHTML = belowContentBlocks;
+    }
+
+    console.log(codeBlocks);
+    console.log(codeContents);
+    console.log(codeLanguages);
+
 
 // 여기까지
 
@@ -66,14 +76,10 @@ function createCodeBlock(containerId, code, language) {
     }
 }
 
-const innerCode = `#yongyongcodeContainer {
-    margin-top: 2%;
-    border: 1px solid #000000;
-    border-radius: 5px;
-  }`;
+const innerCode = document.getElementById("innerCode").innerHTML;
 
 // 첫 번째 코드 블록 생성 및 하이라이팅 적용
-createCodeBlock('codeContainer', innerCode, 'javascript');
+createCodeBlock('codeContainer', innerCode, 'java');
 
 // // codeBlocks 배열에 저장된 모든 language 값을 가져옴
 // const languages = codeBlocks.map((codeBlock) => codeBlock.language);
@@ -87,3 +93,6 @@ for (let i = 0; i < codeBlocks.length; i++) {
     // codeBlocks[i].classList.add('li');
 }
 // 여기까지
+
+const textContentElement = document.getElementById("yongyong_textContent");
+textContentElement.style.display = "none";

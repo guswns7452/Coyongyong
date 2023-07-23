@@ -22,7 +22,6 @@ import com.example.coyongyong.domain.answerYongVO;
 import com.example.coyongyong.domain.customerVO;
 import com.example.coyongyong.domain.gradeVO;
 import com.example.coyongyong.domain.questionVO;
-import com.example.coyongyong.domain.studyVO;
 import com.example.coyongyong.service.answerCusService;
 import com.example.coyongyong.service.answerYongService;
 import com.example.coyongyong.service.customerService;
@@ -108,7 +107,7 @@ public class questionController {
 		model.addAttribute("question", question);
 		model.addAttribute("questions", questions);
 		model.addAttribute("gradeCustomer", grade);
-		yong.setanswerYongContent(yong.getanswerYongContent().replace("\n", "<br>"));
+//		yong.setanswerYongContent(yong.getanswerYongContent().replace("\n", "<br>"));
 		model.addAttribute("yongyong", yong);
 		model.addAttribute("answerCus", cus);
 

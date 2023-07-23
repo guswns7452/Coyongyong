@@ -28,7 +28,7 @@
     </head>
 
     <body>
-      <main>
+      <main class="bg-green-10">
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
           <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center">
@@ -114,11 +114,11 @@
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">질문</a>
                 </li>
                 <li>
-                  <a href="/study/list"
+                  <a href="/study/list?page=1"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">공부일지</a>
                 </li>
                 <li>
-                  <a href="/problem/list"
+                  <a href="/problem/list?language=c"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">코딩테스트</a>
                 </li>
                 <li>
@@ -135,7 +135,7 @@
           <h1>C O Y O N G Y O N G</h1>
           <p>코딩의 질문과 답을 묻다.</p>
         </div>
-        <div class="top">
+        <div class="top bg-green-10">
           <div class="toptop">
             <section class="dark:bg-gray-900">
               <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
