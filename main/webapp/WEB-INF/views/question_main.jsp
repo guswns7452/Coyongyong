@@ -119,7 +119,6 @@
 </nav>
 
 <div class="tw-col-span-8 tw-py-8 bg-gray-50">
-	<div class="text-center font_size30 tw-font-bold">오늘의 질문</div>
 	<div
 		class="tw-flex tw-flex-col tw-divide-solid tw-divide-x-0 tw-divide-y tw-divide-slate-200">
 		<div class="flex_col jus-center">

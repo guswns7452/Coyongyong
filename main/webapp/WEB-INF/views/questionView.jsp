@@ -327,6 +327,7 @@
 						<div id="yongyong_answer_belowContent"></div>
 						<!-- 여기까지 -->
 						</h4>
+				
 					</div>
 					<div class="answer_like">
 						<div class="answer_like">
@@ -521,6 +522,8 @@
 
 	<script
 		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/temp.js"></script>
+
+
 
 </body>
 

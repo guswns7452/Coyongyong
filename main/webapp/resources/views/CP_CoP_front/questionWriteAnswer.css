@@ -1,12 +1,10 @@
-@charset "UTF-8";
-
 body { 
   margin: 0; 
 }
 .top {
   display: flex;
   justify-content: center;
-  background: #F3F4F6;
+  background: #ecf6ee3d;;
 }
 .toptop {
   width: 60%;
@@ -245,6 +243,20 @@ select:focus {
   margin-top: 3%;
 }
 
+.content {
+  border: 1px solid #000000;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  
+  display: block;
+  width: 103%;
+}
+
 .code-btn {
   margin-bottom: 3% ;
 }
@@ -266,7 +278,14 @@ select:focus {
 }
 
 #monaco-container {
-  margin-top: 4%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.border_ {
+  border: 2px solid #000000;
+  border-radius: 8px;
 }
 
 /* 추가된거~ */
@@ -406,4 +425,13 @@ div#editor_content {
 .error_label {
   margin-top: 2%;
   margin-left: 2%;
+}
+
+td {
+  padding-left: 10px !important;
+}
+
+#monaco {
+  border: 2px solid #000000;
+  border-radius: 8px;
 }
