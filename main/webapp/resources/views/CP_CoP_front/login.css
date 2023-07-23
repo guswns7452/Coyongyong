@@ -16,6 +16,13 @@ body{
     display: flex;
     justify-content: center;
 }
+.bg-green-10{
+	background-color: #f9fffa96;	
+}
+
+.center{
+	width:100%;
+}
 .sector_flex{
     width: 40%;
     padding-top: 150px;

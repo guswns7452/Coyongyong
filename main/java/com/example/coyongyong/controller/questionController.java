@@ -108,7 +108,10 @@ public class questionController {
 		model.addAttribute("question", question);
 		model.addAttribute("questions", questions);
 		model.addAttribute("gradeCustomer", grade);
-		yong.setanswerYongContent(yong.getanswerYongContent().replace("\n", "<br>"));
+
+
+		//yong.setanswerYongContent(yong.getanswerYongContent().replace("\n", "<br>"));
+
 		model.addAttribute("yongyong", yong);
 		model.addAttribute("answerCus", cus);
 

@@ -113,10 +113,10 @@
 					<li><a href="/question/questionmain?language=c"
 						class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">질문</a>
 					</li>
-					<li><a href="/study/list"
+					<li><a href="/study/list?page=1"
 						class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">공부일지</a>
 					</li>
-					<li><a href="/problem/list"
+					<li><a href="/problem/list?language=c"
 						class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">코딩테스트</a>
 					</li>
 					<li><a href="#"
@@ -431,6 +431,7 @@
       document.getElementById('writeQuestion').appendChild(
         hiddenInputlanguage);
 
+
       if (divContent.trim() != '') {
         document.getElementById('writeQuestion').submit();
       } else {
@@ -438,6 +439,7 @@
       }
     }
   </script>
+
 	<!-- 이거 script태그 추가됨~ 이게 그거 오류 내용 작성할꺼면 버튼 누르면 text작성할 수 있지렁 -->
 	<script>
     // JavaScript 코드 추가

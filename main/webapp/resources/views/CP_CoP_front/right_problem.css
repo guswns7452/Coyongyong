@@ -26,8 +26,9 @@ body {
 #container {
     display: flex;
     height: 100%;
-    align-items: stretch;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #left {
@@ -38,7 +39,24 @@ body {
     justify-content: center;
     align-items: center;
 }
+.congra{
+	width:200px;
+	margin-bottom:30px;
+	
+}
+.h1{
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size:50px;
+}
 
+.h3{
+	color: #e9e9e9;
+	text-align: center;
+	font-weight: bold;
+	font-size:20px;
+}
 #question {
     color: white;
     width: 80%

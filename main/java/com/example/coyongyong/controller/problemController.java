@@ -1,5 +1,9 @@
 package com.example.coyongyong.controller;
 
+
+
+import java.util.HashMap;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,21 +46,50 @@ public class problemController {
 	
 	@RequestMapping(value = {"/play"}, method = RequestMethod.GET)
 	public String problemPlay(@RequestParam("language") String language, @RequestParam("num") int num, HttpServletRequest request, Model model) throws Exception {
-		if(sessioncontroller.sessionCheck(request) == "true") {
+//		if(sessioncontroller.sessionCheck(request) == "true") {
 			problemVO problem = problemservice.readProblemByid(num);
 			model.addAttribute("problem",problem);
 			model.addAttribute("language",language);
+			model.addAttribute("num", num);
 			return "problem";
-		}
-		return "redirect:/login"; 
+//		}
+//		return "redirect:/login"; 
 	}
 	
+	@RequestMapping(value = {"/test"}, method = RequestMethod.GET)
+	public String test() throws Exception {
+//		if(sessioncontroller.sessionCheck(request) == "true") {
+			
+			return "wrong_problem";
+//		}
+//		return "redirect:/login"; 
+	}
 	
 	@RequestMapping(value = {"/play"}, method = RequestMethod.POST)
-	public String problemPlayPost(@RequestParam("language") String language, @RequestParam("code") String code, HttpServletRequest request, Model model) throws Exception {
+	public String problemPlayPost(@RequestParam("language") String language, @RequestParam("code") String code, @RequestParam("num") String num, HttpServletRequest request, Model model) throws Exception {
 		if(sessioncontroller.sessionCheck(request) == "true") {
-			//language
-			return "problem";
+			System.out.println(num);
+			problemVO problem = problemservice.readProblemByid(Integer.parseInt(num));
+			String[] answers = problem.getanswer().split("\\.");
+			for(int i=0;i<3;i++) {
+				System.out.println(answers[i]);
+			}
+			HashMap<String, String> map = new HashMap<String, String>();
+			for(int i=0;i<3;i++) {
+				String[] data = answers[i].split(",");
+				data[0] = data[0].replaceAll("\\{", "");
+				data[1] = data[1].replaceAll("\\}", "");
+				map.put(data[0].replaceAll("\"",""), data[1].replaceAll("\"",""));
+			}
+
+			judge0APIController judge0apiController = new judge0APIController();
+			if(judge0apiController.check(map,language,code).equals("true")) {
+				return "right_problem";
+			}
+			else {
+				return "wrong_problem";
+			}
+
 		}
 		return "redirect:/login"; 
 	}

@@ -29,6 +29,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gowun+Dodum&family=Hi+Melody&family=Jua&family=Nanum+Gothic:wght@800&family=Poor+Story&display=swap"
 	rel="stylesheet">
+
 <link rel="icon"
 	href="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png" />
 <link rel="apple-touch-icon"
@@ -123,10 +124,10 @@
 					<li><a href="/question/questionmain?language=c"
 						class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">질문</a>
 					</li>
-					<li><a href="/study/list"
+					<li><a href="/study/list?page"
 						class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">공부일지</a>
 					</li>
-					<li><a href="/problem/list"
+					<li><a href="/problem/list?language=c"
 						class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">코딩테스트</a>
 					</li>
 					<li><a href="#"
@@ -136,7 +137,7 @@
 			</div>
 		</div>
 	</nav>
-
+	
 	<main>
 		<div class="top block">
 			<div class="toptop">
@@ -146,6 +147,7 @@
 						src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/letter-q.png"
 						class="img">
 					<div class="question_title">
+
 						<span id="question_title"> <font size=4>${question.questionTitle}
 						</font>
 						</span> <span id="question_title"> <font size=2>${question.customerID}&nbsp;|&nbsp;${question.questionDate}</font>
@@ -267,11 +269,147 @@
 									</button>
 								</a>
 							</div>
+
+						</div>
+						<span id="question_title"> <font size=2>${question.customerID}&nbsp;|&nbsp;${question.questionDate}</font>
+						</span>
+					</div>
+					<div class="question_content">
+						<!-- 여기 추가 오류 내용이랑 content라는 줄 추가해줌.
+            오류랑 코드 사이에 있는 content라는 줄은 없애도 괜찮을듯..? -->
+						<!-- 이거 언어가 제대로 세로로 출력이 안되는것같아서 추가함. -->
+						<div class="flex direction-column">
+							<h3 id="question_language" class="justify-start">
+								<c:choose>
+									<c:when test="${gradeCustomer.languageNum eq 1}">C언어</c:when>
+									<c:when test="${gradeCustomer.languageNum eq 2}">Python</c:when>
+									<c:when test="${gradeCustomer.languageNum eq 1}">Java</c:when>
+								</c:choose>
+								- ${gradeCustomer.grade} level
+						</h3>
+						</div>
+						<!-- 여기까지 -->
+						<font size=3>&nbsp;${question.questionContent}<br>
+						</font>
+						<div class="content"></div>
+						<h4 id="margin-bottom
+            ">오류 내용 넣기</h4>
+						<div class="content"></div>
+						<div id="codeContainer">
+							<div id="innerCode" style="display: none;">${question.questionCode}</div>
+						</div>
+						<div class="flex justify-end">
+							<!-- 여기 답변하러가기 버튼 추가~ -->
+							<button class="bg-lime-700">답변하러가기</button>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="content"></div> -->
+
+				<!-- 용용이 답변 생성 위치. -->
+				<div class="white-block">
+					<!-- 용용이 png 대신에 이거 넣으면 됨. -->
+					<div class="flex justify-between">
+						<img
+							src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"
+							class="img">
+					</div>
+					<font size=4> 용용이의 답변이 있습니다!</font>
+					<!-- 여기 div 두개 추가하고 yongyong_answer에 있는 id추가된거임! -->
+					<div class="yongyong_answer" id="yongyong_answer_">
+						<span id="yongyong_textContent" style="display: none;">
+							${yongyong.answerYongContent} </span>
+						<div id="yongyong_answer_aboveContent"></div>
+						<!-- 이거 id바꿨어용 추가추가 -->
+						<div id="yongyongcodeContainer">
+							<div id="yongyonginnerCode" style="display: none;"></div>
+						</div>
+						<div id="yongyong_answer_belowContent"></div>
+						<!-- 여기까지 -->
+						</h4>
+					</div>
+					<div class="answer_like">
+						<div class="answer_like">
+							<a id="answer_like">
+								<button type="button"
+									class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex items-center"
+									id="subscribe">
+									<img
+										src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/click.png"
+										width="30px" height="30px" class="heart"> <font size=5>&nbsp;채택하기</font>
+								</button>
+							</a>
+
 						</div>
 					</div>
 
 				</c:forEach>
 
+				<c:forEach items="${answerCus}" var="answer" varStatus="i">
+					<!-- 사용자의 답변 적어주는 공간 -->
+					<div class="white-block">
+						<!-- 여기 div로 묶이고, dot_dropdown은 밑에 이씀 이거 추가~ -->
+						<div class="answer_space">
+							<div class="flex justify-between">
+								<div class="answer_content">
+									<figure class="max-w-screen-md title">
+										<figcaption class="flex items-center mt-6 space-x-3">
+											<img class="w-10 h-10 rounded-full"
+												src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/appliance-repair.png"
+												alt="profile picture">
+											<div
+												class="items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+												<div class="grid-2">
+													<cite
+														class="pr-3 font-medium text-gray-900 dark:text-white">${answer.customerID} 
+													</cite>
+
+												</div>
+											</div>
+										</figcaption>
+									</figure>
+									<h4 class="answer">
+										<font size=3 id="answer_content multiline-text">${answer.answerCusContent} <br>
+
+										</font>
+									</h4>
+								</div>
+								<div>
+									<button data-dropdown-toggle="dot_dropdown"
+										data-dropdown-placement="bottom" aria-expanded="false">
+										<svg class="w-6 h-6 text-gray-800 dark:text-white"
+											aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+											fill="currentColor" viewBox="0 0 4 15">
+                    <path
+												d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                  </svg>
+									</button>
+								</div>
+							</div>
+							<div class="answer_like">
+								<a id="answer_like">
+									<button type="button"
+										class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+										id="like">
+										<img
+											src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/like.png"
+											width="30px" height="30px" class="heart"> 마음에 들어요
+									</button>
+								</a> <a id="answer_unlike">
+									<button type="button"
+										class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+										id="like">
+										<img
+											src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/unlike.png"
+											width="30px" height="30px" class="heart"> 마음에 들지 않아요
+									</button>
+								</a>
+							</div>
+						</div>
+					</div>
+
+				</c:forEach>
+				
 
 			</div>
 
@@ -281,114 +419,54 @@
 			<div class="flex-grow">
 				<div class="flex questionList">
 					<div></div>
-					<%
-					Connection connection = null;
-					PreparedStatement statement = null;
-					ResultSet resultSet = null;
-					List<String> questionContents = new ArrayList<>();
-					List<String> customerIDs = new ArrayList<>();
-					List<String> questionTitles = new ArrayList<>();
-					try {
-						// 데이터베이스 연결 설정
-						String jdbcURL = "jdbc:mysql://18.219.59.44:3306/cp_cop2?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC";
-						String dbUser = "jspbook";
-						String dbPassword = "fbcrhcrhjiein7475!";
-
-						// JDBC 드라이버 로드
-						Class.forName("com.mysql.jdbc.Driver");
-						connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-
-						// 데이터베이스 쿼리 실행
-						String query = "SELECT questionContent, customerID, questionTitle FROM question ORDER BY RAND() LIMIT 4";
-						statement = connection.prepareStatement(query);
-
-						resultSet = statement.executeQuery();
-
-						while (resultSet.next()) {
-							String questionContent = resultSet.getString("questionContent");
-							String customerID = resultSet.getString("customerID");
-							String questionTitle = resultSet.getString("questionTitle");
-							questionContents.add(questionContent);
-							customerIDs.add(customerID);
-							questionTitles.add(questionTitle);
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					} finally {
-						// 리소스 해제
-						if (resultSet != null) {
-							try {
-						resultSet.close();
-							} catch (SQLException e) {
-						e.printStackTrace();
-							}
-						}
-						if (statement != null) {
-							try {
-						statement.close();
-							} catch (SQLException e) {
-						e.printStackTrace();
-							}
-						}
-						if (connection != null) {
-							try {
-						connection.close();
-							} catch (SQLException e) {
-						e.printStackTrace();
-							}
-						}
-					}
-					%>
-
-					<%
-					for (int i = 0; i < questionContents.size(); i++) {
-					%>
-					<a class="question" href="#">
-						<div id="question">
-							<div class="flex items-center space-x-4">
-								<img class="w-7 h-7 rounded-full"
-									src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/uni.png"
-									alt="" /> <span class="font-medium dark:text-white"> <%=customerIDs.get(i)%>
-								</span>
-							</div>
-							<!-- 여기 추가 ㅇㅇ -->
-							<div class="grid-question-list">
-								<div class="question_title">
-									<font size="4"> <%=questionTitles.get(i)%>
-									</font>
+					<c:forEach items="${questions}" var="question" begin="1" end="4">
+					<c:set var="i"><%= java.lang.Math.round(java.lang.Math.random() * 140) %></c:set>
+					
+						<a class="question" href="#">
+							<div id="question">
+								<div class="flex items-center space-x-4">
+									<img class="w-7 h-7 rounded-full"
+										src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/uni.png"
+										alt="" /> <span class="font-medium dark:text-white"> ${questions.get(i).customerID}
+									</span>
 								</div>
-								<div class="question_content">
-									<font size=2> <%=questionContents.get(i)%>
-									</font>
+								<!-- 여기 추가 ㅇㅇ -->
+								<div class="grid-question-list">
+									<div class="question_title">
+										<font size="4"> ${questions.get(i).questionTitle}
+										</font>
+									</div>
+									<div class="question_content">
+										<font size=2> ${questions.get(i).questionContent}
+										</font>
+									</div>
 								</div>
 							</div>
-						</div>
-					</a>
-					<%
-					}
-					%>
-
-					<div></div>
+						</a>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
-		<!-- dot-dropdown 추가 -->
-		<div
-			class="w-48 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white hidden"
-			id="dot_dropdown">
-			<button type="button"
-				class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-				공유하기 📩</button>
-			<button type="button"
-				class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-				신고하기 📢</button>
-		</div>
+		<!-- dot-dropdown 다 바뀜! 추가라고 검색하겠지? -->
 		<div
 			class="w-48 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white hidden"
 			id="dot_dropdown_share">
-			<button type="button"
+			<button type="button" data-dropdown-toggle="dropdown_share"
+				data-dropdown-placement="bottom" aria-expanded="false"
 				class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
 				공유하기 📩</button>
+		</div>
+		<div
+			class="w-48 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white hidden"
+			id="dropdown_share">
+			<div
+				class="inline-flex items-center w-full direction-column focus:outline-none">
+				<button type="button"
+					class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+					복사하기 📤</button>
+				<input type="text" value="https://www.todomate.net/#/"
+					class="relative inline-flex items-center w-full px-4 py-2 text-sm font-medium border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+			</div>
 		</div>
 	</main>
 
@@ -423,8 +501,6 @@
 
 	<!-- flowbite 설정 -->
 	<script
-		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/questionView.js"></script>
-	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 
 	<!-- 코드 스타일 시트 -->
@@ -432,6 +508,7 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/hybrid.min.css">
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+	
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
@@ -442,11 +519,9 @@
 		hljs.initLineNumbersOnLoad();
 	</script>
 
+	<script
+		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/temp.js"></script>
 
-	<script>
-		var text = "첫 번째 문장\n두 번째 문장\n세 번째 문장";
-		document.getElementById("multiline-text").innerText = text;
-	</script>
 </body>
 
 </html>
