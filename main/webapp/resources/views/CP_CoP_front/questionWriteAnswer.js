@@ -6,21 +6,34 @@ if (!inputCustomerContent) {
   document.getElementById('customercodeContainer').style.display = 'none';
 }
 
-// 코드 블록을 생성하고 highlight.js 적용하는 함수
-function createCodeBlock(containerId, code, language) {
+        require
+          .config({
+            paths: {
+              'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.16.2/min/vs'
+            }
+          });
 
-  if (code) {
-      const codeContainer = document.getElementById(containerId);
-      const codeBlock = document.createElement('pre');
-      codeBlock.classList.add('code');
-      const codeElement = document.createElement('code');
-      codeElement.classList.add(language);
-      codeElement.textContent = code;
-      codeBlock.appendChild(codeElement);
-      codeContainer.appendChild(codeBlock);
-      hljs.highlightBlock(codeBlock);
-  }
-}
+        require(['vs/editor/editor.main'], function () {
+          editor = monaco.editor.create(document
+            .getElementById('customercodeContainer'), {
+            theme: 'vs-dark',
+            fontFamily: 'Consolas',
+            automaticLayout: true,
+            fontSize: 17,
+            language: 'java',
+            value: inputCustomerContent
+          });
+          	var lineCount = editor.getModel().getLineCount();
+			// Monaco Editor의 높이를 계산하기 위한 기본 높이 값
+			var lineHeight = 19; // 한 줄의 높이 (예시 값)
+			// Monaco Editor 요소 선택
+			var monacoContainer = document.getElementById('customercodeContainer');
+			// Monaco Editor의 높이 계산
+			var editorHeight = lineCount * lineHeight;
+			// Monaco Editor 요소의 높이 설정
+			monacoContainer.style.height = editorHeight + 'px';
+        });
 
+
+          
 console.log(inputCustomerContent);
-createCodeBlock('customercodeContainer', inputCustomerContent, 'java');

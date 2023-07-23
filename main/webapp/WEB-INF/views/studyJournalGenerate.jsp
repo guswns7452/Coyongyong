@@ -338,8 +338,6 @@
 											<label for="description"
 												class="flex mb-2 text-sm font-medium text-gray-900 dark:text-white error_label">질문할
 												코드 내용</label>
-											<div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
-											</div>
 											<div id="monaco-container"></div>
 										</div>
 										<div class="submit_btn">
