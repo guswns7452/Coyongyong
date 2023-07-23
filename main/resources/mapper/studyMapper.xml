@@ -37,6 +37,10 @@
       ]]> 
      </select>
  	
+ 	 <update id="updateStudyCount">
+ 	 	UPDATE study SET studyCount = studyCount + 1 WHERE studyNum = #{studyNum};
+ 	 </update>
+ 	
      <update id="update">
 	 	update study set studyNum =#{studyNum}, customerID =#{customerID}, gradeNum =#{gradeNum}, 
 			studyTitle =#{studyTitle}, studyContent =#{studyContent}, goodCount =#{goodCount}, studyDate =#{studyDate}

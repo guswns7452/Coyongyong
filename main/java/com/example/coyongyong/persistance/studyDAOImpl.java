@@ -25,7 +25,7 @@ public class studyDAOImpl implements studyDAO {
     public studyVO selectByNum(int studyNum) throws Exception {
         return sqlSession.selectOne(namespace + ".selectByNum", studyNum);
     }
-
+    
     @Override
     public studyVO selectById(String customerID) throws Exception {
         return sqlSession.selectOne(namespace + ".selectById", customerID);
@@ -33,8 +33,8 @@ public class studyDAOImpl implements studyDAO {
     
     public int readLastStudyNum() throws Exception{
 		// INT라서 그런가?
-		int lastStudyNum = sqlSession.selectOne(namespace+".selectLastStudyNum");
-		return lastStudyNum; 
+		Integer lastStudyNum = sqlSession.selectOne(namespace+".selectLastStudyNum");
+		return (lastStudyNum != null) ? lastStudyNum : 0; // 또는 다른 기본값 
 	} 
 
     @Override
@@ -46,7 +46,12 @@ public class studyDAOImpl implements studyDAO {
     public List<studyVO> selectAll() throws Exception {
         return sqlSession.selectList(namespace + ".selectAll");
     }
-
+    
+    @Override
+    public void increaseStudyCount(studyVO study) throws Exception{
+    	sqlSession.update(namespace + ".updateStudyCount", study);
+    }
+    
     @Override
     public void update(studyVO study) throws Exception {
         sqlSession.update(namespace + ".update", study);

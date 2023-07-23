@@ -55,7 +55,7 @@ public class problemController {
 	@RequestMapping(value = {"/play"}, method = RequestMethod.POST)
 	public String problemPlayPost(@RequestParam("language") String language, @RequestParam("code") String code, HttpServletRequest request, Model model) throws Exception {
 		if(sessioncontroller.sessionCheck(request) == "true") {
-			language
+			//language
 			return "problem";
 		}
 		return "redirect:/login"; 

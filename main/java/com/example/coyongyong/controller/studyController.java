@@ -104,6 +104,8 @@ public class studyController {
 		studyVO study = studyService.readStudyByNum(num);
 		List<studyVO> studylist = studyService.readAllStudy();
 		
+		studyService.updateStudyCount(study);
+		
 		logger.info(" /study/view URL called. then listquestion method executed.");
 		model.addAttribute("study", study);
 		model.addAttribute("studylist", studylist);

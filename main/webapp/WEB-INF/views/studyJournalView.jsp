@@ -156,18 +156,18 @@ pre {
 								alt="profile picture">
 							<div
 								class="items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-								<cite class="pr-3 font-medium text-gray-900 dark:text-white">김밍디</cite>
+								<cite class="pr-3 font-medium text-gray-900 dark:text-white">${study.customerID}</cite>
 							</div>
 						</figcaption>
 					</figure>
 					<div class="flex justify-between">
 						<div>
 							<div class="title">
-								<font size=5> 제목인데용? </font>
+								<font size=5> ${study.studyTitle} </font>
 							</div>
 							<div class="date">
-								<font size=2> 작성날짜 : 2023.07.02 <br> 조회수 :
-									21,345,523,243,523 <br> 좋아요 수 : 21,204,140,182 <br>
+								<font size=2> 작성날짜 : ${study.studyDate} <br> 조회수 :
+									${study.studyCount} <br> 좋아요 수 : ${study.goodCount} <br>
 								</font>
 							</div>
 						</div>
@@ -187,7 +187,7 @@ pre {
 						<figure class="max-w-screen-md study_journal_content">
 							<div class="content"></div>
 							<div class="font-semibold text-gray-900 dark:text-white contents">
-								<font size=4> ## 요약
+								<font size=4> ${study.studyContent} <!--¿## 요약
 
 									<aside>💡 **[Chapter 1]** - 얼리 억세스 법칙 : 완벽함보다 속도로 승부를
 										보라. 완벽함을 추구하면 그 시장은 이미 다른 서비스가 장악하고 난 뒤다. - 충동 조절 : 성공하고 싶다면
@@ -272,7 +272,7 @@ pre {
 										능력 착각 : 리더가 되고 싶다면, 리더처럼 행동하기. 타인에 대한 포용, 헌신 배려, 책임감이 필요함.
 										타인에게 “저 사람이 리더가 되어야함” 이라는 생각이 있어야함. 그래서 리더가 되고 싶지 않은 사람도 리더가 될
 										수 있는데, 리더에 대한 준비를 미리미리 해두라 - 더닝-크루커 효과 : 능력이 뛰어난 사람이 자신의 능력을
-										과소평가하는 경향이 있음. 어쨌든 성공하려면, 꾸준한 열정이 있어야 한다.</aside>
+										과소평가하는 경향이 있음. 어쨌든 성공하려면, 꾸준한 열정이 있어야 한다.</aside> -->
 								</font>
 							</div>
 							<div id="codeContainer"></div>

@@ -36,10 +36,22 @@ public class studyServiceImpl implements studyService {
     public int countLastStudyNum() throws Exception{
 		return studyDAO.readLastStudyNum();
 	}
+    /*
+ // StudyService.java
+    public int countLastStudyNum() throws Exception{
+        Integer lastStudyNum = studyDAO.readLastStudyNum();
+        return (lastStudyNum != null) ? lastStudyNum : 0;
+    }*/
+
     
     @Override
     public void addStudy(studyVO study) throws Exception {
         studyDAO.insert(study);
+    }
+    
+    @Override
+    public void updateStudyCount(studyVO study) throws Exception {
+        studyDAO.increaseStudyCount(study);
     }
 
     @Override

@@ -13,6 +13,7 @@ public class studyVO {
 	private int goodCount;
 	private String studyDate;
 	private String studyCode;
+	private int studyCount;
 	
 	public int getStudyNum() {
 		return studyNum;
@@ -20,6 +21,14 @@ public class studyVO {
 	
 	public void setStudyNum(int studyNum) {
 		this.studyNum = studyNum;
+	}
+	
+	public int getStudyCount() {
+		return studyCount;
+	}
+	
+	public void setStudyCount(int studyCount) {
+		this.studyCount = studyCount;
 	}
 	
 	public String getCustomerID() {

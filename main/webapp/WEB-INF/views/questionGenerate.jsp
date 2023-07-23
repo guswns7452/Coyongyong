@@ -438,7 +438,6 @@
       }
     }
   </script>
-
 	<!-- 이거 script태그 추가됨~ 이게 그거 오류 내용 작성할꺼면 버튼 누르면 text작성할 수 있지렁 -->
 	<script>
     // JavaScript 코드 추가

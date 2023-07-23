@@ -11,6 +11,7 @@ public interface studyService {
     public List<studyVO> readAllStudy() throws Exception;
     public void addStudy(studyVO study) throws Exception;
     public int countLastStudyNum() throws Exception;
+    public void updateStudyCount(studyVO study) throws Exception;
     public void deleteStudy(int studyNum) throws Exception;
     public void updateStudy(studyVO study) throws Exception;
 }

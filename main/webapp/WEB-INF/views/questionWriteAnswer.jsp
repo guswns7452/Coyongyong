@@ -156,7 +156,7 @@
                   </div>
                   <div class="question_content">
                      <!-- 이거는 더 이쁘게 어떻게 꾸밀지 생각좀~ -->
-                     <h4>${question.questionContent} </h4>
+                     <h4> <br> ${question.questionContent} </br> <br> ${question.questionCode} </br>  ${question.questionError} </h4>
                      <div id="codeContainer"></div>
                   </div>
                </div>
