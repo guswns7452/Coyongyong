@@ -130,27 +130,20 @@
 	</nav>
 
 	<main>
-		<div class="top">
-			<div class="toptop">
+		<div class="top bg-green-10">
+			<div class="toptop bg-green-10">
 				<div class="background_white background">
-					<div class="title">
+					<div class="title flex justify-between">
 						<font size=5> 공부일지 목록 </font>
+						<a type="button" href="/study/writestudy" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="height:40px;">공부일지 작성하러가기</a>
 					</div>
 					<div class="list">
-						<div id="study_search">
-							<div class="study_search">
-								<input type="search" class="search_txt" name=""
-									placeholder="search..."> <a class="search_btn" href="#">
-									<i class="fas fa-search"></i>
-								</a>
-							</div>
-						</div>
 						<div class="lists">
 							<ul id="listContainer">
 							<c:forEach items="${studys}" var="study" varStatus="i"
 									begin="${(page-1)*10}" end="${page*10-1}">
 									<li><a
-										href="/study/list?page=${study.studyNum}">
+										href="/study/view?num=${study.studyNum}">
 											<div class="w-full word-space content">
 												<font size=5>${study.studyTitle}</font>
 												<div class="studyJournal_content">${study.studyContent}</div>

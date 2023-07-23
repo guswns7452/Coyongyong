@@ -133,9 +133,9 @@
 		</div>
 	</nav>
 
-	<main>
-		<div class="top">
-			<div class="toptop">
+	<main class="bg-green-10">
+		<div class="top bg-green-10">
+			<div class="toptop bg-green-10">
 				<div>
 					<div>
 						<font size=6>언어 선택하기</font>
@@ -424,7 +424,7 @@
 												<div class="flex justify-between column-center">
 													<div class="flex items-center space-x-4 bg-black">
 														<img class="w-7 h-7 rounded-full"
-															src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/${customerImage}"
+															src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongsun.png"
 															alt="" /> <span class="font-medium dark:text-white">
 															${question.customerID} </span>
 													</div>

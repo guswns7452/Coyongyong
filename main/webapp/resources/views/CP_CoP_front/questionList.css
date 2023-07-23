@@ -8,13 +8,15 @@ main {
     width: 100%;
     height: 100%;
     padding: 0px;
-    margin-bottom: 200px;
+}
+
+.bg-green-10{
+	background-color: #f9fffa96;	
 }
 
 .top {
     display: flex;
     justify-content: center;
-    background-color: #F3F4F6;
     padding-bottom: 5%;
 }
 

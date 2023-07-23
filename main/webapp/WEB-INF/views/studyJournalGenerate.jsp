@@ -159,22 +159,6 @@
 										<option value="3">Java</option>
 										<option value="2">Python</option>
 									</select>
-									<div class="items-center mr-4">
-										<input id="yellow-radio" type="radio" value=""
-											name="colored-radio"
-											class="w-4 h-4 text-green-300 border-green-300 focus:ring-green-300 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-										<label for="yellow-radio"
-											class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">public
-											mode</label>
-									</div>
-									<div class="items-center mr-4">
-										<input id="yellow-radio" type="radio" value=""
-											name="colored-radio"
-											class="w-4 h-4 text-green-300 border-green-300 focus:ring-green-300 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-										<label for="yellow-radio"
-											class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">private
-											mode</label>
-									</div>
 								</div>
 								<div>
 									<div class="sm:col-span-2">
@@ -218,7 +202,7 @@
 														</div>
 
 														<form action="#">
-															<div class="grid gap-4 mb-4 sm:grid-cols-2">
+															<div class="grid gap-4 mb-4 sm:grid-cols-2 border_">
 																<div class="sm:col-span-2 justify-center">
 																	<div id="monaco" style="width: 600px; height: 400px"></div>
 																</div>
@@ -235,7 +219,7 @@
 											</div>
 
 											<!-- 여기 추가 -->
-											<form class="border-lime-500">
+											<form class="border-lime-500 margin-bottom">
 												<div
 													class="w-full mb-4 rounded-lg bg-lime-100 dark:bg-gray-700 dark:border-gray-600">
 													<div
@@ -381,7 +365,7 @@
 			<p class="my-6 text-gray-500 dark:text-gray-400">TUKOREA CP-CoP
 				Dragon and Horse Coding knowledge sharing site with ChatGPT API</p>
 
-			<uld
+			<ul
 				class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
 				<li><a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
 				</li>

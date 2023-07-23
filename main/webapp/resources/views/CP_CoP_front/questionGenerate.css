@@ -4,17 +4,13 @@ abody {
 .top {
   display: flex;
   justify-content: center;
-  background: #F3FAF7;
+  background-color: #ecf6ee3d;
 }
 .toptop {
   width: 60%;
 }
 #top {
   margin-top: 5%;
-}
-// �섎뒗 �놁뿀��
-#code-label {
-	display: none !important;
 }
 main { 
   font-family: 'Hi Melody', cursive;
@@ -95,7 +91,7 @@ textarea {
   border-color: #31C48D #31C48D #31C48D #31C48D !important;
 }
 
-/* 異붽� */
+/* 추가 */
 .border-lime-500 {
   border: 1px solid #0E9F6E !important;
   border-radius: 8px;
@@ -112,14 +108,14 @@ textarea {
   border-top: none !important;
 }
 
-/* �댄똻 �ㅽ��� */
+/* 툴팁 스타일 */
 .tooltip {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-/* �댄똻 肄섑뀗痢� */
+/* 툴팁 콘텐츠 */
 .tooltip .tooltip-content {
   visibility: hidden;
   opacity: 0;
@@ -133,9 +129,9 @@ textarea {
   bottom: -420%;
   left: 400%;
   transform: translateX(-50%);
-  white-space: pre-wrap; /* 媛�濡� 以꾨컮轅덉쓣 �꾪븳 �띿꽦 異붽� */
-  word-wrap: break-word; /* 媛�濡� 以꾨컮轅덉쓣 �꾪븳 �띿꽦 異붽� */
-  overflow-y: scroll; /* �몃줈 �ㅽ겕濡ㅼ쓣 �꾪븳 �띿꽦 異붽� */
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+  overflow-y: scroll; 
   max-height: 200px;
   z-index: 9999;
 }
@@ -145,7 +141,7 @@ textarea {
   width: 500px;
 }
 
-/* �댄똻 �쒖떆 �꾩씠肄� */
+/* 툴팁 표시 아이콘 */
 .tooltip .tooltip-icon {
   display: inline-block;
   width: 30px;
@@ -177,15 +173,15 @@ textarea {
   flex-direction: column;
 }
 
-/* �댄똻 �몃쾭 �� �댄똻 肄섑뀗痢� �쒖떆 */
+/* 툴팁 호버 시 툴팁 콘텐츠 표시 */
 .tooltip:hover .tooltip-content {
   visibility: visible;
   opacity: 1;
 }
 
-/* �ш린源뚯� */
+/* 여기까지 */
 
-/* 異붽� */
+/* 추가 */
 .background{
   background-color: white !important;
   padding-top: 1%;
@@ -200,7 +196,7 @@ textarea {
   background-color: #F9FAFB !important;
 }
 
-/* �ш린源뚯� */
+/* 여기까지 */
 
 /* .input {
   background-color: #FFFFFF;
@@ -214,23 +210,23 @@ textarea {
   border-color: azure;
 }
 
-/* �ㅻ뜑遺�遺� �� */
+/* 헤더부분 끝 */
 
-/* 吏덈Ц �앹꽦�섎뒗 遺�遺� */
-/* �쒕ぉ */
+/* 질문 생성하는 부분 */
+/* 제목 */
 .title {
   display: flex;
   margin-top: 2%;
 }
 
-/* 吏덈Ц �쒕ぉ �낅젰�섍린 */
+/* 질문 제목 입력하기 */
 
 /* flex */
 #flex {
   display: flex;
   flex-grow: 1;
 }
-/* 移댄뀒怨좊━ �좏깮 */
+/* 카테고리 선택 */
 
 .option{
   border : 1px solid #D1D5DB;
@@ -258,7 +254,7 @@ select:focus {
   border-radius: 8px;
 }
 
-/* private 紐⑤뱶 �좏깮 */
+/* private 모드 선택 */
 .mr-4 {
   margin-top: 5px;
 }
@@ -278,14 +274,14 @@ select:focus {
   border-color: #000000 #000000 #000000 #000000; 
 } */
 
-/* �ㅻ쪟 �묒꽦, 吏덈Ц �묒꽦 遺�遺� */
-/* �묒꽦�좊븣 湲곕낯 */
+/* 오류 작성, 질문 작성 부분 */
+/* 작성할때 기본 */
 #message {
   resize: none;
   margin-bottom: 15px;
 }
 
-/* 踰꾪듉 �뚮��� �� �④낵二쇨린 */
+/* 버튼 눌렀을 때 효과주기 */
 
 .button {
   border-radius: 20px;
@@ -309,7 +305,7 @@ select:focus {
   box-shadow: 3px 3px 3px rgb(166, 169, 166);
 }
 
-/* 怨듬��쇱� �댁슜 �묒꽦 */
+/* 공부일지 내용 작성 */
 
 .study_journal_content {
   font-size:20px;
@@ -332,7 +328,7 @@ select:focus {
   margin-bottom: 4%;
 }
 
-/* �쒖텧 踰꾪듉 */
+/* 제출 버튼 */
 .submit_btn {
   justify-content: flex-end;
   display: flex;
@@ -343,7 +339,7 @@ select:focus {
   margin-bottom: 3% ;
 }
 
-/* �뚯젣紐� 湲곕낯 */
+/* 소제목 기본 */
 
 #title {
   margin-left: 20px;
@@ -352,7 +348,7 @@ select:focus {
 .editor-container {
   min-height: 50px;
   height: auto;
-  overflow-y: auto;
+  overflow-y: auto;z
 }
 
 #monaco-container {
@@ -360,8 +356,8 @@ select:focus {
   margin-top: 2%;
 }
 
-/* 異붽��쒓굅~ */
-/* �쒕ぉ �묒꽦 css */
+/* 추가된거~ */
+/* 제목 작성 css */
 
 .div {
   position: relative;
@@ -393,7 +389,7 @@ select:focus {
   display: block;
   position: absolute;
   bottom: 0;
-  left : 0%;  /* right濡쒕쭔 諛붽퓭二쇰㈃ �� - �� */
+  left : 0%;  /* right로만 바꿔주면 오 - 왼 */
   background-color: #31C48D;
   width: 0;
   height: 2px;
@@ -439,14 +435,17 @@ div#editor_content {
 
 #myTextarea {
   width: 100%;
-  height: 200px;
+  min-height: 200px;
+  max-height: auto;
   padding: 1%;
   text-align: left;
   outline: none;
 }
+
 #myTextareaError {
   width: 100%;
-  height: 150px;
+  min-height: 150px;
+  max-height: auto;
   outline: none;
   
 }
@@ -485,4 +484,9 @@ div#editor_content {
 .error_label {
   margin-top: 2%;
   margin-left: 1%;
+}
+
+.border_ {
+  border: 4px solid #000000;
+  border-radius: 8px;
 }

@@ -4,11 +4,12 @@ body {
 .top {
   display: flex;
   justify-content: center;
-  background: #F3F4F6;
+  background-color: #ecf6ee3d;
 }
 .toptop {
   width: 60%;
 }
+
 #top {
   margin-top: 5%;
 }
@@ -97,7 +98,7 @@ textarea {
   background-color: white !important;
   padding-top: 1%;
   padding: 3%;
-  margin-top: 10%;
+  margin-top: 1%;
   border: 2px solid #E5E7EB;
   border-radius: 10px;
   /* box-shadow: 2px 2px 2px #31C48D; */
@@ -234,6 +235,10 @@ select:focus {
   margin-bottom: 3% ;
 }
 
+#code-label {
+   display: none;
+}
+
 /* 소제목 기본 */
 
 #title {
@@ -251,14 +256,10 @@ select:focus {
 }
 
 #monaco-container {
-  margin-top: 4%;
-  display: none;
+  margin-bottom: 4%;
+  margin: 1%;
+  margin-top: 2%;
 }
-
-#code-label {
-	display: none;
-}
-
 
 /* 추가된거~ */
 /* 제목 작성 css */
@@ -352,7 +353,8 @@ div#editor_content {
 
 #myTextarea {
   width: 100%;
-  height: 200px;
+  min-height: 200px;
+  max-height: auto;
   padding: 1%;
   text-align: left;
   outline: none;
@@ -397,4 +399,14 @@ div#editor_content {
 .error_label {
   margin-top: 2%;
   margin-left: 2%;
+}
+
+#monaco {
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+.border_ {
+  border: 4px solid #000000;
+  border-radius: 8px;
 }

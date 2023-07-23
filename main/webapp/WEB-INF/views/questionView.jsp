@@ -137,7 +137,7 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<main>
 		<div class="top block">
 			<div class="toptop">
@@ -155,152 +155,31 @@
 					</div>
 					<div class="question_content">
 						<!-- 이거는 더 이쁘게 어떻게 꾸밀지 생각좀~ -->
-						<h3 id="question_language">
-							<c:choose>
-								<c:when test="${gradeCustomer.languageNum eq 1}">C언어</c:when>
-								<c:when test="${gradeCustomer.languageNum eq 2}">Python</c:when>
-								<c:when test="${gradeCustomer.languageNum eq 1}">Java</c:when>
-							</c:choose>
-							- ${gradeCustomer.grade} level
-						</h3>
-						<h4>&nbsp;&nbsp;${question.questionContent}</h4>
-						<div id="codeContainer"></div>
-						<div style="display: none;" id="innerCode">${question.questionCode}</div>
-					</div>
-				</div>
-				<!-- <div class="content"></div> -->
-
-				<!-- 용용이 답변 생성 위치. -->
-				<div class="white-block">
-					<!-- 용용이 png 대신에 이거 넣으면 됨. -->
-					<div class="flex justify-between">
-						<img
-							src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/yongyong.png"
-							class="img">
-						<div>
-							<button data-dropdown-toggle="dot_dropdown_share"
-								data-dropdown-placement="bottom" aria-expanded="false">
-								<svg class="w-6 h-6 text-gray-800 dark:text-white"
-									aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-									fill="currentColor" viewBox="0 0 4 15">
-                  <path
-										d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                </svg>
-							</button>
-						</div>
-					</div>
-					<font size=4> 용용이의 답변이 있습니다!</font>
-					<div class="yongyong_answer">
-						<h4 class="yongyong_answer_content">
-							<font size=3>&nbsp;${yongyong.answerYongContent} </font>
-						</h4>
-					</div>
-					<div class="answer_like">
-						<div class="answer_like">
-							<a id="answer_like">
-								<button type="button"
-									class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex items-center"
-									id="subscribe">
-									<img
-										src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/click.png"
-										width="30px" height="30px" class="heart"> <font size=5>&nbsp;채택하기</font>
-								</button>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<c:forEach items="${answerCus}" var="answer" varStatus="i">
-					<!-- 사용자의 답변 적어주는 공간 -->
-					<div class="white-block">
-						<!-- 여기 div로 묶이고, dot_dropdown은 밑에 이씀 이거 추가~ -->
-						<div class="answer_space">
-							<div class="flex justify-between">
-								<div class="answer_content">
-									<figure class="max-w-screen-md title">
-										<figcaption class="flex items-center mt-6 space-x-3">
-											<img class="w-10 h-10 rounded-full"
-												src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/appliance-repair.png"
-												alt="profile picture">
-											<div
-												class="items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-												<div class="grid-2">
-													<cite
-														class="pr-3 font-medium text-gray-900 dark:text-white">${answer.customerID} 
-													</cite>
-													<font size=1>좋아요 : ${answer.answerCusLike}  | 싫어요 : ${answer.answerCusUnlike}</font>
-												</div>
-											</div>
-										</figcaption>
-									</figure>
-									<h4 class="answer">
-										<font size=3 id="answer_content multiline-text">${answer.answerCusContent} <br>
-										</font>
-									</h4>
-								</div>
-								<div>
-									<button data-dropdown-toggle="dot_dropdown"
-										data-dropdown-placement="bottom" aria-expanded="false">
-										<svg class="w-6 h-6 text-gray-800 dark:text-white"
-											aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-											fill="currentColor" viewBox="0 0 4 15">
-                    <path
-												d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                  </svg>
-									</button>
-								</div>
-							</div>
-							<div class="answer_like">
-								<a id="answer_like">
-									<button type="button"
-										class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-										id="like">
-										<img
-											src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/like.png"
-											width="30px" height="30px" class="heart"> 마음에 들어요
-									</button>
-								</a> <a id="answer_unlike">
-									<button type="button"
-										class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-										id="like">
-										<img
-											src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/unlike.png"
-											width="30px" height="30px" class="heart"> 마음에 들지 않아요
-									</button>
-								</a>
-							</div>
-
-						</div>
-						<span id="question_title"> <font size=2>${question.customerID}&nbsp;|&nbsp;${question.questionDate}</font>
-						</span>
-					</div>
-					<div class="question_content">
-						<!-- 여기 추가 오류 내용이랑 content라는 줄 추가해줌.
-            오류랑 코드 사이에 있는 content라는 줄은 없애도 괜찮을듯..? -->
-						<!-- 이거 언어가 제대로 세로로 출력이 안되는것같아서 추가함. -->
-						<div class="flex direction-column">
-							<h3 id="question_language" class="justify-start">
+						<div class="flex">
+							<h3 id="question_language">
 								<c:choose>
 									<c:when test="${gradeCustomer.languageNum eq 1}">C언어</c:when>
 									<c:when test="${gradeCustomer.languageNum eq 2}">Python</c:when>
 									<c:when test="${gradeCustomer.languageNum eq 1}">Java</c:when>
 								</c:choose>
 								- ${gradeCustomer.grade} level
-						</h3>
+							</h3>
 						</div>
-						<!-- 여기까지 -->
-						<font size=3>&nbsp;${question.questionContent}<br>
-						</font>
-						<div class="content"></div>
-						<h4 id="margin-bottom
-            ">오류 내용 넣기</h4>
-						<div class="content"></div>
-						<div id="codeContainer">
-							<div id="innerCode" style="display: none;">${question.questionCode}</div>
-						</div>
+						<span id="languageReal" hidden> 
+							<c:choose>
+								<c:when test="${gradeCustomer.languageNum eq 1}">c</c:when>
+								<c:when test="${gradeCustomer.languageNum eq 2}">python</c:when>
+								<c:when test="${gradeCustomer.languageNum eq 1}">java</c:when>
+							</c:choose>
+						</span>
+						<h4>&nbsp;&nbsp;${question.questionContent}</h4>
+						<div id="codeContainer"></div>
+						<div style="display: none;" id="innerCode">${question.questionCode}</div>
 						<div class="flex justify-end">
 							<!-- 여기 답변하러가기 버튼 추가~ -->
-							<button class="bg-lime-700">답변하러가기</button>
+							<a class="bg-lime-700"
+								href="/question/writequestionanswer?questionNum=${question.questionNum}"><button
+									class="bg-lime-700">답변하러가기</button></a>
 						</div>
 					</div>
 				</div>
@@ -339,11 +218,9 @@
 										width="30px" height="30px" class="heart"> <font size=5>&nbsp;채택하기</font>
 								</button>
 							</a>
-
 						</div>
 					</div>
-
-				</c:forEach>
+				</div>
 
 				<c:forEach items="${answerCus}" var="answer" varStatus="i">
 					<!-- 사용자의 답변 적어주는 공간 -->
@@ -355,13 +232,13 @@
 									<figure class="max-w-screen-md title">
 										<figcaption class="flex items-center mt-6 space-x-3">
 											<img class="w-10 h-10 rounded-full"
-												src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/appliance-repair.png"
+												src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/fire_yongyong.png"
 												alt="profile picture">
 											<div
 												class="items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
 												<div class="grid-2">
 													<cite
-														class="pr-3 font-medium text-gray-900 dark:text-white">${answer.customerID} 
+														class="pr-3 font-medium text-gray-900 dark:text-white">${answer.customerID}
 													</cite>
 
 												</div>
@@ -369,9 +246,12 @@
 										</figcaption>
 									</figure>
 									<h4 class="answer">
-										<font size=3 id="answer_content multiline-text">${answer.answerCusContent} <br>
+										<font size=3 id="answer_content multiline-text">${answer.answerCusContent}
+											<br>
 
-										</font>
+										</font> <span id="answerCusCode${i.index}" hidden>${answer.answerCusCode}</span>
+										<div id="customercodeContainer${i.index}"></div>
+
 									</h4>
 								</div>
 								<div>
@@ -409,7 +289,7 @@
 					</div>
 
 				</c:forEach>
-				
+
 
 			</div>
 
@@ -418,27 +298,24 @@
 			<font size=5> 질문 더보기 </font>
 			<div class="flex-grow">
 				<div class="flex questionList">
-					<div></div>
 					<c:forEach items="${questions}" var="question" begin="1" end="4">
-					<c:set var="i"><%= java.lang.Math.round(java.lang.Math.random() * 140) %></c:set>
-					
-						<a class="question" href="#">
+						<c:set var="i"><%=java.lang.Math.round(java.lang.Math.random() * 140)%></c:set>
+						<a class="question"
+							href="/question/onequestion?num=${questions.get(i).questionNum}">
 							<div id="question">
 								<div class="flex items-center space-x-4">
 									<img class="w-7 h-7 rounded-full"
 										src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/uni.png"
-										alt="" /> <span class="font-medium dark:text-white"> ${questions.get(i).customerID}
-									</span>
+										alt="" /> <span class="font-medium dark:text-white">
+										${questions.get(i).customerID} </span>
 								</div>
 								<!-- 여기 추가 ㅇㅇ -->
 								<div class="grid-question-list">
 									<div class="question_title">
-										<font size="4"> ${questions.get(i).questionTitle}
-										</font>
+										<font size="4"> ${questions.get(i).questionTitle} </font>
 									</div>
 									<div class="question_content">
-										<font size=2> ${questions.get(i).questionContent}
-										</font>
+										<font size=2> ${questions.get(i).questionContent} </font>
 									</div>
 								</div>
 							</div>
@@ -508,7 +385,7 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/hybrid.min.css">
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-	
+
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
@@ -520,7 +397,7 @@
 	</script>
 
 	<script
-		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/temp.js"></script>
+		src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/questionView.js"></script>
 
 </body>
 

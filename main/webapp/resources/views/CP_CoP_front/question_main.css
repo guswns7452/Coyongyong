@@ -25,7 +25,9 @@
 .tw-flex {
     display: flex
 }
-
+.bg-green-10{
+	background-color: #f9fffa96;	
+}
 
 .tw-flex-col {
     flex-direction: column

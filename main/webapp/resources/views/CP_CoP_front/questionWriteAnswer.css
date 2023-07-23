@@ -266,7 +266,11 @@ select:focus {
 }
 
 #monaco-container {
-  margin-top: 4%;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 2px;
+  border-radius: 20px;
 }
 
 /* 추가된거~ */

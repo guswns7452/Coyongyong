@@ -8,6 +8,20 @@ body {
 }
 .toptop {
   width: 100%;
+  display: flex;
+  justify-content:center;
+}
+.white-block{
+	width:40%;
+	border: 2px solid #E5E7EB;
+	  border-radius: 4px;
+	  background-color: #FFFFFF;
+	  padding: 5%;
+	  padding-top: 4%;
+	  margin-bottom: 5%;
+}
+.bg-green-10{
+	background-color: #f9fffa96;	
 }
 main { 
   font-family: 'Hi Melody', cursive;

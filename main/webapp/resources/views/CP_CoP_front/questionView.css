@@ -3,11 +3,14 @@ main {
   width: 100%;
   height: 100%;
   padding: 0px;
-  margin-bottom: 200px;
 }
 
 .white-block {
   font-family: 'Gowun Dodum', sans-serif;
+}
+
+td{
+	padding-right:10px !important;
 }
 
 #subscribe, #like {
@@ -207,7 +210,7 @@ div > #question_language {
   white-space: normal;
   line-height: 1.2;
   height: 12em;
-
+  width: 350px;
   color: black;
 }
 
@@ -219,8 +222,9 @@ div > #question_language {
 }
 
 .questionList {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+	flex-direction: row;
+    justify-content: space-around;
+    margin-top : 30px;
 }
 
 h1 {

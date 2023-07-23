@@ -11,8 +11,10 @@ main {
 .top {
   display: flex;
   justify-content: center;
-  background-color: #F3F4F6;
   padding-bottom: 5%;
+}
+.bg-green-10{
+	background-color: #f9fffa96;	
 }
 .toptop {
   width: 60%;

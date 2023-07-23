@@ -94,7 +94,7 @@
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">질문</a>
                 </li>
                 <li>
-                  <a href="/study/list?page"
+                  <a href="/study/list?page=1"
                     class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">공부일지</a>
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                 </li>
                 <li>
                   <a href="#"
-                    class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">About</a>
+                    class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
                 </li>
               </ul>
             </div>
@@ -111,9 +111,9 @@
         </nav>
     <div class="bg-gray-50 flexflextop">
       <div class="flexcenter">
-      <h1 class=" font-bold text-3xl pd50 text-center tx-center ">언어 선택</h1>
+      <h1 class=" font-bold text-3xl pd50 text-center tx-center width">언어 선택</h1>
       <div
-					class=" width47per text-center ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL flex tw-flex flex-row">
+					class=" width40per text-center ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL flex tw-flex flex-row">
 					<c:choose>
 						<c:when test="${language eq 'c'}">
 							<c:set var="languageNum" value="1" />

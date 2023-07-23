@@ -16,8 +16,8 @@ main {
   height: 20%;
 }
 
-.bg-green-10{
-	background-color: #f9fffa96 !important;	
+.bg-blue-10{
+	background-color: #f6fcffc4 !important;	
 }
 
 .banner h1 {
@@ -37,7 +37,7 @@ main {
 .top {
   display: flex;
   justify-content: center;
-  background-color: #F3F4F6;
+  background-color: #f6fcffc4;
 }
 .toptop {
   width: 100%;

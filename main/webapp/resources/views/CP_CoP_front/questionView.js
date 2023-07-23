@@ -1,5 +1,6 @@
 const yongyongAnswerElement = document.getElementById("yongyong_textContent");
-    const inputContent = yongyongAnswerElement.innerHTML.replace(/`/g, '\`');
+const inputContent = yongyongAnswerElement.innerHTML.replace(/`/g, '\`');
+const languageReal = document.getElementById('languageReal').innerHTML.trim();
 
     console.log(inputContent);
 
@@ -44,9 +45,9 @@ const yongyongAnswerElement = document.getElementById("yongyong_textContent");
         aboveContentDiv.innerHTML = aboveContentBlocks;
         belowContentDiv.style.display = "none";
     } else {
-        aboveContentDiv.innerHTML = aboveContentBlocks;
+        aboveContentDiv.innerHTML = handleLineBreaks(aboveContentBlocks);
         belowContentBlocks.replace('\n','<br>');
-        belowContentDiv.innerHTML = belowContentBlocks;
+        belowContentDiv.innerHTML = handleLineBreaks(belowContentBlocks);
     }
 
     console.log(codeBlocks);
@@ -58,6 +59,12 @@ const yongyongAnswerElement = document.getElementById("yongyong_textContent");
 
 if (!codeBlocks) {
     document.getElementById('yongyongcodeContainer').style.display = 'none';
+}
+
+// 줄 바꿈 처리 함수
+function handleLineBreaks(text) {
+    const lines = text.split(/\n/);
+    return lines.join('<br>');
 }
 
 // 코드 블록을 생성하고 highlight.js 적용하는 함수
@@ -79,7 +86,7 @@ function createCodeBlock(containerId, code, language) {
 const innerCode = document.getElementById("innerCode").innerHTML;
 
 // 첫 번째 코드 블록 생성 및 하이라이팅 적용
-createCodeBlock('codeContainer', innerCode, 'java');
+createCodeBlock('codeContainer', innerCode, languageReal);
 
 // // codeBlocks 배열에 저장된 모든 language 값을 가져옴
 // const languages = codeBlocks.map((codeBlock) => codeBlock.language);
@@ -92,7 +99,20 @@ for (let i = 0; i < codeBlocks.length; i++) {
     createCodeBlock('yongyongcodeContainer', codeContents[i], codeLanguages[i]);
     // codeBlocks[i].classList.add('li');
 }
-// 여기까지
+
+for(let i=0;i< document.querySelectorAll('.answer_space').length;i++){
+	// 여기까지
+	const customerAnswerElement = document.getElementById("answerCusCode"+i);
+	
+	const inputCustomerContent = customerAnswerElement.innerHTML;
+	
+	if (!inputCustomerContent) {
+	    document.getElementById('customercodeContainer'+i).style.display = 'none';
+	}
+	
+	// 세 번째 코드 블록 생성 및 하이라이팅 적용
+	createCodeBlock('customercodeContainer'+i, inputCustomerContent, languageReal);
+}
 
 const textContentElement = document.getElementById("yongyong_textContent");
 textContentElement.style.display = "none";

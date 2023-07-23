@@ -118,7 +118,7 @@
 	</div>
 </nav>
 
-<div class="tw-col-span-8 tw-py-8 bg-gray-50">
+<div class="tw-col-span-8 tw-py-8 bg-green-10">
 	<div class="text-center font_size30 tw-font-bold">오늘의 질문</div>
 	<div
 		class="tw-flex tw-flex-col tw-divide-solid tw-divide-x-0 tw-divide-y tw-divide-slate-200">
@@ -403,8 +403,10 @@
 				<c:forEach var="a" varStatus="k" begin="1" end="4">
 					<div
 						class="pd50 ProfileActivity_streak__AwMtA ProfileActivity_item__DqwKL">
-						<div class="font_size25 tw-font-bold">레벨 ${k.current}</div>
-						<button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="height:40px;">질문 더보기</button>
+						<div class="flex justify-between">
+							<div class="font_size25 tw-font-bold">레벨 ${k.current}</div>
+							<a href="/question/questionlist?language=${language}&page=1"><button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="height:40px;">질문 더보기</button></a>
+						</div>
 						<div class="wrapper">
 							<!-- <i id="left" class="fa-solid fa-angle-left"> <svg
 									style="width: 18px; margin-top: 7px; margin-left: 15px;"
