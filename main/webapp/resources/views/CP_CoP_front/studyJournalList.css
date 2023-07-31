@@ -11,11 +11,25 @@ main {
 .top {
   display: flex;
   justify-content: center;
-  padding-bottom: 5%;
+  padding-bottom: 200px;
 }
+
+.out-bg-green-10{
+	padding:0;
+	background-color: #f9fffa96;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+
 .bg-green-10{
-	background-color: #f9fffa96;	
+	background-color: #f9fffa96;
 }
+.margin-topbottom{
+	margin-top:10px;
+	margin-bottom:13px;
+}
+
+
 .toptop {
   width: 60%;
   margin-top: 5%;

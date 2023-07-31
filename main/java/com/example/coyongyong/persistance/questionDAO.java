@@ -10,6 +10,8 @@ public interface questionDAO {
 	public questionVO read(int questionNum) throws Exception;
 	public int readLastQuestionNum() throws Exception;
 	public List<questionVO> readByLanguageNum(int questionLanguageNum) throws Exception;
+	public List<questionVO> readByquestionMainTop() throws Exception;
+	public List<questionVO> readByQuestionsMainDesc() throws Exception;
 	public void delete(int questionNum) throws Exception;
 	public void update(questionVO question) throws Exception;
 	public List<questionVO> readQuestionsTop() throws Exception;

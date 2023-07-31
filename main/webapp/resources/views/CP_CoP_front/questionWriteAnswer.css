@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body { 
   margin: 0; 
+}
+.fontfont{
+	font-family: 'SBAggroB';
 }
 .top {
   display: flex;
@@ -381,6 +390,7 @@ div#editor_content {
 #myTextarea {
   width: 100%;
   height: 200px;
+  max-height: auto;
   padding: 1%;
   text-align: left;
   outline: none;

@@ -28,7 +28,7 @@
      </select>
 
      <select id="selectByLanguage" parameterType="java.util.Map" resultType="int">
- 		select grade from grade where customerID = #{customerID} and languageNum = #{languageNum}
+ 		select gradeNum from grade where customerID = #{customerID} and languageNum = #{languageNum}
      </select>
      
      <select id="selectAll" resultType="com.example.coyongyong.domain.gradeVO">

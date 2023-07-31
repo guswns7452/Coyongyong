@@ -22,7 +22,6 @@ import com.example.coyongyong.domain.answerYongVO;
 import com.example.coyongyong.domain.customerVO;
 import com.example.coyongyong.domain.gradeVO;
 import com.example.coyongyong.domain.questionVO;
-import com.example.coyongyong.domain.studyVO;
 import com.example.coyongyong.service.answerCusService;
 import com.example.coyongyong.service.answerYongService;
 import com.example.coyongyong.service.customerService;
@@ -103,11 +102,13 @@ public class questionController {
 		answerYongVO yong = answerYongService.readAnswerYongByQuestion(num);
 		List<answerCusVO> cus = answerCusService.readAnswerCusByQuestion(num);
 		gradeVO grade = gradeService.readGrade(question.getgradeNum());
-
+		int questionNum = questionService.countLastQuestionNum(); // 이게 마지막 questionNum 이 되어야함
+		
 		logger.info(" /question/OneQuestion URL called. then listquestion method executed.");
 		model.addAttribute("question", question);
 		model.addAttribute("questions", questions);
 		model.addAttribute("gradeCustomer", grade);
+		model.addAttribute("lastQuestionNum", questionNum);
 
 
 		//yong.setanswerYongContent(yong.getanswerYongContent().replace("\n", "<br>"));
@@ -163,11 +164,11 @@ public class questionController {
 		vo2.setquestionNum(questionNum);
 		vo2.setanswerYongCorrect(0);
 		vo2.setanswerYongContent(chat.replace("\r\n", "<br>"));
-		vo2.setgradeNum(gradeService.checkGradeBylanguage("guswns7452", 1));
+		vo2.setgradeNum(gradeService.checkGradeBylanguage(customerVO.getcustomerID(), vo.getquestionLanguageNum()));
 		vo2.setquestionKeyword("");
 		answerYongService.addAnswerYong(vo2);
 
-		return "redirect:/question/onequestion?num=" + questionNum;
+		return "redirect:/question/onequestion?num=" + answerYongNum;
 	}
 	
 	@RequestMapping(value = {"/writequestionanswer"}, method = RequestMethod.GET)
@@ -184,7 +185,7 @@ public class questionController {
 	}
 	
 	@RequestMapping(value = {"/writequestionanswer"}, method = RequestMethod.POST)
-	public String writeStudyPost(@ModelAttribute("answerCus") answerCusVO vo, HttpServletRequest request, Model model) throws Exception{
+	public String writeStudyPost(@ModelAttribute("questionNum") int questionNum,@ModelAttribute("answerCus") answerCusVO vo, HttpServletRequest request, Model model) throws Exception{
 		int answerNum = 1;
 		customerVO customer = null;
 		//List<answerCusVO> countAnswerCus = null;
@@ -207,11 +208,11 @@ public class questionController {
 	    vo.setanswerCusLike(0);
 	    vo.setanswerCusUnlike(0);
 	    vo.setgradeNum(answerNum);
-	    vo.setquestionNum(1);
+	    vo.setquestionNum(questionNum);
 	    answerCusService.addAnswerCus(vo);
 	    logger.info(vo.toString());
 	    logger.info(" /question/writequestionanswer URL called. then listquestion method executed.");
-		return "redirect:./onequestion?num="+"1";
+		return "redirect:./onequestion?num="+questionNum;
 		
 	}
 }

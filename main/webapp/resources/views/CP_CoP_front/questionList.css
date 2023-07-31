@@ -1,7 +1,36 @@
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUITE-Regular400';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUITE-Regular200';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+}
 body {
     margin: 0;
 }
-
+.fontfont{
+	 font-family: 'TheJamsil5Bold';
+}
 main {
     font-family: 'Hi Melody', cursive;
     font-family: 'Nanum Gothic', sans-serif;
@@ -10,8 +39,15 @@ main {
     padding: 0px;
 }
 
+.out-bg-green-10{
+	padding:0;
+	background-color: #f9fffa96;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+
 .bg-green-10{
-	background-color: #f9fffa96;	
+	background-color: #f9fffa96;
 }
 
 .top {

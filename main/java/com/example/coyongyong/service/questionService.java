@@ -14,4 +14,6 @@ public interface questionService {
 	public void deleteQuestion(int questionNum) throws Exception;
 	public void updateQuestion(questionVO question) throws Exception;
 	public List<questionVO> readQuestionsTop() throws Exception;
+	public List<questionVO> readByquestionMainTop() throws Exception;
+	public List<questionVO> readByQuestionsMainDesc() throws Exception;
 }

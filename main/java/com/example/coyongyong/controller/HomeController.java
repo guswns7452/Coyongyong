@@ -3,6 +3,7 @@ package com.example.coyongyong.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -22,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.coyongyong.domain.customerVO;
 import com.example.coyongyong.domain.gradeVO;
+import com.example.coyongyong.domain.questionVO;
 import com.example.coyongyong.service.customerService;
 import com.example.coyongyong.service.gradeService;
+import com.example.coyongyong.service.questionService;
 
 @Controller
 public class HomeController {
@@ -37,6 +40,9 @@ public class HomeController {
 	private gradeService gradeService;
 
 	@Autowired
+	private questionService questionService;
+
+	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	Date today = new Date();
@@ -44,15 +50,35 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home(Locale locale, Model model, HttpServletRequest request) {
-
 		try {
 			HttpSession session = request.getSession();
 			customerVO customerVO = (customerVO) session.getAttribute("customer");
+
 		} catch (Exception e) {
 			// 로그인이 되어 있지 않으면 객체 등록이 되어있지 않은거
 			// jsp에서는 logining 객체가 등록되어 있으면 -> 로그인 상태 / 없으면 -> 로그아웃 상태
 			logger.info("로그인 되어있지 않음.");
 		}
+
+		List<questionVO> questionsTop = null;
+		List<questionVO> questions = null;
+		List<questionVO> questionTemp = new ArrayList<questionVO>();
+		try {
+			questionsTop = questionService.readByquestionMainTop();
+			questions = questionService.readByQuestionsMainDesc();
+
+			for (int i = 0; i < 4; i++) {
+				Random rand = new Random();
+				questionTemp.add(questions.get(rand.nextInt(questions.size())));
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("TodaysQuesiton", questionsTop);
+		model.addAttribute("questions", questions);
+		model.addAttribute("questionTemp", questionTemp);
 
 		return "main";
 	}
@@ -91,7 +117,7 @@ public class HomeController {
 		imageList.add("appliance-repair.png");
 		imageList.add("fire_yongyong.png");
 		imageList.add("nicon.png");
-		imageList.add("uni.pmg");
+		imageList.add("uni.png");
 		imageList.add("water_nicon.png");
 		imageList.add("water_yongyong.png");
 		imageList.add("yongsun_makeup.png");
@@ -128,7 +154,7 @@ public class HomeController {
 		for (int i = 1; i <= 3; i++) {
 			grade.setgradeNum(lastGradeNum++);
 			grade.setcustomerID(vo.getcustomerID());
-			grade.setgrade(0);
+			grade.setgrade(1);
 			grade.setlanguageNum(i);
 			gradeService.addGrade(grade);
 		}

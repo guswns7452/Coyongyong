@@ -35,6 +35,14 @@ public class questionServiceImpl implements questionService {
 		return questionDAO.readByLanguageNum(questionLanguageNum);
 	}
 	
+	public List<questionVO> readByquestionMainTop() throws Exception{
+		return questionDAO.readByquestionMainTop();
+	}
+	
+	public List<questionVO> readByQuestionsMainDesc() throws Exception{
+		return questionDAO.readByQuestionsMainDesc();
+	}
+	
 	public void addQuestion(questionVO question) throws Exception{
 		questionDAO.add(question);
 	}

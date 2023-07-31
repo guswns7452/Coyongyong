@@ -129,8 +129,7 @@ textarea {
   bottom: -420%;
   left: 400%;
   transform: translateX(-50%);
-  white-space: pre-wrap; 
-  word-wrap: break-word; 
+  white-space: pre-line; 
   overflow-y: scroll; 
   max-height: 200px;
   z-index: 9999;

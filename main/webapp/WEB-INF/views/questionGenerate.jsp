@@ -139,23 +139,12 @@
 						</button>
 						<div class="tooltip-content">
 							<!-- 많은 내용 -->
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Morbi nec purus quam. Nam in urna eget odio malesuada sodales.
-								Integer semper enim vel purus hendrerit, nec dignissim est
-								cursus. Nulla vel ex vel tellus volutpat rutrum non eget justo.
-								Nulla facilisi. Fusce sit amet nisi sed orci gravida rhoncus sed
-								nec tortor. Aliquam erat volutpat. Integer tempor pellentesque
-								augue ac eleifend.</p>
-							<p>Donec faucibus, lectus non blandit bibendum, ipsum eros
-								condimentum lacus, nec interdum libero risus eu urna. Sed
-								ultricies diam id ex dapibus posuere. Aenean ullamcorper semper
-								orci, in facilisis orci eleifend eu. Sed ac consequat mauris.
-								Curabitur rhoncus, mi at luctus tincidunt, lectus lectus gravida
-								erat, ac fringilla elit ligula vitae risus. In eu lacinia
-								ligula. Integer in efficitur felis. Vivamus vitae dapibus odio.
-								Aenean in ipsum volutpat, aliquet felis id, scelerisque leo. Sed
-								pellentesque convallis iaculis. In placerat sagittis nulla id
-								tincidunt.</p>
+							<p>📢 코용용에게 자세한 질문을 해보세요!</p>
+							<p>✅ 제목 작성 : 제목은 간결하게 작성해도 된답니다~</p>
+							<p>✅ 언어 선택 : 언어는 꼭 선택해주세요!!</p>
+							<p>✅ 코드 작성 : 코드 작성 버튼을 누르면 코드를 넣을 수 있는 팝업창이 생성됩니다. 질문할 코드를 넣어보세요!</p>
+							<p>✅ 질문 내용 작성 : 내용은 자세하게! 어떤 프로그램을 사용했고, 코드의 내용 중에서 궁금한 특정 부분을 질문해보세요~</p>
+							<p>✅ 오류 내용 작성 : 코드 디버그의 에러를 그대로 복사하여 넣어보세요!</p>
 							<!-- 많은 내용 -->
 						</div>
 					</div>
@@ -376,7 +365,10 @@
 				<li><a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
 				</li>
 
-				<li><a href="#" class="mr-4 hover:underline md:mr-6 ">Email</a>
+				<li>
+					<button type="button" data-modal-target="defaultModal"
+						data-modal-toggle="defaultModal"
+						class="mr-4 hover:underline md:mr-6 ">Email</button>
 				</li>
 
 				<li><a href="https://www.tukorea.ac.kr/tukorea/index.do#none"
@@ -386,6 +378,50 @@
 				2023 <a href="https://www.tukorea.ac.kr/tukorea/index.do#none"
 				class="hover:underline">TUKOREA</a>. All Rights Reserved.
 			</span>
+		</div>
+		<!-- Main modal -->
+		<div id="defaultModal" tabindex="-1" aria-hidden="true"
+			class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+			<div class="relative w-full max-w-2xl max-h-full">
+				<!-- Modal content -->
+				<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+					<!-- Modal header -->
+					<div
+						class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+							Email</h3>
+						<button type="button"
+							class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+							data-modal-hide="defaultModal">
+							<svg class="w-3 h-3" aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg" fill="none"
+								viewBox="0 0 14 14">
+                        <path stroke="currentColor"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+							<span class="sr-only">Close modal</span>
+						</button>
+					</div>
+					<!-- Modal body -->
+					<div class="p-6 space-y-6">
+						<p
+							class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							연락이 필요하시면 아래로 연락 주세요.</p>
+						<p
+							class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							guswns7452@tukorea.ac.kr</p>
+					</div>
+					<!-- Modal footer -->
+					<div
+						class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+						<button data-modal-hide="defaultModal" type="button"
+							class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+							accept</button>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</footer>
 
@@ -400,7 +436,7 @@
 
 	<script>
     function submitForm() {
-      var divContent = document.getElementById('myTextarea').innerHTML;
+      var divContent = document.getElementById('myTextarea').innerText;
       var hiddenInput = document.createElement('input');
 
       // 숫자로 변환 1.C 2.Py 3.Java
@@ -409,7 +445,7 @@
           .getElementById("categoryLanguage").selectedIndex].value);
       var hiddenInputlanguage = document.createElement('input');
 
-      var divContentError = document.getElementById('myTextareaError').innerHTML;
+      var divContentError = document.getElementById('myTextareaError').innerText;
       var hiddenInputError = document.createElement('input');
 
       hiddenInput.type = 'hidden';
@@ -432,10 +468,10 @@
         hiddenInputlanguage);
 
 
-      if (divContent.trim() != '') {
+      if (divContent.trim() != '' || divContentlanguage != 0 ) {
         document.getElementById('writeQuestion').submit();
       } else {
-        alert("질문 내용을 작성하세요!");
+        alert("언어 선택 및 내용을 작성하세요!");
       }
     }
   </script>
@@ -517,9 +553,9 @@
     function addCodeForm() {
       if (editor.getValue()) {
         var hiddenInputCode = document.createElement('input');
-
         hiddenInputCode.type = 'hidden';
         hiddenInputCode.name = 'questionCode';
+        hiddenInputCode.value = '';
         hiddenInputCode.value = editor.getValue();
         document.getElementById('writeQuestion').appendChild(
           hiddenInputCode);

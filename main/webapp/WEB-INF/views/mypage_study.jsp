@@ -216,13 +216,13 @@
 						class="margin-bottom text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
 						<ul class="flex flex-wrap -mb-px">
 							<li class="mr-2"><a href="/mypage/dashboard"
-								class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 font-semibold"
+								class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
 								aria-current="page">대시보드</a></li>
 							<li class="mr-2"><a href="/mypage/question"
 								class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">질문</a>
 							</li>
 							<li class="mr-2"><a href="/mypage/study"
-								class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">공부일지</a>
+								class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 font-semibold">공부일지</a>
 							</li>
 							<li class="mr-2"><a href="/mypage/problem"
 								class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">레벨</a>
@@ -297,307 +297,7 @@
 												</th>
 											</tr>
 										</thead>
-										<tbody>
-
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr class="border-b dark:border-gray-700">
-												<th scope="row"
-													class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-													제가 뭐라고 할 것 같나요?&#34;</th>
-												<td class="px-4 py-3">StayC</td>
-												<td class="px-4 py-3">2023-04-15</td>
-												<td class="px-4 py-3">300회</td>
-												<td class="px-4 py-3 flex items-center justify-end">
-													<button id="apple-imac-27-dropdown-button"
-														data-dropdown-toggle="apple-imac-27-dropdown"
-														class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-														type="button">
-														<svg class="w-5 h-5" aria-hidden="true"
-															fill="currentColor" viewbox="0 0 20 20"
-															xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-																d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                        </svg>
-													</button>
-													<div id="apple-imac-27-dropdown"
-														class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-														<ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-															aria-labelledby="apple-imac-27-dropdown-button">
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
-															</li>
-															<li><a href="#"
-																class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-															</li>
-														</ul>
-														<div class="py-1">
-															<a href="#"
-																class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-
-
-										</tbody>
+										
 									</table>
 								</div>
 								<nav
@@ -748,7 +448,7 @@
 
 	<footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
 		<div class="mx-auto max-w-screen-xl text-center">
-			<a href="#"
+			<a
 				class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
 				<img
 				src="${pageContext.request.contextPath}/resources/views/CP_CoP_front/icon/logo.png"
@@ -762,7 +462,10 @@
 				<li><a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
 				</li>
 
-				<li><a href="#" class="mr-4 hover:underline md:mr-6 ">Email</a>
+				<li>
+					<button type="button" data-modal-target="defaultModal"
+						data-modal-toggle="defaultModal"
+						class="mr-4 hover:underline md:mr-6 ">Email</button>
 				</li>
 
 				<li><a href="https://www.tukorea.ac.kr/tukorea/index.do#none"
@@ -772,6 +475,50 @@
 				2023 <a href="https://www.tukorea.ac.kr/tukorea/index.do#none"
 				class="hover:underline">TUKOREA</a>. All Rights Reserved.
 			</span>
+		</div>
+		<!-- Main modal -->
+		<div id="defaultModal" tabindex="-1" aria-hidden="true"
+			class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+			<div class="relative w-full max-w-2xl max-h-full">
+				<!-- Modal content -->
+				<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+					<!-- Modal header -->
+					<div
+						class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+							Email</h3>
+						<button type="button"
+							class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+							data-modal-hide="defaultModal">
+							<svg class="w-3 h-3" aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg" fill="none"
+								viewBox="0 0 14 14">
+                        <path stroke="currentColor"
+									stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+							<span class="sr-only">Close modal</span>
+						</button>
+					</div>
+					<!-- Modal body -->
+					<div class="p-6 space-y-6">
+						<p
+							class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							연락이 필요하시면 아래로 연락 주세요.</p>
+						<p
+							class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+							guswns7452@tukorea.ac.kr</p>
+					</div>
+					<!-- Modal footer -->
+					<div
+						class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+						<button data-modal-hide="defaultModal" type="button"
+							class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+							accept</button>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</footer>
 	<!--=============== MAIN JS ===============-->

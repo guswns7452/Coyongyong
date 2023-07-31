@@ -42,6 +42,13 @@ main {
 .toptop {
   width: 100%;
 }
+.minWidth{
+	min-width : 400px;
+	justify-content: space-between;
+}
+.justify-around{
+	justify-content: space-around;
+}
 main > * {
   padding: 0.8em;
   /* color: rgb(119, 130, 254); */
@@ -109,7 +116,6 @@ li {
 .question_content {
   display: block;
   font-size: 17px;
-  font-weight: bolder !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;

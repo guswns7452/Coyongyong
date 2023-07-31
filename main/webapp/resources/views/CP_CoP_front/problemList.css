@@ -42,6 +42,13 @@
     background-color: #65a30d !important;
 }
 
+.out-bg-green-10{
+	padding:0;
+	background-color: #f9fffa96;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+
 .pd50 {
     margin-top: 50px;
 }

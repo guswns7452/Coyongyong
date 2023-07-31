@@ -30,7 +30,6 @@ td{
 .top {
   display: flex;
   justify-content: center;
-  background-color: #F3FAF7;
 }
 
 .toptop {
@@ -74,6 +73,17 @@ main > * {
 
 a {
   text-decoration: none;
+}
+
+.out-bg-green-10{
+	padding:0;
+	background-color: #f9fffa96;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+
+.bg-green-10{
+	background-color: #f9fffa96;
 }
 
 li {

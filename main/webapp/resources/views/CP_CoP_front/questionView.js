@@ -40,9 +40,9 @@ const languageReal = document.getElementById('languageReal').innerHTML.trim();
     const belowContentDiv = document.getElementById('yongyong_answer_belowContent');
 
     // Check if the above and below content blocks are equal
-    if (aboveContentBlocks === belowContentBlocks) {
+    if (aboveContentBlocks.innerTEXT === belowContentBlocks.innerTEXT) {
         // Display only one of them (you can choose to display above or below)
-        aboveContentDiv.innerHTML = aboveContentBlocks;
+        aboveContentDiv.innerHTML = handleLineBreaks(aboveContentBlocks) ;
         belowContentDiv.style.display = "none";
     } else {
         aboveContentDiv.innerHTML = handleLineBreaks(aboveContentBlocks);

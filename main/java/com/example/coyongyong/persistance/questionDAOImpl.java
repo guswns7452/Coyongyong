@@ -87,10 +87,22 @@ public class questionDAOImpl implements questionDAO{
 	public List<questionVO> readByLanguageNum(int questionLanguageNum) throws Exception{
 		List<questionVO> questionlist = new ArrayList<questionVO>();
 		questionlist = sqlSession.selectList(namespace + ".selectByLanguageNum", questionLanguageNum);
-		
 		return questionlist;
 	}
 	
+	@Override
+	public List<questionVO> readByquestionMainTop() throws Exception{
+		List<questionVO> questionlist = new ArrayList<questionVO>();
+		questionlist = sqlSession.selectList(namespace + ".selectQuestionsMainTop");
+		return questionlist;
+	}
+	
+	@Override
+	public List<questionVO> readByQuestionsMainDesc() throws Exception{
+		List<questionVO> questionlist = new ArrayList<questionVO>();
+		questionlist = sqlSession.selectList(namespace + ".selectQuestionsMainDesc");
+		return questionlist;
+	}
 	//삭제 요청
 	@Override
 	public void delete(int questionNum) throws Exception{
