@@ -168,7 +168,7 @@ public class questionController {
 		vo2.setquestionKeyword("");
 		answerYongService.addAnswerYong(vo2);
 
-		return "redirect:/question/onequestion?num=" + answerYongNum;
+		return "redirect:/question/onequestion?num=" + questionNum;
 	}
 	
 	@RequestMapping(value = {"/writequestionanswer"}, method = RequestMethod.GET)
